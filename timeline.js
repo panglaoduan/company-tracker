@@ -191,72 +191,100 @@ function renderKChart(sd) {
     if (chartVol)   { chartVol.destroy();   chartVol   = null; }
     if (!sd) return;
 
-    const UP   = '#e5483c';  // 阳线红
-    const DOWN = '#22a06b';  // 阴线绿
+    const UP   = '#e5483c';  // 阳线红（涨）
+    const DOWN = '#22a06b';  // 阴线绿（跌）
 
-    // 构造 K 线数据（用 floating bar 模拟）
-    const candleData = sd.dates.map((d, i) => {
-        const o = sd.opens  ? sd.opens[i]  : sd.closes[i];
-        const h = sd.highs  ? sd.highs[i]  : sd.closes[i];
-        const l = sd.lows   ? sd.lows[i]   : sd.closes[i];
-        const c = sd.closes[i];
-        return { x: d, o, h, l, c };
-    });
+    const candles = sd.dates.map((d, i) => ({
+        x: d,
+        o: sd.opens  ? sd.opens[i]  : sd.closes[i],
+        h: sd.highs  ? sd.highs[i]  : sd.closes[i],
+        l: sd.lows   ? sd.lows[i]   : sd.closes[i],
+        c: sd.closes[i],
+    }));
 
-    const barColors = candleData.map(d => d.c >= d.o ? UP : DOWN);
+    const colors = candles.map(d => d.c >= d.o ? UP : DOWN);
 
-    // 价格 canvas
+    // ── 共用 tooltip ──────────────────────────────
+    const sharedTooltip = {
+        mode: 'index',
+        intersect: false,
+        callbacks: {
+            title: items => candles[items[0].dataIndex].x,
+            label: () => null,      // 去掉默认 label
+            afterBody: items => {
+                const i = items[0].dataIndex;
+                const d = candles[i];
+                const fv = v => v >= 1e8 ? (v/1e8).toFixed(1)+'亿'
+                              : v >= 1e4 ? (v/1e4).toFixed(0)+'万' : v;
+                return [
+                    `开盘: ${d.o}`,
+                    `最高: ${d.h}`,
+                    `最低: ${d.l}`,
+                    `收盘: ${d.c}`,
+                    `成交量: ${fv(sd.volumes[i])}`,
+                ];
+            }
+        },
+        backgroundColor: 'rgba(30,30,50,0.85)',
+        titleColor: '#fff',
+        bodyColor:  '#ddd',
+        padding: 10,
+        displayColors: false,
+    };
+
+    // ── K 线图：影线 + 实体两个 dataset ──────────
     const pCtx = document.getElementById('priceChart').getContext('2d');
     chartPrice = new Chart(pCtx, {
         type: 'bar',
         data: {
             labels: sd.dates,
             datasets: [
-                // 影线（high - low）
-                {
+                {   // 影线（高低），极细
                     label: '影线',
-                    data: candleData.map(d => [d.l, d.h]),
-                    backgroundColor: barColors,
-                    borderColor: barColors,
-                    borderWidth: 1,
-                    barPercentage: 0.1,
-                    categoryPercentage: 1,
+                    data: candles.map(d => [d.l, d.h]),
+                    backgroundColor: colors,
+                    barPercentage: 0.08,
+                    categoryPercentage: 1.0,
+                    order: 2,
                 },
-                // 实体（open - close）
-                {
+                {   // 实体（开收），宽柱
                     label: 'K线',
-                    data: candleData.map(d => [Math.min(d.o, d.c), Math.max(d.o, d.c)]),
-                    backgroundColor: barColors,
-                    borderColor: barColors,
-                    borderWidth: 1,
-                    barPercentage: 0.6,
-                    categoryPercentage: 1,
+                    data: candles.map(d => [
+                        Math.min(d.o, d.c),
+                        Math.max(d.o, d.c) || Math.min(d.o, d.c) + 0.01  // 防止开收相同导致不显示
+                    ]),
+                    backgroundColor: colors,
+                    barPercentage: 0.55,
+                    categoryPercentage: 1.0,
+                    order: 1,
                 }
             ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
             plugins: {
                 legend: { display: false },
-                tooltip: {
-                    callbacks: {
-                        title: ctx => `${sd.dates[ctx[0].dataIndex]}`,
-                        label: ctx => {
-                            const d = candleData[ctx.dataIndex];
-                            return [`开: ${d.o}`, `高: ${d.h}`, `低: ${d.l}`, `收: ${d.c}`];
-                        }
-                    }
-                }
+                tooltip: sharedTooltip,
             },
             scales: {
                 x: { grid: { display: false }, ticks: { font: { size: 11 } } },
-                y: { grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } } }
+                y: {
+                    grid: { color: '#f0f0f0' },
+                    ticks: { font: { size: 11 } },
+                    // 留出上下边距让影线不被截断
+                    afterDataLimits: scale => {
+                        const range = scale.max - scale.min;
+                        scale.min -= range * 0.05;
+                        scale.max += range * 0.05;
+                    }
+                }
             }
         }
     });
 
-    // 成交量 canvas
+    // ── 成交量图 ──────────────────────────────────
     const vCtx = document.getElementById('volChart').getContext('2d');
     chartVol = new Chart(vCtx, {
         type: 'bar',
@@ -264,21 +292,29 @@ function renderKChart(sd) {
             labels: sd.dates,
             datasets: [{
                 data: sd.volumes,
-                backgroundColor: candleData.map(d => (d.c >= d.o ? UP : DOWN) + 'aa'),
+                backgroundColor: colors.map(c => c + 'bb'),
                 borderRadius: 2,
+                barPercentage: 0.6,
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+                legend: { display: false },
+                tooltip: sharedTooltip,
+            },
             scales: {
                 x: { grid: { display: false }, ticks: { font: { size: 10 } } },
-                y: { grid: { display: false }, ticks: {
-                    font: { size: 10 },
-                    callback: v => v >= 1e8 ? (v/1e8).toFixed(1)+'亿'
-                                 : v >= 1e4 ? (v/1e4).toFixed(0)+'万' : v
-                }}
+                y: {
+                    grid: { display: false },
+                    ticks: {
+                        font: { size: 10 },
+                        callback: v => v >= 1e8 ? (v/1e8).toFixed(1)+'亿'
+                                    : v >= 1e4  ? (v/1e4).toFixed(0)+'万' : v
+                    }
+                }
             }
         }
     });
@@ -306,63 +342,43 @@ function openModal(card) {
         <span>📰 ${ev.source}</span>
         <span>📊 重要性：${'⭐'.repeat(ev.importance)}</span>`;
 
-    // 财报财务数据区块
+    // 财报财务数据区块（只留表格）
     let financialHtml = '';
     if (ev.financials) {
         const f   = ev.financials;
         const div = f.divisor || 1e8;
         const fmt = v => (v == null) ? 'N/A' : (v / div).toFixed(2);
-        const pct = v => (v == null) ? 'N/A' : (v > 0 ? '+' : '') + v.toFixed(1) + '%';
-        const upC = v => v == null ? '' : (v >= 0 ? 'style="color:#e5483c"' : 'style="color:#22a06b"');
+        const pct = v => (v == null) ? '—' : (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+        const upC = v => v == null ? '' : (v >= 0 ? 'color:#e5483c' : 'color:#22a06b');
 
         let epsRow = '';
         if (f.eps_estimate != null && f.eps_reported != null) {
             const beat    = f.eps_reported >= f.eps_estimate;
-            const surpStr = f.eps_surprise != null ? `${f.eps_surprise > 0 ? '+' : ''}${f.eps_surprise.toFixed(1)}%` : '';
+            const surpStr = f.eps_surprise != null
+                ? `${f.eps_surprise > 0 ? '+' : ''}${f.eps_surprise.toFixed(1)}%` : '';
             epsRow = `
             <tr>
                 <td>EPS 预期 / 实际</td>
-                <td>${f.eps_estimate.toFixed(2)} / ${f.eps_reported.toFixed(2)} ${f.currency}</td>
-                <td>${beat ? '<span style="color:#22a06b;font-weight:700">✅ 超预期</span>' : '<span style="color:#e5483c;font-weight:700">❌ 不及预期</span>'} ${surpStr}</td>
+                <td>${f.eps_estimate.toFixed(2)} / <b>${f.eps_reported.toFixed(2)}</b> ${f.currency}</td>
+                <td>${beat
+                    ? `<span style="color:#22a06b;font-weight:700">✅ 超预期 ${surpStr}</span>`
+                    : `<span style="color:#e5483c;font-weight:700">❌ 不及预期 ${surpStr}</span>`}
+                </td>
             </tr>`;
         }
 
         financialHtml = `
         <div class="stock-block" style="margin-bottom:16px">
-            <h4>📋 ${f.quarter} 季报财务摘要</h4>
+            <h4>📋 ${f.quarter} 季报财务摘要（${f.unit}）</h4>
             <table class="fin-table">
-                <thead><tr><th>指标</th><th>金额（${f.unit}）</th><th>同比</th></tr></thead>
+                <thead><tr><th>指标</th><th>金额</th><th>同比 YoY</th></tr></thead>
                 <tbody>
-                    <tr>
-                        <td>营收</td>
-                        <td>${fmt(f.revenue)}</td>
-                        <td ${upC(f.rev_yoy)}>${pct(f.rev_yoy)}</td>
-                    </tr>
-                    <tr>
-                        <td>净利润</td>
-                        <td>${fmt(f.net_income)}</td>
-                        <td ${upC(f.ni_yoy)}>${pct(f.ni_yoy)}</td>
-                    </tr>
-                    <tr>
-                        <td>毛利润</td>
-                        <td>${fmt(f.gross_profit)}</td>
-                        <td>${f.gross_margin != null ? f.gross_margin.toFixed(1) + '% 毛利率' : 'N/A'}</td>
-                    </tr>
-                    <tr>
-                        <td>经营利润</td>
-                        <td>${fmt(f.op_income)}</td>
-                        <td>—</td>
-                    </tr>
-                    <tr>
-                        <td>EBITDA</td>
-                        <td>${fmt(f.ebitda)}</td>
-                        <td>—</td>
-                    </tr>
-                    <tr>
-                        <td>EPS（基本）</td>
-                        <td>${f.eps != null ? f.eps.toFixed(2) + ' ' + f.currency : 'N/A'}</td>
-                        <td>—</td>
-                    </tr>
+                    <tr><td>营收</td><td><b>${fmt(f.revenue)}</b></td><td style="${upC(f.rev_yoy)}">${pct(f.rev_yoy)}</td></tr>
+                    <tr><td>净利润</td><td><b>${fmt(f.net_income)}</b></td><td style="${upC(f.ni_yoy)}">${pct(f.ni_yoy)}</td></tr>
+                    <tr><td>毛利润</td><td>${fmt(f.gross_profit)}</td><td>${f.gross_margin != null ? f.gross_margin.toFixed(1)+'% 毛利率' : '—'}</td></tr>
+                    <tr><td>经营利润</td><td>${fmt(f.op_income)}</td><td>—</td></tr>
+                    <tr><td>EBITDA</td><td>${fmt(f.ebitda)}</td><td>—</td></tr>
+                    <tr><td>EPS（基本）</td><td>${f.eps != null ? f.eps.toFixed(2)+' '+f.currency : 'N/A'}</td><td>—</td></tr>
                     ${epsRow}
                 </tbody>
             </table>
