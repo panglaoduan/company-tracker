@@ -2394,6 +2394,192 @@
     }
   },
   {
+    "id": "5ce63c3a6e77",
+    "company_id": "tesla",
+    "company_name": "特斯拉",
+    "title": "📋 特斯拉 2025 Q4 财报｜营收 249.01亿美元（-3.1% YoY）",
+    "content": "特斯拉 2025 Q4 季报摘要：\n• 营收：249.01 亿美元，同比 -3.1%\n• 净利润：8.40 亿美元，同比 -63.7%\n• 毛利率：20.1%\n• 经营利润：15.71 亿美元\n• EBITDA：29.09 亿美元\n• EPS（基本）：0.26 USD\n• EPS 预期：0.35 / 实际：0.24（不及预期 ❌，-30.8%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/TSLA/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2025-12-31T21:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 449.72,
+      "close_price": 445.01,
+      "week_high": 458.34,
+      "week_low": 424.37,
+      "change_pct": -1.05,
+      "dates": [
+        "12/31",
+        "01/02",
+        "01/05",
+        "01/06",
+        "01/07",
+        "01/08",
+        "01/09"
+      ],
+      "opens": [
+        456.1,
+        457.8,
+        447.99,
+        446.38,
+        435.9,
+        427.89,
+        435.95
+      ],
+      "highs": [
+        456.55,
+        458.34,
+        457.55,
+        448.25,
+        438.37,
+        436.89,
+        449.05
+      ],
+      "lows": [
+        449.3,
+        435.3,
+        444.57,
+        428.78,
+        431.29,
+        424.37,
+        430.39
+      ],
+      "closes": [
+        449.72,
+        438.07,
+        451.67,
+        432.96,
+        431.41,
+        435.8,
+        445.01
+      ],
+      "volumes": [
+        49078000,
+        85535400,
+        67940800,
+        89093800,
+        59828800,
+        57041100,
+        67331500
+      ]
+    },
+    "financials": {
+      "quarter": "2025 Q4",
+      "revenue": 24901000000.0,
+      "net_income": 840000000.0,
+      "gross_profit": 5009000000.0,
+      "op_income": 1571000000.0,
+      "ebitda": 2909000000.0,
+      "gross_margin": 20.11565800570258,
+      "eps": 0.26,
+      "eps_estimate": 0.35,
+      "eps_reported": 0.24,
+      "eps_surprise": -30.77,
+      "rev_yoy": -3.1353327887345857,
+      "ni_yoy": -63.69922212618842,
+      "unit": "亿美元",
+      "currency": "USD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "f364e87adc31",
+    "company_id": "ast_spacemobile",
+    "company_name": "AST 太空移动",
+    "title": "📋 AST 太空移动 2025 Q4 财报｜营收 0.54亿美元（+2731.3% YoY）",
+    "content": "AST 太空移动 2025 Q4 季报摘要：\n• 营收：0.54 亿美元，同比 2731.3%\n• 净利润：-0.74 亿美元，同比 -106.3%\n• 毛利率：45.8%\n• 经营利润：-0.72 亿美元\n• EBITDA：-0.61 亿美元",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/ASTS/financials/",
+    "category": "earnings",
+    "sentiment": "positive",
+    "importance": 5,
+    "created_at": "2025-12-31T21:00:00",
+    "stock_data": {
+      "ticker": "ASTS",
+      "open_price": 72.63,
+      "close_price": 97.67,
+      "week_high": 101.68,
+      "week_low": 69.25,
+      "change_pct": 34.48,
+      "dates": [
+        "12/31",
+        "01/02",
+        "01/05",
+        "01/06",
+        "01/07",
+        "01/08",
+        "01/09"
+      ],
+      "opens": [
+        75.0,
+        74.34,
+        82.03,
+        90.9,
+        91.05,
+        88.62,
+        90.3
+      ],
+      "highs": [
+        75.5,
+        83.76,
+        92.45,
+        97.94,
+        95.34,
+        93.99,
+        101.68
+      ],
+      "lows": [
+        71.61,
+        69.25,
+        80.88,
+        90.19,
+        83.91,
+        86.85,
+        90.15
+      ],
+      "closes": [
+        72.63,
+        83.47,
+        90.92,
+        97.49,
+        85.73,
+        90.56,
+        97.67
+      ],
+      "volumes": [
+        10438000,
+        19106700,
+        20610000,
+        18215500,
+        24433800,
+        14773600,
+        24430300
+      ]
+    },
+    "financials": {
+      "quarter": "2025 Q4",
+      "revenue": 54305000.0,
+      "net_income": -73966000.0,
+      "gross_profit": 24892000.0,
+      "op_income": -72277000.0,
+      "ebitda": -61189000.0,
+      "gross_margin": 45.83739987109843,
+      "eps": null,
+      "eps_estimate": null,
+      "eps_reported": null,
+      "eps_surprise": null,
+      "rev_yoy": 2731.33472367049,
+      "ni_yoy": -106.28050310957413,
+      "unit": "亿美元",
+      "currency": "USD",
+      "divisor": 100000000.0
+    }
+  },
+  {
     "id": "5cfcf0a9ed7a",
     "company_id": "tesla",
     "company_name": "特斯拉",
@@ -5841,6 +6027,279 @@
     }
   },
   {
+    "id": "fed3895df057",
+    "company_id": "tesla",
+    "company_name": "特斯拉",
+    "title": "📋 特斯拉 2025 Q3 财报｜营收 280.95亿美元",
+    "content": "特斯拉 2025 Q3 季报摘要：\n• 营收：280.95 亿美元\n• 净利润：13.73 亿美元\n• 毛利率：18.0%\n• 经营利润：18.62 亿美元\n• EBITDA：36.60 亿美元\n• EPS（基本）：0.43 USD\n• EPS 预期：0.56 / 实际：0.50（不及预期 ❌，-10.5%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/TSLA/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2025-09-30T21:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 444.72,
+      "close_price": 438.69,
+      "week_high": 470.75,
+      "week_low": 416.58,
+      "change_pct": -1.36,
+      "dates": [
+        "09/30",
+        "10/01",
+        "10/02",
+        "10/03",
+        "10/06",
+        "10/07",
+        "10/08"
+      ],
+      "opens": [
+        441.52,
+        443.8,
+        470.54,
+        443.29,
+        440.75,
+        447.82,
+        437.57
+      ],
+      "highs": [
+        445.0,
+        462.29,
+        470.75,
+        446.77,
+        453.55,
+        452.68,
+        441.33
+      ],
+      "lows": [
+        433.12,
+        440.75,
+        435.57,
+        416.58,
+        436.69,
+        432.45,
+        425.23
+      ],
+      "closes": [
+        444.72,
+        459.46,
+        436.0,
+        429.83,
+        453.25,
+        433.09,
+        438.69
+      ],
+      "volumes": [
+        74358000,
+        98122300,
+        137009000,
+        133188200,
+        85324900,
+        102296100,
+        71192100
+      ]
+    },
+    "financials": {
+      "quarter": "2025 Q3",
+      "revenue": 28095000000.0,
+      "net_income": 1373000000.0,
+      "gross_profit": 5054000000.0,
+      "op_income": 1862000000.0,
+      "ebitda": 3660000000.0,
+      "gross_margin": 17.98896600818651,
+      "eps": 0.43,
+      "eps_estimate": 0.56,
+      "eps_reported": 0.5,
+      "eps_surprise": -10.53,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿美元",
+      "currency": "USD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "51f2b0bbd54a",
+    "company_id": "ast_spacemobile",
+    "company_name": "AST 太空移动",
+    "title": "📋 AST 太空移动 2025 Q3 财报｜营收 0.15亿美元",
+    "content": "AST 太空移动 2025 Q3 季报摘要：\n• 营收：0.15 亿美元\n• 净利润：-1.23 亿美元\n• 毛利率：62.6%\n• 经营利润：-0.80 亿美元\n• EBITDA：-1.43 亿美元\n• EPS（基本）：-0.45 USD\n• EPS 预期：-0.26 / 实际：-0.45（不及预期 ❌，-74.4%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/ASTS/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2025-09-30T21:00:00",
+    "stock_data": {
+      "ticker": "ASTS",
+      "open_price": 49.08,
+      "close_price": 81.2,
+      "week_high": 91.41,
+      "week_low": 47.5,
+      "change_pct": 65.44,
+      "dates": [
+        "09/30",
+        "10/01",
+        "10/02",
+        "10/03",
+        "10/06",
+        "10/07",
+        "10/08"
+      ],
+      "opens": [
+        48.57,
+        53.51,
+        58.53,
+        65.66,
+        69.17,
+        67.41,
+        84.81
+      ],
+      "highs": [
+        49.72,
+        57.19,
+        66.83,
+        68.8,
+        74.77,
+        76.0,
+        91.41
+      ],
+      "lows": [
+        47.5,
+        50.82,
+        57.41,
+        64.1,
+        68.7,
+        67.28,
+        79.82
+      ],
+      "closes": [
+        49.08,
+        56.94,
+        66.16,
+        67.76,
+        72.9,
+        74.75,
+        81.2
+      ],
+      "volumes": [
+        7575600,
+        20062000,
+        30170800,
+        16702100,
+        16423000,
+        18223700,
+        43321700
+      ]
+    },
+    "financials": {
+      "quarter": "2025 Q3",
+      "revenue": 14739000.0,
+      "net_income": -122874000.0,
+      "gross_profit": 9228000.0,
+      "op_income": -79676000.0,
+      "ebitda": -143192000.0,
+      "gross_margin": 62.60940362304092,
+      "eps": -0.45,
+      "eps_estimate": -0.26,
+      "eps_reported": -0.45,
+      "eps_surprise": -74.39,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿美元",
+      "currency": "USD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "4a9203390726",
+    "company_id": "xiaomi",
+    "company_name": "小米集团",
+    "title": "📋 小米集团 2025 Q3 财报｜营收 N/A亿港元",
+    "content": "小米集团 2025 Q3 季报摘要：\n• 营收：N/A 亿港元\n• 净利润：N/A 亿港元\n• EPS（基本）：0.47 HKD\n• EPS 预期：0.38 / 实际：0.40（超预期 ✅，6.0%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/1810.HK/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2025-09-30T21:00:00",
+    "stock_data": {
+      "ticker": "1810.HK",
+      "open_price": 54.0,
+      "close_price": 53.35,
+      "week_high": 56.55,
+      "week_low": 53.05,
+      "change_pct": -1.2,
+      "dates": [
+        "09/30",
+        "10/02",
+        "10/03",
+        "10/06",
+        "10/08",
+        "10/09"
+      ],
+      "opens": [
+        54.0,
+        54.15,
+        55.8,
+        54.5,
+        53.85,
+        54.05
+      ],
+      "highs": [
+        54.4,
+        56.5,
+        56.55,
+        54.8,
+        54.15,
+        54.7
+      ],
+      "lows": [
+        53.2,
+        54.15,
+        54.6,
+        53.6,
+        53.05,
+        53.2
+      ],
+      "closes": [
+        54.0,
+        55.8,
+        55.0,
+        53.85,
+        53.85,
+        53.35
+      ],
+      "volumes": [
+        211943325,
+        101931615,
+        62150942,
+        52592486,
+        84169990,
+        127345006
+      ]
+    },
+    "financials": {
+      "quarter": "2025 Q3",
+      "revenue": null,
+      "net_income": null,
+      "gross_profit": null,
+      "op_income": null,
+      "ebitda": null,
+      "gross_margin": null,
+      "eps": 0.47,
+      "eps_estimate": 0.38,
+      "eps_reported": 0.4,
+      "eps_surprise": 6.05,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿港元",
+      "currency": "HKD",
+      "divisor": 100000000.0
+    }
+  },
+  {
     "id": "45ee41bf8fce",
     "company_id": "tesla",
     "company_name": "特斯拉",
@@ -6516,6 +6975,750 @@
     }
   },
   {
+    "id": "513c905dac41",
+    "company_id": "tesla",
+    "company_name": "特斯拉",
+    "title": "📋 特斯拉 2025 Q2 财报｜营收 224.96亿美元",
+    "content": "特斯拉 2025 Q2 季报摘要：\n• 营收：224.96 亿美元\n• 净利润：11.72 亿美元\n• 毛利率：17.2%\n• 经营利润：9.23 亿美元\n• EBITDA：30.68 亿美元\n• EPS（基本）：0.36 USD\n• EPS 预期：0.40 / 实际：0.40（超预期 ✅，-1.0%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/TSLA/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2025-06-30T21:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 317.66,
+      "close_price": 295.88,
+      "week_high": 325.58,
+      "week_low": 288.77,
+      "change_pct": -6.86,
+      "dates": [
+        "06/30",
+        "07/01",
+        "07/02",
+        "07/03",
+        "07/07",
+        "07/08",
+        "07/09"
+      ],
+      "opens": [
+        319.9,
+        298.46,
+        312.63,
+        317.99,
+        291.37,
+        297.0,
+        297.55
+      ],
+      "highs": [
+        325.58,
+        305.89,
+        316.83,
+        318.45,
+        296.15,
+        304.05,
+        300.15
+      ],
+      "lows": [
+        316.6,
+        293.21,
+        303.82,
+        312.76,
+        288.77,
+        294.35,
+        293.55
+      ],
+      "closes": [
+        317.66,
+        300.71,
+        315.65,
+        315.35,
+        293.94,
+        297.81,
+        295.88
+      ],
+      "volumes": [
+        76695100,
+        145085700,
+        119483700,
+        58042300,
+        131177900,
+        103246700,
+        75586800
+      ]
+    },
+    "financials": {
+      "quarter": "2025 Q2",
+      "revenue": 22496000000.0,
+      "net_income": 1172000000.0,
+      "gross_profit": 3878000000.0,
+      "op_income": 923000000.0,
+      "ebitda": 3068000000.0,
+      "gross_margin": 17.238620199146514,
+      "eps": 0.36,
+      "eps_estimate": 0.4,
+      "eps_reported": 0.4,
+      "eps_surprise": -0.97,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿美元",
+      "currency": "USD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "c34445252b82",
+    "company_id": "ast_spacemobile",
+    "company_name": "AST 太空移动",
+    "title": "📋 AST 太空移动 2025 Q2 财报｜营收 0.01亿美元",
+    "content": "AST 太空移动 2025 Q2 季报摘要：\n• 营收：0.01 亿美元\n• 净利润：-0.99 亿美元\n• 经营利润：-0.73 亿美元\n• EBITDA：-1.18 亿美元\n• EPS（基本）：-0.41 USD\n• EPS 预期：-0.22 / 实际：-0.41（不及预期 ❌，-89.2%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/ASTS/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2025-06-30T21:00:00",
+    "stock_data": {
+      "ticker": "ASTS",
+      "open_price": 46.73,
+      "close_price": 42.5,
+      "week_high": 50.38,
+      "week_low": 42.44,
+      "change_pct": -9.05,
+      "dates": [
+        "06/30",
+        "07/01",
+        "07/02",
+        "07/03",
+        "07/07",
+        "07/08",
+        "07/09"
+      ],
+      "opens": [
+        50.2,
+        46.5,
+        45.17,
+        47.4,
+        46.15,
+        46.06,
+        45.53
+      ],
+      "highs": [
+        50.38,
+        46.67,
+        46.07,
+        48.32,
+        46.93,
+        47.34,
+        45.63
+      ],
+      "lows": [
+        46.2,
+        44.36,
+        43.86,
+        45.28,
+        44.03,
+        44.73,
+        42.44
+      ],
+      "closes": [
+        46.73,
+        45.11,
+        45.71,
+        45.6,
+        45.69,
+        45.46,
+        42.5
+      ],
+      "volumes": [
+        13635300,
+        8324700,
+        8698000,
+        6101700,
+        8221700,
+        8476300,
+        10495000
+      ]
+    },
+    "financials": {
+      "quarter": "2025 Q2",
+      "revenue": 1156000.0,
+      "net_income": -99394000.0,
+      "gross_profit": null,
+      "op_income": -72797000.0,
+      "ebitda": -117784000.0,
+      "gross_margin": null,
+      "eps": -0.41,
+      "eps_estimate": -0.22,
+      "eps_reported": -0.41,
+      "eps_surprise": -89.23,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿美元",
+      "currency": "USD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "c2aee38d9e93",
+    "company_id": "xiaomi",
+    "company_name": "小米集团",
+    "title": "📋 小米集团 2025 Q2 财报｜营收 1159.56亿港元",
+    "content": "小米集团 2025 Q2 季报摘要：\n• 营收：1159.56 亿港元\n• 净利润：119.04 亿港元\n• 毛利率：22.5%\n• 经营利润：92.32 亿港元\n• EBITDA：149.15 亿港元\n• EPS（基本）：0.46 HKD\n• EPS 预期：0.29 / 实际：0.42（超预期 ✅，43.5%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/1810.HK/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2025-06-30T21:00:00",
+    "stock_data": {
+      "ticker": "1810.HK",
+      "open_price": 59.95,
+      "close_price": 57.4,
+      "week_high": 60.45,
+      "week_low": 56.4,
+      "change_pct": -4.25,
+      "dates": [
+        "06/30",
+        "07/02",
+        "07/03",
+        "07/04",
+        "07/07",
+        "07/08",
+        "07/09"
+      ],
+      "opens": [
+        59.5,
+        60.4,
+        59.75,
+        57.5,
+        56.9,
+        57.4,
+        58.2
+      ],
+      "highs": [
+        60.0,
+        60.45,
+        60.05,
+        58.2,
+        57.4,
+        58.95,
+        58.8
+      ],
+      "lows": [
+        57.5,
+        59.6,
+        57.05,
+        56.6,
+        56.4,
+        57.25,
+        57.1
+      ],
+      "closes": [
+        59.95,
+        60.15,
+        58.1,
+        57.5,
+        57.3,
+        58.65,
+        57.4
+      ],
+      "volumes": [
+        260498936,
+        140611857,
+        234219003,
+        132200659,
+        81234333,
+        101372801,
+        100963784
+      ]
+    },
+    "financials": {
+      "quarter": "2025 Q2",
+      "revenue": 115956091000.0,
+      "net_income": 11904405000.0,
+      "gross_profit": 26100958000.0,
+      "op_income": 9231912000.0,
+      "ebitda": 14915245000.0,
+      "gross_margin": 22.50934623175595,
+      "eps": 0.46,
+      "eps_estimate": 0.29,
+      "eps_reported": 0.42,
+      "eps_surprise": 43.45,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿港元",
+      "currency": "HKD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "31eb6e8b9664",
+    "company_id": "ganli_pharma",
+    "company_name": "甘李药业",
+    "title": "📋 甘李药业 2025 Q2 财报｜营收 10.82亿元（+43.4% YoY）",
+    "content": "甘李药业 2025 Q2 季报摘要：\n• 营收：10.82 亿元，同比 43.4%\n• 净利润：2.92 亿元，同比 43.8%\n• 毛利率：75.8%\n• 经营利润：2.86 亿元\n• EBITDA：4.66 亿元\n• EPS 预期：0.52 / 实际：0.49（不及预期 ❌，-5.8%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/603087.SS/financials/",
+    "category": "earnings",
+    "sentiment": "positive",
+    "importance": 5,
+    "created_at": "2025-06-30T21:00:00",
+    "stock_data": {
+      "ticker": "603087.SS",
+      "open_price": 54.78,
+      "close_price": 54.6,
+      "week_high": 56.8,
+      "week_low": 53.4,
+      "change_pct": -0.33,
+      "dates": [
+        "06/30",
+        "07/01",
+        "07/02",
+        "07/03",
+        "07/04",
+        "07/07",
+        "07/08"
+      ],
+      "opens": [
+        53.64,
+        54.99,
+        56.57,
+        56.13,
+        56.57,
+        55.17,
+        53.9
+      ],
+      "highs": [
+        54.92,
+        56.62,
+        56.76,
+        56.8,
+        56.8,
+        55.5,
+        54.85
+      ],
+      "lows": [
+        53.4,
+        54.87,
+        55.81,
+        55.85,
+        55.42,
+        53.88,
+        53.85
+      ],
+      "closes": [
+        54.78,
+        56.58,
+        56.07,
+        56.58,
+        56.17,
+        53.99,
+        54.6
+      ],
+      "volumes": [
+        11511584,
+        14657204,
+        10767702,
+        9342344,
+        11188145,
+        14909587,
+        8646380
+      ]
+    },
+    "financials": {
+      "quarter": "2025 Q2",
+      "revenue": 1081928240.16,
+      "net_income": 291761849.46,
+      "gross_profit": 819961091.79,
+      "op_income": 286415100.18,
+      "ebitda": 465817083.37,
+      "gross_margin": 75.78701260896385,
+      "eps": null,
+      "eps_estimate": 0.52,
+      "eps_reported": 0.49,
+      "eps_surprise": -5.77,
+      "rev_yoy": 43.38557524709521,
+      "ni_yoy": 43.796014191050155,
+      "unit": "亿元",
+      "currency": "CNY",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "d9c56478a1ef",
+    "company_id": "tesla",
+    "company_name": "特斯拉",
+    "title": "📋 特斯拉 2025 Q1 财报｜营收 193.35亿美元",
+    "content": "特斯拉 2025 Q1 季报摘要：\n• 营收：193.35 亿美元\n• 净利润：4.09 亿美元\n• 毛利率：16.3%\n• 经营利润：4.93 亿美元\n• EBITDA：21.27 亿美元\n• EPS（基本）：0.13 USD\n• EPS 预期：0.35 / 实际：0.12（不及预期 ❌，-65.2%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/TSLA/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2025-03-31T21:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 259.16,
+      "close_price": 221.86,
+      "week_high": 284.99,
+      "week_low": 214.25,
+      "change_pct": -14.39,
+      "dates": [
+        "03/31",
+        "04/01",
+        "04/02",
+        "04/03",
+        "04/04",
+        "04/07",
+        "04/08"
+      ],
+      "opens": [
+        249.31,
+        263.8,
+        254.6,
+        265.29,
+        255.38,
+        223.78,
+        245.0
+      ],
+      "highs": [
+        260.56,
+        277.45,
+        284.99,
+        276.3,
+        261.0,
+        252.0,
+        250.44
+      ],
+      "lows": [
+        243.36,
+        259.25,
+        251.27,
+        261.51,
+        236.0,
+        214.25,
+        217.8
+      ],
+      "closes": [
+        259.16,
+        268.46,
+        282.76,
+        267.28,
+        239.43,
+        233.29,
+        221.86
+      ],
+      "volumes": [
+        134008900,
+        146486900,
+        212787800,
+        136174300,
+        181229400,
+        183453800,
+        171603500
+      ]
+    },
+    "financials": {
+      "quarter": "2025 Q1",
+      "revenue": 19335000000.0,
+      "net_income": 409000000.0,
+      "gross_profit": 3153000000.0,
+      "op_income": 493000000.0,
+      "ebitda": 2127000000.0,
+      "gross_margin": 16.30721489526765,
+      "eps": 0.13,
+      "eps_estimate": 0.35,
+      "eps_reported": 0.12,
+      "eps_surprise": -65.25,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿美元",
+      "currency": "USD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "b1d892f50ae1",
+    "company_id": "ast_spacemobile",
+    "company_name": "AST 太空移动",
+    "title": "📋 AST 太空移动 2025 Q1 财报｜营收 0.01亿美元",
+    "content": "AST 太空移动 2025 Q1 季报摘要：\n• 营收：0.01 亿美元\n• 净利润：-0.46 亿美元\n• 经营利润：-0.63 亿美元\n• EBITDA：-0.48 亿美元\n• EPS（基本）：-0.20 USD\n• EPS 预期：-0.22 / 实际：-0.20（超预期 ✅，11.1%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/ASTS/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2025-03-31T21:00:00",
+    "stock_data": {
+      "ticker": "ASTS",
+      "open_price": 22.74,
+      "close_price": 20.3,
+      "week_high": 23.4,
+      "week_low": 18.22,
+      "change_pct": -10.73,
+      "dates": [
+        "03/31",
+        "04/01",
+        "04/02",
+        "04/03",
+        "04/04",
+        "04/07",
+        "04/08"
+      ],
+      "opens": [
+        22.83,
+        22.77,
+        21.37,
+        20.08,
+        20.6,
+        18.5,
+        22.76
+      ],
+      "highs": [
+        23.4,
+        22.91,
+        23.22,
+        22.32,
+        21.15,
+        22.86,
+        22.8
+      ],
+      "lows": [
+        22.22,
+        21.63,
+        21.31,
+        20.01,
+        18.5,
+        18.22,
+        19.75
+      ],
+      "closes": [
+        22.74,
+        21.85,
+        22.41,
+        21.58,
+        20.07,
+        21.33,
+        20.3
+      ],
+      "volumes": [
+        8758300,
+        8856200,
+        9222900,
+        10501900,
+        13320600,
+        13431000,
+        10048700
+      ]
+    },
+    "financials": {
+      "quarter": "2025 Q1",
+      "revenue": 718000.0,
+      "net_income": -45706000.0,
+      "gross_profit": null,
+      "op_income": -62963000.0,
+      "ebitda": -47766000.0,
+      "gross_margin": null,
+      "eps": -0.2,
+      "eps_estimate": -0.22,
+      "eps_reported": -0.2,
+      "eps_surprise": 11.06,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿美元",
+      "currency": "USD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "a2ed7eb40b38",
+    "company_id": "xiaomi",
+    "company_name": "小米集团",
+    "title": "📋 小米集团 2025 Q1 财报｜营收 N/A亿港元",
+    "content": "小米集团 2025 Q1 季报摘要：\n• 营收：N/A 亿港元\n• 净利润：N/A 亿港元\n• EPS（基本）：0.44 HKD\n• EPS 预期：0.25 / 实际：0.32（超预期 ✅，28.1%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/1810.HK/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2025-03-31T21:00:00",
+    "stock_data": {
+      "ticker": "1810.HK",
+      "open_price": 49.2,
+      "close_price": 41.9,
+      "week_high": 50.7,
+      "week_low": 36.05,
+      "change_pct": -14.84,
+      "dates": [
+        "03/31",
+        "04/01",
+        "04/02",
+        "04/03",
+        "04/07",
+        "04/08",
+        "04/09"
+      ],
+      "opens": [
+        50.15,
+        49.4,
+        46.0,
+        43.8,
+        40.2,
+        38.55,
+        37.8
+      ],
+      "highs": [
+        50.7,
+        50.0,
+        47.5,
+        46.6,
+        43.25,
+        39.85,
+        42.4
+      ],
+      "lows": [
+        48.45,
+        46.1,
+        44.4,
+        43.45,
+        36.05,
+        37.45,
+        36.6
+      ],
+      "closes": [
+        49.2,
+        46.5,
+        44.55,
+        45.9,
+        36.45,
+        38.9,
+        41.9
+      ],
+      "volumes": [
+        342788934,
+        590405454,
+        635758232,
+        449295312,
+        1037869822,
+        715006887,
+        679302084
+      ]
+    },
+    "financials": {
+      "quarter": "2025 Q1",
+      "revenue": null,
+      "net_income": null,
+      "gross_profit": null,
+      "op_income": null,
+      "ebitda": null,
+      "gross_margin": null,
+      "eps": 0.44,
+      "eps_estimate": 0.25,
+      "eps_reported": 0.32,
+      "eps_surprise": 28.13,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿港元",
+      "currency": "HKD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "05ecccb66e9a",
+    "company_id": "ganli_pharma",
+    "company_name": "甘李药业",
+    "title": "📋 甘李药业 2025 Q1 财报｜营收 9.85亿元",
+    "content": "甘李药业 2025 Q1 季报摘要：\n• 营收：9.85 亿元\n• 净利润：3.12 亿元\n• 毛利率：76.8%\n• 经营利润：2.25 亿元\n• EBITDA：2.25 亿元\n• EPS（基本）：0.53 CNY\n• EPS 预期：0.22 / 实际：0.19（不及预期 ❌，-13.6%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/603087.SS/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2025-03-31T21:00:00",
+    "stock_data": {
+      "ticker": "603087.SS",
+      "open_price": 44.29,
+      "close_price": 41.56,
+      "week_high": 46.37,
+      "week_low": 39.71,
+      "change_pct": -6.17,
+      "dates": [
+        "03/31",
+        "04/01",
+        "04/02",
+        "04/03",
+        "04/07",
+        "04/08",
+        "04/09"
+      ],
+      "opens": [
+        44.77,
+        44.2,
+        45.71,
+        45.23,
+        43.65,
+        41.27,
+        40.85
+      ],
+      "highs": [
+        45.44,
+        46.37,
+        46.09,
+        46.06,
+        43.97,
+        42.24,
+        41.7
+      ],
+      "lows": [
+        43.94,
+        44.2,
+        45.39,
+        45.16,
+        40.79,
+        40.74,
+        39.71
+      ],
+      "closes": [
+        44.29,
+        45.73,
+        45.61,
+        45.32,
+        40.79,
+        41.6,
+        41.56
+      ],
+      "volumes": [
+        6529400,
+        16999745,
+        7002548,
+        5703735,
+        16960348,
+        9253352,
+        9763863
+      ]
+    },
+    "financials": {
+      "quarter": "2025 Q1",
+      "revenue": 984867402.61,
+      "net_income": 311918723.02,
+      "gross_profit": 755957536.36,
+      "op_income": 225326457.58,
+      "ebitda": 225326457.58,
+      "gross_margin": 76.75729081464517,
+      "eps": 0.53,
+      "eps_estimate": 0.22,
+      "eps_reported": 0.19,
+      "eps_surprise": -13.64,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿元",
+      "currency": "CNY",
+      "divisor": 100000000.0
+    }
+  },
+  {
     "id": "7",
     "company_id": "tesla",
     "company_name": "特斯拉",
@@ -6561,6 +7764,273 @@
         132000000,
         108000000
       ]
+    }
+  },
+  {
+    "id": "1f7b9d7e00fb",
+    "company_id": "tesla",
+    "company_name": "特斯拉",
+    "title": "📋 特斯拉 2024 Q4 财报｜营收 257.07亿美元",
+    "content": "特斯拉 2024 Q4 季报摘要：\n• 营收：257.07 亿美元\n• 净利润：23.14 亿美元\n• 毛利率：16.3%\n• 经营利润：15.90 亿美元\n• EBITDA：43.58 亿美元\n• EPS（基本）：0.72 USD\n• EPS 预期：0.77 / 实际：0.73（不及预期 ❌，-4.8%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/TSLA/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2024-12-31T21:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 403.84,
+      "close_price": 394.94,
+      "week_high": 427.93,
+      "week_low": 373.04,
+      "change_pct": -2.2,
+      "dates": [
+        "12/31",
+        "01/02",
+        "01/03",
+        "01/06",
+        "01/07",
+        "01/08"
+      ],
+      "opens": [
+        423.79,
+        390.1,
+        381.48,
+        423.2,
+        405.83,
+        392.95
+      ],
+      "highs": [
+        427.93,
+        392.73,
+        411.88,
+        426.43,
+        414.33,
+        402.5
+      ],
+      "lows": [
+        402.54,
+        373.04,
+        379.45,
+        401.7,
+        390.0,
+        387.4
+      ],
+      "closes": [
+        403.84,
+        379.28,
+        410.44,
+        411.05,
+        394.36,
+        394.94
+      ],
+      "volumes": [
+        76825100,
+        109710700,
+        95423300,
+        85516500,
+        75699500,
+        73038800
+      ]
+    },
+    "financials": {
+      "quarter": "2024 Q4",
+      "revenue": 25707000000.0,
+      "net_income": 2314000000.0,
+      "gross_profit": 4179000000.0,
+      "op_income": 1590000000.0,
+      "ebitda": 4358000000.0,
+      "gross_margin": 16.256272610572996,
+      "eps": 0.72,
+      "eps_estimate": 0.77,
+      "eps_reported": 0.73,
+      "eps_surprise": -4.83,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿美元",
+      "currency": "USD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "55ca3ab3e0f2",
+    "company_id": "ast_spacemobile",
+    "company_name": "AST 太空移动",
+    "title": "📋 AST 太空移动 2024 Q4 财报｜营收 0.02亿美元",
+    "content": "AST 太空移动 2024 Q4 季报摘要：\n• 营收：0.02 亿美元\n• 净利润：-0.36 亿美元\n• 经营利润：-0.59 亿美元\n• EBITDA：-3.14 亿美元",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/ASTS/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2024-12-31T21:00:00",
+    "stock_data": {
+      "ticker": "ASTS",
+      "open_price": 21.1,
+      "close_price": 22.51,
+      "week_high": 25.18,
+      "week_low": 20.87,
+      "change_pct": 6.68,
+      "dates": [
+        "12/31",
+        "01/02",
+        "01/03",
+        "01/06",
+        "01/07",
+        "01/08"
+      ],
+      "opens": [
+        22.02,
+        21.14,
+        21.7,
+        24.77,
+        24.27,
+        22.51
+      ],
+      "highs": [
+        22.16,
+        22.24,
+        24.05,
+        25.18,
+        24.27,
+        22.73
+      ],
+      "lows": [
+        20.87,
+        20.9,
+        21.68,
+        23.98,
+        22.81,
+        21.73
+      ],
+      "closes": [
+        21.1,
+        21.64,
+        23.97,
+        24.14,
+        23.0,
+        22.51
+      ],
+      "volumes": [
+        5211000,
+        4529900,
+        8631900,
+        7113800,
+        4450100,
+        4722800
+      ]
+    },
+    "financials": {
+      "quarter": "2024 Q4",
+      "revenue": 1918000.0,
+      "net_income": -35857000.0,
+      "gross_profit": null,
+      "op_income": -58724000.0,
+      "ebitda": -313823000.0,
+      "gross_margin": null,
+      "eps": null,
+      "eps_estimate": null,
+      "eps_reported": null,
+      "eps_surprise": null,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿美元",
+      "currency": "USD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "9fe0fb9bdd0d",
+    "company_id": "ganli_pharma",
+    "company_name": "甘李药业",
+    "title": "📋 甘李药业 2024 Q4 财报｜营收 8.00亿元",
+    "content": "甘李药业 2024 Q4 季报摘要：\n• 营收：8.00 亿元\n• 净利润：1.07 亿元\n• 毛利率：73.4%\n• 经营利润：0.32 亿元\n• EBITDA：3.52 亿元",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/603087.SS/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2024-12-31T21:00:00",
+    "stock_data": {
+      "ticker": "603087.SS",
+      "open_price": 43.35,
+      "close_price": 40.96,
+      "week_high": 44.68,
+      "week_low": 40.55,
+      "change_pct": -5.51,
+      "dates": [
+        "12/31",
+        "01/02",
+        "01/03",
+        "01/06",
+        "01/07",
+        "01/08",
+        "01/09"
+      ],
+      "opens": [
+        44.42,
+        43.34,
+        41.54,
+        41.27,
+        41.61,
+        41.69,
+        40.98
+      ],
+      "highs": [
+        44.68,
+        43.49,
+        42.36,
+        41.95,
+        41.73,
+        41.89,
+        41.78
+      ],
+      "lows": [
+        43.26,
+        41.24,
+        41.19,
+        41.14,
+        40.9,
+        40.55,
+        40.79
+      ],
+      "closes": [
+        43.35,
+        41.45,
+        41.29,
+        41.75,
+        41.7,
+        41.27,
+        40.96
+      ],
+      "volumes": [
+        4462820,
+        7164954,
+        5615135,
+        5014628,
+        4076640,
+        3843670,
+        3259827
+      ]
+    },
+    "financials": {
+      "quarter": "2024 Q4",
+      "revenue": 800341717.99,
+      "net_income": 107398601.18,
+      "gross_profit": 587076907.98,
+      "op_income": 31986777.54,
+      "ebitda": 351833968.97,
+      "gross_margin": 73.35328082789448,
+      "eps": null,
+      "eps_estimate": null,
+      "eps_reported": null,
+      "eps_surprise": null,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿元",
+      "currency": "CNY",
+      "divisor": 100000000.0
     }
   },
   {
@@ -6626,6 +8096,354 @@
     "stock_data": null
   },
   {
+    "id": "b36d6b2f677a",
+    "company_id": "tesla",
+    "company_name": "特斯拉",
+    "title": "📋 特斯拉 2024 Q3 财报｜营收 N/A亿美元",
+    "content": "特斯拉 2024 Q3 季报摘要：\n• 营收：N/A 亿美元\n• 净利润：N/A 亿美元\n• EPS 预期：0.50 / 实际：0.62（超预期 ✅，24.8%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/TSLA/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2024-09-30T21:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 261.63,
+      "close_price": 244.5,
+      "week_high": 264.86,
+      "week_low": 237.81,
+      "change_pct": -6.55,
+      "dates": [
+        "09/30",
+        "10/01",
+        "10/02",
+        "10/03",
+        "10/04",
+        "10/07",
+        "10/08"
+      ],
+      "opens": [
+        259.04,
+        262.67,
+        247.55,
+        244.48,
+        246.69,
+        249.0,
+        243.56
+      ],
+      "highs": [
+        264.86,
+        263.98,
+        251.16,
+        249.79,
+        250.96,
+        249.83,
+        246.21
+      ],
+      "lows": [
+        255.77,
+        248.53,
+        241.5,
+        237.81,
+        244.58,
+        240.7,
+        240.56
+      ],
+      "closes": [
+        261.63,
+        258.02,
+        249.02,
+        240.66,
+        250.08,
+        240.83,
+        244.5
+      ],
+      "volumes": [
+        80705700,
+        87397600,
+        93983900,
+        80729200,
+        86573200,
+        68113300,
+        56303200
+      ]
+    },
+    "financials": {
+      "quarter": "2024 Q3",
+      "revenue": null,
+      "net_income": null,
+      "gross_profit": null,
+      "op_income": null,
+      "ebitda": null,
+      "gross_margin": null,
+      "eps": null,
+      "eps_estimate": 0.5,
+      "eps_reported": 0.62,
+      "eps_surprise": 24.76,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿美元",
+      "currency": "USD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "8cc1713041b0",
+    "company_id": "ast_spacemobile",
+    "company_name": "AST 太空移动",
+    "title": "📋 AST 太空移动 2024 Q3 财报｜营收 N/A亿美元",
+    "content": "AST 太空移动 2024 Q3 季报摘要：\n• 营收：N/A 亿美元\n• 净利润：N/A 亿美元\n• EPS（基本）：-1.10 USD\n• EPS 预期：-0.20 / 实际：-1.10（不及预期 ❌，-443.1%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/ASTS/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2024-09-30T21:00:00",
+    "stock_data": {
+      "ticker": "ASTS",
+      "open_price": 26.15,
+      "close_price": 24.2,
+      "week_high": 27.25,
+      "week_low": 22.93,
+      "change_pct": -7.46,
+      "dates": [
+        "09/30",
+        "10/01",
+        "10/02",
+        "10/03",
+        "10/04",
+        "10/07",
+        "10/08"
+      ],
+      "opens": [
+        25.5,
+        25.9,
+        23.98,
+        23.67,
+        23.81,
+        25.94,
+        24.54
+      ],
+      "highs": [
+        27.25,
+        25.95,
+        24.29,
+        24.5,
+        26.39,
+        26.32,
+        25.29
+      ],
+      "lows": [
+        24.97,
+        23.42,
+        23.01,
+        22.93,
+        23.67,
+        24.74,
+        24.01
+      ],
+      "closes": [
+        26.15,
+        24.1,
+        23.84,
+        23.22,
+        26.11,
+        24.91,
+        24.2
+      ],
+      "volumes": [
+        15948000,
+        12264200,
+        8763000,
+        9619700,
+        12388100,
+        9119700,
+        6489900
+      ]
+    },
+    "financials": {
+      "quarter": "2024 Q3",
+      "revenue": null,
+      "net_income": null,
+      "gross_profit": 1100000.0,
+      "op_income": null,
+      "ebitda": null,
+      "gross_margin": null,
+      "eps": -1.1,
+      "eps_estimate": -0.2,
+      "eps_reported": -1.1,
+      "eps_surprise": -443.05,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿美元",
+      "currency": "USD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "b751a298c6a8",
+    "company_id": "xiaomi",
+    "company_name": "小米集团",
+    "title": "📋 小米集团 2024 Q3 财报｜营收 N/A亿港元",
+    "content": "小米集团 2024 Q3 季报摘要：\n• 营收：N/A 亿港元\n• 净利润：N/A 亿港元\n• EPS（基本）：0.22 HKD\n• EPS 预期：0.19 / 实际：0.24（超预期 ✅，27.6%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/1810.HK/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2024-09-30T21:00:00",
+    "stock_data": {
+      "ticker": "1810.HK",
+      "open_price": 22.5,
+      "close_price": 23.3,
+      "week_high": 26.2,
+      "week_low": 21.95,
+      "change_pct": 3.56,
+      "dates": [
+        "09/30",
+        "10/02",
+        "10/03",
+        "10/04",
+        "10/07",
+        "10/08",
+        "10/09"
+      ],
+      "opens": [
+        22.7,
+        22.5,
+        24.05,
+        23.9,
+        24.9,
+        25.9,
+        23.95
+      ],
+      "highs": [
+        22.95,
+        24.65,
+        24.4,
+        24.75,
+        26.15,
+        26.2,
+        24.45
+      ],
+      "lows": [
+        21.95,
+        22.5,
+        23.2,
+        23.6,
+        24.7,
+        23.4,
+        22.55
+      ],
+      "closes": [
+        22.5,
+        24.0,
+        24.05,
+        24.55,
+        25.85,
+        23.7,
+        23.3
+      ],
+      "volumes": [
+        336102598,
+        251108945,
+        190305304,
+        149949209,
+        218062756,
+        453596652,
+        311173505
+      ]
+    },
+    "financials": {
+      "quarter": "2024 Q3",
+      "revenue": null,
+      "net_income": null,
+      "gross_profit": null,
+      "op_income": null,
+      "ebitda": null,
+      "gross_margin": null,
+      "eps": 0.22,
+      "eps_estimate": 0.19,
+      "eps_reported": 0.24,
+      "eps_surprise": 27.55,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿港元",
+      "currency": "HKD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "6ec33773538d",
+    "company_id": "ganli_pharma",
+    "company_name": "甘李药业",
+    "title": "📋 甘李药业 2024 Q3 财报｜营收 9.30亿元",
+    "content": "甘李药业 2024 Q3 季报摘要：\n• 营收：9.30 亿元\n• 净利润：2.08 亿元\n• 毛利率：78.1%\n• 经营利润：1.78 亿元\n• EBITDA：-0.62 亿元\n• EPS 预期：0.24 / 实际：0.35（超预期 ✅，45.8%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/603087.SS/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2024-09-30T21:00:00",
+    "stock_data": {
+      "ticker": "603087.SS",
+      "open_price": 47.44,
+      "close_price": 48.23,
+      "week_high": 52.19,
+      "week_low": 44.54,
+      "change_pct": 1.66,
+      "dates": [
+        "09/30",
+        "10/08",
+        "10/09"
+      ],
+      "opens": [
+        45.7,
+        52.19,
+        49.11
+      ],
+      "highs": [
+        48.03,
+        52.19,
+        51.05
+      ],
+      "lows": [
+        44.54,
+        47.55,
+        46.93
+      ],
+      "closes": [
+        47.44,
+        50.32,
+        48.23
+      ],
+      "volumes": [
+        21565096,
+        26404820,
+        22286822
+      ]
+    },
+    "financials": {
+      "quarter": "2024 Q3",
+      "revenue": 930113241.87,
+      "net_income": 208361150.62,
+      "gross_profit": 725970554.01,
+      "op_income": 178203761.2,
+      "ebitda": -62160540.69,
+      "gross_margin": 78.05184587528616,
+      "eps": null,
+      "eps_estimate": 0.24,
+      "eps_reported": 0.35,
+      "eps_surprise": 45.83,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿元",
+      "currency": "CNY",
+      "divisor": 100000000.0
+    }
+  },
+  {
     "id": "8",
     "company_id": "xiaomi",
     "company_name": "小米集团",
@@ -6671,6 +8489,360 @@
         50000000,
         44000000
       ]
+    }
+  },
+  {
+    "id": "89a23ea0369f",
+    "company_id": "tesla",
+    "company_name": "特斯拉",
+    "title": "📋 特斯拉 2024 Q2 财报｜营收 N/A亿美元",
+    "content": "特斯拉 2024 Q2 季报摘要：\n• 营收：N/A 亿美元\n• 净利润：N/A 亿美元\n• EPS 预期：0.62 / 实际：0.52（不及预期 ❌，-16.1%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/TSLA/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2024-06-30T21:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 209.86,
+      "close_price": 262.33,
+      "week_high": 265.61,
+      "week_low": 200.85,
+      "change_pct": 25.0,
+      "dates": [
+        "07/01",
+        "07/02",
+        "07/03",
+        "07/05",
+        "07/08",
+        "07/09"
+      ],
+      "opens": [
+        201.02,
+        218.89,
+        234.56,
+        249.81,
+        247.71,
+        251.0
+      ],
+      "highs": [
+        213.23,
+        231.3,
+        248.35,
+        252.37,
+        259.44,
+        265.61
+      ],
+      "lows": [
+        200.85,
+        218.06,
+        234.25,
+        242.46,
+        244.57,
+        250.3
+      ],
+      "closes": [
+        209.86,
+        231.26,
+        246.39,
+        251.52,
+        252.94,
+        262.33
+      ],
+      "volumes": [
+        135691400,
+        205047900,
+        166561500,
+        154501200,
+        157219600,
+        160210900
+      ]
+    },
+    "financials": {
+      "quarter": "2024 Q2",
+      "revenue": null,
+      "net_income": null,
+      "gross_profit": null,
+      "op_income": null,
+      "ebitda": null,
+      "gross_margin": null,
+      "eps": null,
+      "eps_estimate": 0.62,
+      "eps_reported": 0.52,
+      "eps_surprise": -16.15,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿美元",
+      "currency": "USD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "5c64ce6d9393",
+    "company_id": "ast_spacemobile",
+    "company_name": "AST 太空移动",
+    "title": "📋 AST 太空移动 2024 Q2 财报｜营收 N/A亿美元",
+    "content": "AST 太空移动 2024 Q2 季报摘要：\n• 营收：N/A 亿美元\n• 净利润：N/A 亿美元\n• EPS（基本）：-0.51 USD\n• EPS 预期：-0.22 / 实际：-0.51（不及预期 ❌，-133.4%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/ASTS/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2024-06-30T21:00:00",
+    "stock_data": {
+      "ticker": "ASTS",
+      "open_price": 10.84,
+      "close_price": 12.14,
+      "week_high": 13.09,
+      "week_low": 10.17,
+      "change_pct": 11.99,
+      "dates": [
+        "07/01",
+        "07/02",
+        "07/03",
+        "07/05",
+        "07/08",
+        "07/09"
+      ],
+      "opens": [
+        11.85,
+        10.85,
+        10.73,
+        11.42,
+        12.38,
+        12.0
+      ],
+      "highs": [
+        12.6,
+        10.98,
+        11.54,
+        12.47,
+        13.09,
+        12.27
+      ],
+      "lows": [
+        10.78,
+        10.17,
+        10.67,
+        10.98,
+        11.92,
+        11.7
+      ],
+      "closes": [
+        10.84,
+        10.72,
+        11.37,
+        12.4,
+        12.1,
+        12.14
+      ],
+      "volumes": [
+        10724800,
+        6933600,
+        4315000,
+        10681000,
+        10601400,
+        4898800
+      ]
+    },
+    "financials": {
+      "quarter": "2024 Q2",
+      "revenue": null,
+      "net_income": null,
+      "gross_profit": null,
+      "op_income": null,
+      "ebitda": null,
+      "gross_margin": null,
+      "eps": -0.51,
+      "eps_estimate": -0.22,
+      "eps_reported": -0.51,
+      "eps_surprise": -133.39,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿美元",
+      "currency": "USD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "1a3493785b3e",
+    "company_id": "xiaomi",
+    "company_name": "小米集团",
+    "title": "📋 小米集团 2024 Q2 财报｜营收 888.88亿港元",
+    "content": "小米集团 2024 Q2 季报摘要：\n• 营收：888.88 亿港元\n• 净利润：50.98 亿港元\n• 毛利率：20.7%\n• 经营利润：61.02 亿港元\n• EBITDA：67.66 亿港元\n• EPS（基本）：0.21 HKD\n• EPS 预期：0.19 / 实际：0.26（超预期 ✅，38.1%）",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/1810.HK/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2024-06-30T21:00:00",
+    "stock_data": {
+      "ticker": "1810.HK",
+      "open_price": 16.66,
+      "close_price": 16.4,
+      "week_high": 17.22,
+      "week_low": 16.06,
+      "change_pct": -1.56,
+      "dates": [
+        "07/02",
+        "07/03",
+        "07/04",
+        "07/05",
+        "07/08",
+        "07/09"
+      ],
+      "opens": [
+        16.5,
+        16.66,
+        17.16,
+        16.92,
+        16.62,
+        16.4
+      ],
+      "highs": [
+        16.74,
+        17.08,
+        17.22,
+        16.98,
+        16.76,
+        16.58
+      ],
+      "lows": [
+        16.36,
+        16.66,
+        16.76,
+        16.48,
+        16.36,
+        16.06
+      ],
+      "closes": [
+        16.66,
+        16.9,
+        16.84,
+        16.62,
+        16.46,
+        16.4
+      ],
+      "volumes": [
+        62421619,
+        68480845,
+        47136649,
+        50780567,
+        54387650,
+        83646140
+      ]
+    },
+    "financials": {
+      "quarter": "2024 Q2",
+      "revenue": 88887828000.0,
+      "net_income": 5098002000.0,
+      "gross_profit": 18394177000.0,
+      "op_income": 6102118000.0,
+      "ebitda": 6765596000.0,
+      "gross_margin": 20.693696104263005,
+      "eps": 0.21,
+      "eps_estimate": 0.19,
+      "eps_reported": 0.26,
+      "eps_surprise": 38.07,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿港元",
+      "currency": "HKD",
+      "divisor": 100000000.0
+    }
+  },
+  {
+    "id": "5e41da4b5501",
+    "company_id": "ganli_pharma",
+    "company_name": "甘李药业",
+    "title": "📋 甘李药业 2024 Q2 财报｜营收 7.55亿元",
+    "content": "甘李药业 2024 Q2 季报摘要：\n• 营收：7.55 亿元\n• 净利润：2.03 亿元\n• 毛利率：73.9%\n• 经营利润：0.96 亿元\n• EBITDA：3.36 亿元",
+    "source": "Yahoo Finance 季报",
+    "url": "https://finance.yahoo.com/quote/603087.SS/financials/",
+    "category": "earnings",
+    "sentiment": "neutral",
+    "importance": 5,
+    "created_at": "2024-06-30T21:00:00",
+    "stock_data": {
+      "ticker": "603087.SS",
+      "open_price": 45.45,
+      "close_price": 43.88,
+      "week_high": 45.99,
+      "week_low": 40.74,
+      "change_pct": -3.47,
+      "dates": [
+        "07/01",
+        "07/02",
+        "07/03",
+        "07/04",
+        "07/05",
+        "07/08",
+        "07/09"
+      ],
+      "opens": [
+        44.78,
+        45.51,
+        45.12,
+        41.43,
+        41.04,
+        42.7,
+        41.74
+      ],
+      "highs": [
+        45.86,
+        45.99,
+        45.31,
+        42.06,
+        41.04,
+        43.36,
+        44.08
+      ],
+      "lows": [
+        44.76,
+        45.09,
+        40.74,
+        40.91,
+        41.04,
+        40.83,
+        41.72
+      ],
+      "closes": [
+        45.45,
+        45.09,
+        41.43,
+        41.04,
+        41.04,
+        41.06,
+        43.88
+      ],
+      "volumes": [
+        6851280,
+        5565460,
+        19420765,
+        7985297,
+        0,
+        8403060,
+        14391927
+      ]
+    },
+    "financials": {
+      "quarter": "2024 Q2",
+      "revenue": 754558635.55,
+      "net_income": 202899816.87,
+      "gross_profit": 557709330.5,
+      "op_income": 95986003.35,
+      "ebitda": 336350305.24,
+      "gross_margin": 73.9119936111372,
+      "eps": null,
+      "eps_estimate": null,
+      "eps_reported": null,
+      "eps_surprise": null,
+      "rev_yoy": null,
+      "ni_yoy": null,
+      "unit": "亿元",
+      "currency": "CNY",
+      "divisor": 100000000.0
     }
   },
   {

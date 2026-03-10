@@ -284,6 +284,69 @@ function openModal(card) {
         <span>📰 ${ev.source}</span>
         <span>📊 重要性：${'⭐'.repeat(ev.importance)}</span>`;
 
+    // 财报财务数据区块
+    let financialHtml = '';
+    if (ev.financials) {
+        const f   = ev.financials;
+        const div = f.divisor || 1e8;
+        const fmt = v => (v == null) ? 'N/A' : (v / div).toFixed(2);
+        const pct = v => (v == null) ? 'N/A' : (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+        const upC = v => v == null ? '' : (v >= 0 ? 'style="color:#e5483c"' : 'style="color:#22a06b"');
+
+        let epsRow = '';
+        if (f.eps_estimate != null && f.eps_reported != null) {
+            const beat    = f.eps_reported >= f.eps_estimate;
+            const surpStr = f.eps_surprise != null ? `${f.eps_surprise > 0 ? '+' : ''}${f.eps_surprise.toFixed(1)}%` : '';
+            epsRow = `
+            <tr>
+                <td>EPS 预期 / 实际</td>
+                <td>${f.eps_estimate.toFixed(2)} / ${f.eps_reported.toFixed(2)} ${f.currency}</td>
+                <td>${beat ? '<span style="color:#22a06b;font-weight:700">✅ 超预期</span>' : '<span style="color:#e5483c;font-weight:700">❌ 不及预期</span>'} ${surpStr}</td>
+            </tr>`;
+        }
+
+        financialHtml = `
+        <div class="stock-block" style="margin-bottom:16px">
+            <h4>📋 ${f.quarter} 季报财务摘要</h4>
+            <table class="fin-table">
+                <thead><tr><th>指标</th><th>金额（${f.unit}）</th><th>同比</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td>营收</td>
+                        <td>${fmt(f.revenue)}</td>
+                        <td ${upC(f.rev_yoy)}>${pct(f.rev_yoy)}</td>
+                    </tr>
+                    <tr>
+                        <td>净利润</td>
+                        <td>${fmt(f.net_income)}</td>
+                        <td ${upC(f.ni_yoy)}>${pct(f.ni_yoy)}</td>
+                    </tr>
+                    <tr>
+                        <td>毛利润</td>
+                        <td>${fmt(f.gross_profit)}</td>
+                        <td>${f.gross_margin != null ? f.gross_margin.toFixed(1) + '% 毛利率' : 'N/A'}</td>
+                    </tr>
+                    <tr>
+                        <td>经营利润</td>
+                        <td>${fmt(f.op_income)}</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>EBITDA</td>
+                        <td>${fmt(f.ebitda)}</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>EPS（基本）</td>
+                        <td>${f.eps != null ? f.eps.toFixed(2) + ' ' + f.currency : 'N/A'}</td>
+                        <td>—</td>
+                    </tr>
+                    ${epsRow}
+                </tbody>
+            </table>
+        </div>`;
+    }
+
     // 股价区块
     const sd = ev.stock_data;
     let stockHtml = '';
@@ -317,7 +380,7 @@ function openModal(card) {
     }
 
     const isReal = ev.url && !ev.url.includes('example.com');
-    document.getElementById('modalFooter').innerHTML = stockHtml +
+    document.getElementById('modalFooter').innerHTML = financialHtml + stockHtml +
         (isReal ? `<a href="${ev.url}" target="_blank" class="modal-source-link">🔗 查看原文报道</a>`
                 : `<p style="color:#aaa;font-size:.9em">暂无原文链接 · 来源：${ev.source}</p>`);
 
