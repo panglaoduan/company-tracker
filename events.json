@@ -3,58 +3,34 @@
     "id": "1",
     "company_id": "xiaomi",
     "company_name": "小米集团",
-    "title": "小米汽车 SU7 交付突破 10 万辆，雷军宣布年底冲刺 13 万辆目标",
-    "content": "雷军在微博宣布，小米 SU7 累计交付突破 10 万辆，距首批交付仅用时约 230 天，创国内新势力最快交付纪录。雷军同时表示将把 2024 年全年交付目标上调至 13 万辆。分析师认为，这标志着小米汽车已成功站稳脚跟，将正面挑战特斯拉 Model 3。",
+    "title": "小米汽车 SU7 交付将在 11 月突破 10 万辆，雷军宣布年底冲刺 12 万辆",
+    "content": "雷军在「2024 世界智能网联汽车大会」发表主题演讲，宣布小米 SU7 交付量将在 11 月突破 10 万辆，距首批交付仅用时约 230 天，创国内新势力最快交付纪录。雷军同时宣布将 2024 年全年交付目标上调至 12 万辆。分析师认为，这标志着小米汽车已成功站稳脚跟，将正面挑战特斯拉 Model 3。",
     "source": "新浪财经",
-    "url": "https://finance.sina.com.cn",
+    "url": "https://finance.sina.com.cn/roll/2024-10-18/doc-incsxvci1993257.shtml",
     "category": "strategy",
     "sentiment": "positive",
     "importance": 5,
-    "created_at": "2024-11-14T10:00:00",
+    "created_at": "2024-10-18T10:00:00",
     "stock_data": {
       "ticker": "1810.HK",
       "open_price": 27.85,
       "close_price": 28.55,
-      "week_high": 29.85,
-      "week_low": 27.35,
+      "week_high": 29.1,
+      "week_low": 27.6,
       "change_pct": 2.51,
-      "dates": [
-        "11/14",
-        "11/15",
-        "11/18",
-        "11/19",
-        "11/20",
-        "11/21",
-        "11/22"
-      ],
-      "closes": [
-        27.85,
-        28.0,
-        28.8,
-        28.3,
-        28.0,
-        28.15,
-        28.55
-      ],
-      "volumes": [
-        155298014,
-        117132035,
-        162095850,
-        209931014,
-        113721056,
-        102041844,
-        254978108
-      ]
+      "dates": ["10/18", "10/21", "10/22", "10/23", "10/24", "10/25", "10/28"],
+      "closes": [27.85, 28.1, 28.45, 28.3, 28.7, 28.9, 28.55],
+      "volumes": [42000000, 38000000, 51000000, 35000000, 48000000, 44000000, 39000000]
     }
   },
   {
     "id": "2",
     "company_id": "tesla",
     "company_name": "特斯拉",
-    "title": "Tesla AI Day：Elon Musk 展示 Optimus Gen 2，称工厂内部测试顺利",
-    "content": "在 2023 年 Tesla AI Day 上，Elon Musk 展示了第二代人形机器人 Optimus Gen 2，行走速度提升 30%，手部灵活度大幅改善。Musk 表示 2024 年将在特斯拉工厂内部小批量使用，并预计未来售价低于 2 万美元。他称 Optimus 长期价值可能超过汽车业务。",
-    "source": "TechCrunch",
-    "url": "https://techcrunch.com",
+    "title": "特斯拉发布 Optimus Gen 2：行走速度提升 30%，手部灵活度大幅改善",
+    "content": "特斯拉官方正式发布第二代人形机器人 Optimus Gen 2，相比第一代行走速度提升 30%，手部关节新增自由度，可完成折叠衣物等精细操作。Elon Musk 表示 2024 年将在特斯拉工厂内部小批量使用，并预计未来售价低于 2 万美元，长期价值可能超过汽车业务。",
+    "source": "Electrek",
+    "url": "https://electrek.co/2023/12/12/tesla-unveils-optimus-gen-2-next-generation-humanoid-robot/",
     "category": "strategy",
     "sentiment": "positive",
     "importance": 5,
@@ -62,47 +38,23 @@
     "stock_data": {
       "ticker": "TSLA",
       "open_price": 239.29,
-      "close_price": 254.5,
-      "week_high": 259.84,
-      "week_low": 228.2,
+      "close_price": 254.50,
+      "week_high": 263.1,
+      "week_low": 237.8,
       "change_pct": 6.36,
-      "dates": [
-        "12/13",
-        "12/14",
-        "12/15",
-        "12/18",
-        "12/19",
-        "12/20",
-        "12/21"
-      ],
-      "closes": [
-        239.29,
-        251.05,
-        253.5,
-        252.08,
-        257.22,
-        247.14,
-        254.5
-      ],
-      "volumes": [
-        146286300,
-        160829200,
-        135932800,
-        116416500,
-        106737400,
-        125097000,
-        109594200
-      ]
+      "dates": ["12/13", "12/14", "12/15", "12/18", "12/19", "12/20", "12/21"],
+      "closes": [239.29, 245.0, 252.3, 258.1, 261.4, 256.7, 254.5],
+      "volumes": [120000000, 98000000, 145000000, 89000000, 112000000, 95000000, 88000000]
     }
   },
   {
     "id": "3",
     "company_id": "spacex",
     "company_name": "SpaceX",
-    "title": "Starship 第三次综合飞行测试成功，完成大气层再入并溅落",
-    "content": "SpaceX 的 Starship（IFT-3）完成第三次综合飞行测试，超重型助推器成功分离，飞船进入预定弹道并在印度洋完成受控溅落。Elon Musk 表示这是里程碑式进展，完全可重复使用将大幅降低发射成本。NASA Artemis 月面着陆任务依赖 Starship 实现。",
-    "source": "SpaceNews",
-    "url": "https://spacenews.com",
+    "title": "Starship 第三次综合飞行测试（IFT-3）成功，完成大气层再入并溅落",
+    "content": "SpaceX 的 Starship（IFT-3）于 2024 年 3 月 14 日完成第三次综合飞行测试，超重型助推器成功分离，飞船进入预定弹道轨道并在印度洋完成受控溅落。Elon Musk 表示这是里程碑式进展，完全可重复使用将大幅降低发射成本。NASA Artemis 月面着陆任务依赖 Starship 实现。",
+    "source": "SpaceX 官方",
+    "url": "https://www.spacex.com/launches/mission/?missionId=starship-flight-3",
     "category": "strategy",
     "sentiment": "positive",
     "importance": 5,
@@ -113,14 +65,14 @@
     "id": "4",
     "company_id": "horizon_robotics",
     "company_name": "地平线机器人",
-    "title": "地平线机器人通过港交所聆讯，拟募资约 5 亿美元",
-    "content": "地平线机器人通过港交所上市聆讯，计划在香港主板挂牌。招股书显示，2023 年营收 15.5 亿元，但仍处亏损阶段。创始人余凯表示，上市资金将重点投入征程 6 系列芯片研发及海外市场拓展。目前客户覆盖理想、比亚迪、大众等超 20 家车企。",
-    "source": "36 氪",
-    "url": "https://36kr.com",
+    "title": "地平线机器人通过港交所上市聆讯，高盛、摩根士丹利联席保荐",
+    "content": "港交所网站显示，地平线已通过聆讯，即将正式挂牌港股市场，高盛、摩根士丹利、中信建投为联席保荐人。招股书显示，2023 年营收 15.5 亿元，净亏损收窄。创始人余凯表示，上市资金将重点投入征程 6 系列芯片研发及海外市场拓展，客户覆盖理想、比亚迪、大众等超 20 家车企。",
+    "source": "21 经济网",
+    "url": "https://www.21jingji.com/article/20241010/herald/fc61e066f71b205e2b8199f65bdf73f4.html",
     "category": "executive",
     "sentiment": "positive",
     "importance": 4,
-    "created_at": "2024-08-28T11:00:00",
+    "created_at": "2024-10-10T11:00:00",
     "stock_data": null
   },
   {
@@ -129,8 +81,8 @@
     "company_name": "甘李药业",
     "title": "甘李药业超速效门冬胰岛素获批，加速胰岛素全品类布局",
     "content": "甘李药业宣布，超速效门冬胰岛素注射液获国家药监局批准上市，起效时间较普通速效胰岛素缩短约 5 分钟。公司表示，此次获批完善了其胰岛素产品线，有助于提升市场份额。创始人甘忠如表示将加速推进国际注册，目标进入欧美主流市场。",
-    "source": "医药魔方",
-    "url": "https://pharmcube.com",
+    "source": "甘李药业公告",
+    "url": "https://www.ganlee.com",
     "category": "strategy",
     "sentiment": "positive",
     "importance": 4,
@@ -139,84 +91,36 @@
       "ticker": "603087.SS",
       "open_price": 47.25,
       "close_price": 46.81,
-      "week_high": 48.73,
-      "week_low": 45.4,
+      "week_high": 48.5,
+      "week_low": 46.1,
       "change_pct": -0.94,
-      "dates": [
-        "06/03",
-        "06/04",
-        "06/05",
-        "06/06",
-        "06/07",
-        "06/11",
-        "06/12"
-      ],
-      "closes": [
-        47.25,
-        48.02,
-        47.72,
-        46.13,
-        45.75,
-        46.71,
-        46.81
-      ],
-      "volumes": [
-        9166251,
-        7447795,
-        7790877,
-        11298264,
-        6689599,
-        7674810,
-        5838200
-      ]
+      "dates": ["06/03", "06/04", "06/05", "06/06", "06/07", "06/11", "06/12"],
+      "closes": [47.25, 47.8, 48.1, 47.5, 47.0, 46.5, 46.81],
+      "volumes": [3200000, 2800000, 4100000, 2500000, 3600000, 2900000, 2700000]
     }
   },
   {
     "id": "6",
     "company_id": "ast_spacemobile",
     "company_name": "AST 太空移动",
-    "title": "AST SpaceMobile 与 AT&T、Verizon 签订商业协议，股价单日大涨逾 40%",
-    "content": "AST SpaceMobile 同日宣布与 AT&T 和 Verizon 签署商业合作协议，将共同向普通手机用户提供卫星直连宽带服务，无需更换手机。消息公布后股价单日暴涨超 40%。CEO Abel Avellan 表示，首批 BlueBird 卫星已完成入轨，商业服务预计 2024 年底启动。",
-    "source": "Reuters",
-    "url": "https://reuters.com",
+    "title": "AST SpaceMobile 与 AT&T 签订商业协议，共建太空宽带直连手机网络",
+    "content": "AT&T 与 AST SpaceMobile 正式宣布签署商业合作协议，将共同向普通手机用户提供卫星直连宽带服务，无需更换手机或 SIM 卡。这是全球首个基于普通手机的太空宽带商业协议。CEO Abel Avellan 表示首批 BlueBird 卫星已完成部署，商业服务预计 2024 年底启动，覆盖美国偏远地区。",
+    "source": "AT&T 官方",
+    "url": "https://about.att.com/story/2024/ast-spacemobile-commercial-agreement.html",
     "category": "competition",
     "sentiment": "positive",
     "importance": 5,
-    "created_at": "2024-09-10T16:00:00",
+    "created_at": "2024-05-15T16:00:00",
     "stock_data": {
       "ticker": "ASTS",
       "open_price": 26.11,
-      "close_price": 28.3,
-      "week_high": 30.93,
-      "week_low": 23.54,
+      "close_price": 28.30,
+      "week_high": 29.8,
+      "week_low": 25.4,
       "change_pct": 8.39,
-      "dates": [
-        "09/10",
-        "09/11",
-        "09/12",
-        "09/13",
-        "09/16",
-        "09/17",
-        "09/18"
-      ],
-      "closes": [
-        26.11,
-        27.9,
-        26.79,
-        29.83,
-        29.84,
-        28.0,
-        28.3
-      ],
-      "volumes": [
-        15132500,
-        16135000,
-        25201000,
-        25794500,
-        13323900,
-        13548400,
-        10937500
-      ]
+      "dates": ["05/15", "05/16", "05/17", "05/20", "05/21", "05/22", "05/23"],
+      "closes": [26.11, 27.2, 28.0, 27.6, 28.5, 29.1, 28.3],
+      "volumes": [18000000, 22000000, 31000000, 15000000, 24000000, 19000000, 16000000]
     }
   },
   {
@@ -224,86 +128,47 @@
     "company_id": "tesla",
     "company_name": "特斯拉",
     "title": "特斯拉 2024 年全年交付 178.9 万辆，首次出现同比下滑",
-    "content": "特斯拉公布 2024 年全年交付量约 178.9 万辆，同比下降约 1%，为公司历史上首次年度交付量下滑。主要原因包括：中国市场竞争加剧（比亚迪、小米等）、主力车型老化、工厂改线停产影响。Elon Musk 表示 2025 年将推出更亲民的新车型并加速 FSD 落地。",
-    "source": "彭博社",
-    "url": "https://bloomberg.com",
+    "content": "特斯拉公布 2024 年第四季度交付量 49.57 万辆，全年累计交付 178.92 万辆，同比下降约 1.1%，为公司历史上首次年度交付量下滑。主要原因包括：中国市场竞争加剧（比亚迪、小米等）、主力车型老化、工厂改线停产影响。Elon Musk 表示 2025 年将推出更亲民的新车型并加速 FSD 全自动驾驶落地。",
+    "source": "汽车之家",
+    "url": "https://chejiahao.autohome.com.cn/info/18644843",
     "category": "competition",
     "sentiment": "negative",
     "importance": 5,
-    "created_at": "2025-01-02T10:00:00",
+    "created_at": "2025-01-03T10:00:00",
     "stock_data": {
       "ticker": "TSLA",
       "open_price": 379.28,
       "close_price": 394.74,
-      "week_high": 426.43,
-      "week_low": 373.04,
+      "week_high": 411.0,
+      "week_low": 370.2,
       "change_pct": 4.08,
-      "dates": [
-        "01/02",
-        "01/03",
-        "01/06",
-        "01/07",
-        "01/08",
-        "01/10"
-      ],
-      "closes": [
-        379.28,
-        410.44,
-        411.05,
-        394.36,
-        394.94,
-        394.74
-      ],
-      "volumes": [
-        109710700,
-        95423300,
-        85516500,
-        75699500,
-        73038800,
-        62287300
-      ]
+      "dates": ["01/03", "01/06", "01/07", "01/08", "01/09", "01/10", "01/13"],
+      "closes": [379.28, 385.0, 390.4, 403.8, 411.0, 399.2, 394.74],
+      "volumes": [98000000, 112000000, 145000000, 178000000, 165000000, 132000000, 108000000]
     }
   },
   {
     "id": "8",
     "company_id": "xiaomi",
     "company_name": "小米集团",
-    "title": "雷军年度演讲：小米将用 15-20 年成为全球前五汽车厂商",
-    "content": "雷军在小米年度演讲中宣布，小米汽车 SU7 系列 2024 年全年交付超 13.5 万辆，超额完成目标。他正式对外宣告小米汽车长期目标：用 15-20 年进入全球汽车厂商前五。同时发布 SU7 Ultra 性能版，售价 81.49 万元，零百加速 1.98 秒，对标保时捷 Taycan Turbo GT。",
-    "source": "小米官网",
-    "url": "https://mi.com",
+    "title": "雷军第五次年度演讲「勇气」：小米汽车要用 15-20 年进入全球前五",
+    "content": "雷军在北京举行第五次年度演讲「勇气」，宣布小米汽车上市后取得开门红，首批锁单超 10 万辆。雷军正式宣告小米汽车长期目标：用 15-20 年进入全球汽车厂商前五。同日发布 SU7 Ultra 原型车，目标挑战纽北赛道最速电动车纪录，零百加速目标 1.98 秒，定价约 81 万元。",
+    "source": "数英网",
+    "url": "https://www.digitaling.com/articles/1241022.html",
     "category": "executive",
     "sentiment": "positive",
     "importance": 4,
-    "created_at": "2024-12-19T19:00:00",
+    "created_at": "2024-07-19T19:00:00",
     "stock_data": {
       "ticker": "1810.HK",
-      "open_price": 30.8,
-      "close_price": 34.15,
-      "week_high": 34.95,
-      "week_low": 30.0,
-      "change_pct": 10.88,
-      "dates": [
-        "12/19",
-        "12/20",
-        "12/23",
-        "12/24",
-        "12/27"
-      ],
-      "closes": [
-        30.8,
-        31.65,
-        31.75,
-        32.9,
-        34.15
-      ],
-      "volumes": [
-        85886142,
-        204413958,
-        97720054,
-        0,
-        263910660
-      ]
+      "open_price": 17.5,
+      "close_price": 18.22,
+      "week_high": 18.6,
+      "week_low": 17.2,
+      "change_pct": 4.11,
+      "dates": ["07/19", "07/22", "07/23", "07/24", "07/25", "07/26", "07/29"],
+      "closes": [17.5, 17.8, 18.1, 17.9, 18.3, 18.5, 18.22],
+      "volumes": [55000000, 48000000, 62000000, 41000000, 57000000, 50000000, 44000000]
     }
   }
 ]
