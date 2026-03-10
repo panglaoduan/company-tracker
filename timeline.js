@@ -179,8 +179,12 @@ function renderEvents() {
             hour: '2-digit', minute: '2-digit'
         });
 
+        // 把事件数据编码存到 data 属性，供弹窗读取
+        const dataAttr = encodeURIComponent(JSON.stringify(event));
+
         html += `
-        <div class="event-card" style="border-left-color: ${company.color}">
+        <div class="event-card" style="border-left-color: ${company.color}; cursor:pointer;"
+             onclick="openModal(this)" data-event="${dataAttr}">
             <div class="event-header">
                 <div>
                     <span class="event-company" style="background: ${company.color}">${company.name}</span>
@@ -188,14 +192,14 @@ function renderEvents() {
                 </div>
             </div>
             <h3 class="event-title">${event.title}</h3>
-            <p class="event-content">${event.content}</p>
-            <div class="event-meta">
+            <p class="event-content" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">${event.content}</p>
+            <div class="event-meta" style="margin-top:12px;">
                 <span>📅 ${dateStr}</span>
                 <span>📰 ${event.source}</span>
                 <span class="${sentiment.class}">● ${sentiment.name}</span>
                 <span>📊 ${'⭐'.repeat(event.importance)}</span>
             </div>
-            ${event.url ? `<a href="${event.url}" target="_blank" style="display:inline-block;margin-top:10px;color:#667eea;text-decoration:none;">🔗 查看详情 →</a>` : ''}
+            <span style="display:inline-block;margin-top:10px;color:#667eea;font-size:0.9em;">点击查看详情 →</span>
         </div>`;
     });
 
@@ -248,6 +252,63 @@ function filterEvents() {
     
     renderEvents();
 }
+
+// 打开详情弹窗
+function openModal(card) {
+    const event = JSON.parse(decodeURIComponent(card.dataset.event));
+    const company  = COMPANIES[event.company_id] || { name: event.company_name, color: '#667eea' };
+    const category = CATEGORIES[event.category]  || { name: event.category, icon: '📌' };
+    const sentiment= SENTIMENTS[event.sentiment] || { name: '中性', class: 'sentiment-neutral' };
+
+    const date = new Date(event.created_at);
+    const dateStr = date.toLocaleDateString('zh-CN', {
+        year: 'numeric', month: 'long', day: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+    });
+
+    // 公司 + 分类标签
+    document.getElementById('modalCompanyBar').innerHTML = `
+        <span style="background:${company.color};color:white;padding:4px 14px;border-radius:20px;font-size:13px;font-weight:600;">${company.name}</span>
+        <span style="background:#f0f0f0;color:#555;padding:4px 14px;border-radius:20px;font-size:13px;">${category.icon} ${category.name}</span>
+        <span class="${sentiment.class}" style="padding:4px 14px;border-radius:20px;font-size:13px;color:white;">● ${sentiment.name}</span>
+    `;
+
+    document.getElementById('modalTitle').textContent = event.title;
+
+    document.getElementById('modalMeta').innerHTML = `
+        <span>📅 ${dateStr}</span>
+        <span>📰 来源：${event.source}</span>
+        <span>📊 重要性：${'⭐'.repeat(event.importance)}</span>
+    `;
+
+    document.getElementById('modalContent').textContent = event.content;
+
+    // 来源链接（只有真实 URL 才显示）
+    const isRealUrl = event.url && !event.url.includes('example.com');
+    document.getElementById('modalFooter').innerHTML = isRealUrl
+        ? `<a href="${event.url}" target="_blank" class="modal-source-link">🔗 查看原文报道</a>`
+        : `<p style="color:#aaa;font-size:0.9em;">暂无原文链接，数据来源：${event.source}</p>`;
+
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// 点击遮罩关闭
+function closeModal(e) {
+    if (e.target === document.getElementById('modalOverlay')) {
+        closeModalDirect();
+    }
+}
+
+function closeModalDirect() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// ESC 键关闭
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModalDirect();
+});
 
 // 页面加载时初始化
 document.addEventListener('DOMContentLoaded', loadEvents);
