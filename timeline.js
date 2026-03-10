@@ -27,7 +27,7 @@ let filteredEvents = [];
 async function loadEvents() {
     try {
         // 尝试加载本地 JSON 文件
-        const response = await fetch('../data/events.json');
+        const response = await fetch('./events.json');
         if (!response.ok) {
             throw new Error('数据文件不存在');
         }
