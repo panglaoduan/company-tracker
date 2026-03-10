@@ -286,6 +286,75 @@
             transform: translateY(-2px);
         }
 
+        /* 分类多选按钮组 */
+        .cat-filter {
+            background: white;
+            border-radius: 15px;
+            padding: 16px 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .cat-btn {
+            padding: 7px 16px;
+            border-radius: 20px;
+            border: 2px solid #ddd;
+            background: white;
+            color: #666;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cat-btn:hover {
+            border-color: var(--cc, #667eea);
+            color: var(--cc, #667eea);
+        }
+        .cat-btn.active {
+            background: var(--cc, #667eea);
+            border-color: var(--cc, #667eea);
+            color: white;
+        }
+        .cat-btn[data-cat="all"].active {
+            background: #667eea;
+            border-color: #667eea;
+        }
+
+        /* 卡片标签 */
+        .tag-company {
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .tag-category {
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .tag-sentiment {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        .price-badge {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .detail-hint {
+            display: inline-block;
+            margin-top: 10px;
+            color: #667eea;
+            font-size: 0.88em;
+        }
+
         /* 详情弹窗 */
         .modal-overlay {
             display: none;
@@ -450,7 +519,7 @@
         <div class="filters">
             <div class="filter-group">
                 <label>🏢 公司:</label>
-                <select id="companyFilter" onchange="filterEvents()">
+                <select id="companyFilter" onchange="applyFilter()">
                     <option value="all">全部公司</option>
                     <option value="tesla">特斯拉</option>
                     <option value="spacex">SpaceX</option>
@@ -460,25 +529,21 @@
                     <option value="ganli_pharma">甘李药业</option>
                 </select>
             </div>
-            
-            <div class="filter-group">
-                <label>📁 分类:</label>
-                <select id="categoryFilter" onchange="filterEvents()">
-                    <option value="all">全部分类</option>
-                    <option value="strategy">📈 经营战略</option>
-                    <option value="executive">👔 高管动态</option>
-                    <option value="competition">⚔️ 行业竞争</option>
-                    <option value="earnings">📋 财报发布</option>
-                    <option value="volatility">⚡ 股价异动</option>
-                </select>
-            </div>
-            
             <div class="filter-group">
                 <label>🔍 搜索:</label>
-                <input type="text" id="searchInput" placeholder="关键词搜索..." oninput="filterEvents()">
+                <input type="text" id="searchInput" placeholder="关键词搜索..." oninput="applyFilter()">
             </div>
-            
-            <button class="refresh-btn" onclick="loadEvents()">🔄 刷新数据</button>
+            <button class="refresh-btn" onclick="loadEvents()">🔄 刷新</button>
+        </div>
+
+        <!-- 分类多选按钮组 -->
+        <div class="cat-filter">
+            <button class="cat-btn active" data-cat="all" onclick="toggleCategory('all')">全部</button>
+            <button class="cat-btn" data-cat="strategy"    onclick="toggleCategory('strategy')"   style="--cc:#2196f3;--bg:#e3f2fd">📈 经营战略</button>
+            <button class="cat-btn" data-cat="executive"   onclick="toggleCategory('executive')"  style="--cc:#9c27b0;--bg:#f3e5f5">👔 高管动态</button>
+            <button class="cat-btn" data-cat="competition" onclick="toggleCategory('competition')" style="--cc:#ff5722;--bg:#fbe9e7">⚔️ 行业竞争</button>
+            <button class="cat-btn" data-cat="earnings"    onclick="toggleCategory('earnings')"   style="--cc:#4caf50;--bg:#e8f5e9">📋 财报发布</button>
+            <button class="cat-btn" data-cat="volatility"  onclick="toggleCategory('volatility')" style="--cc:#ff9800;--bg:#fff3e0">⚡ 股价异动</button>
         </div>
         
         <div class="stats">
