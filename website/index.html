@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公司追踪系统 - CEO 动态与战略分析</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .filters {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .filter-group label {
+            font-weight: 600;
+            color: #555;
+        }
+        
+        select, input {
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #ddd;
+            border-radius: 2px;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            margin-left: 100px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            position: relative;
+            transition: all 0.3s;
+            border-left: 5px solid #667eea;
+        }
+        
+        .event-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+        
+        .event-card::before {
+            content: '';
+            position: absolute;
+            left: -62px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid #667eea;
+            border-radius: 50%;
+        }
+        
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .event-company {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            margin-right: 10px;
+        }
+        
+        .event-category {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            background: #f0f0f0;
+            color: #666;
+        }
+        
+        .event-title {
+            font-size: 1.4em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .event-content {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .event-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+            color: #999;
+        }
+        
+        .event-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .sentiment-positive {
+            background: #4caf50;
+        }
+        
+        .sentiment-negative {
+            background: #f44336;
+        }
+        
+        .sentiment-neutral {
+            background: #9e9e9e;
+        }
+        
+        .no-events {
+            text-align: center;
+            padding: 50px;
+            color: white;
+            font-size: 1.2em;
+        }
+        
+        .refresh-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .refresh-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .event-card {
+                margin-left: 50px;
+            }
+            
+            .event-card::before {
+                left: -42px;
+            }
+            
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 公司追踪系统</h1>
+            <p class="subtitle">CEO 动态 · 经营战略 · 行业竞争 - 时间线追踪</p>
+        </header>
+        
+        <div class="filters">
+            <div class="filter-group">
+                <label>🏢 公司:</label>
+                <select id="companyFilter" onchange="filterEvents()">
+                    <option value="all">全部公司</option>
+                    <option value="tesla">特斯拉</option>
+                    <option value="spacex">SpaceX</option>
+                    <option value="ast_spacemobile">AST SpaceMobile</option>
+                    <option value="xiaomi">小米集团</option>
+                    <option value="horizon_robotics">地平线机器人</option>
+                    <option value="ganli_pharma">甘李药业</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>📁 分类:</label>
+                <select id="categoryFilter" onchange="filterEvents()">
+                    <option value="all">全部分类</option>
+                    <option value="strategy">经营战略</option>
+                    <option value="executive">高管动态</option>
+                    <option value="competition">行业竞争</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>🔍 搜索:</label>
+                <input type="text" id="searchInput" placeholder="关键词搜索..." oninput="filterEvents()">
+            </div>
+            
+            <button class="refresh-btn" onclick="loadEvents()">🔄 刷新数据</button>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalEvents">0</div>
+                <div class="stat-label">总事件数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="todayEvents">0</div>
+                <div class="stat-label">今日更新</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="companiesCount">6</div>
+                <div class="stat-label">追踪公司</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="lastUpdate">-</div>
+                <div class="stat-label">最后更新</div>
+            </div>
+        </div>
+        
+        <div class="timeline" id="timeline">
+            <div class="no-events">
+                <p>📭 暂无事件数据</p>
+                <p style="margin-top: 10px; font-size: 0.9em;">点击"刷新数据"加载最新信息</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="timeline.js"></script>
+</body>
+</html>
