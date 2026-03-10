@@ -9,9 +9,11 @@ const COMPANIES = {
 };
 
 const CATEGORIES = {
-    'strategy': { name: '经营战略', icon: '📈' },
-    'executive': { name: '高管动态', icon: '👔' },
-    'competition': { name: '行业竞争', icon: '⚔️' }
+    'strategy':   { name: '经营战略', icon: '📈' },
+    'executive':  { name: '高管动态', icon: '👔' },
+    'competition':{ name: '行业竞争', icon: '⚔️' },
+    'earnings':   { name: '财报发布', icon: '📋' },
+    'volatility': { name: '股价异动', icon: '⚡' },
 };
 
 const SENTIMENTS = {
