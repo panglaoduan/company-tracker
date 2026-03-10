@@ -253,6 +253,10 @@ function filterEvents() {
     renderEvents();
 }
 
+// 当前图表实例（避免重复创建）
+let priceChartInst = null;
+let volChartInst   = null;
+
 // 打开详情弹窗
 function openModal(card) {
     const event = JSON.parse(decodeURIComponent(card.dataset.event));
@@ -274,23 +278,133 @@ function openModal(card) {
     `;
 
     document.getElementById('modalTitle').textContent = event.title;
-
     document.getElementById('modalMeta').innerHTML = `
         <span>📅 ${dateStr}</span>
         <span>📰 来源：${event.source}</span>
         <span>📊 重要性：${'⭐'.repeat(event.importance)}</span>
     `;
-
     document.getElementById('modalContent').textContent = event.content;
 
-    // 来源链接（只有真实 URL 才显示）
+    // ── 股价区块 ──
+    const sd = event.stock_data;
+    let stockHtml = '';
+    if (!sd) {
+        stockHtml = `<div class="stock-block">
+            <h4>📈 新闻发布后一周股价</h4>
+            <p class="stock-unlisted">该公司尚未上市，暂无股价数据</p>
+        </div>`;
+    } else {
+        const upDown    = sd.change_pct >= 0;
+        const changeClass = upDown ? 'stock-change-up' : 'stock-change-down';
+        const changeIcon  = upDown ? '▲' : '▼';
+        const fmtVol = v => v >= 1e8 ? (v/1e8).toFixed(1)+'亿'
+                         : v >= 1e4  ? (v/1e4).toFixed(1)+'万' : v;
+        const avgVol = Math.round(sd.volumes.reduce((a,b)=>a+b,0)/sd.volumes.length);
+
+        stockHtml = `<div class="stock-block">
+            <h4>📈 新闻发布后一周股价走势（${sd.ticker}）</h4>
+            <div class="stock-summary">
+                <div class="stock-stat">
+                    <div class="val">${sd.open_price}</div>
+                    <div class="lbl">新闻日收盘</div>
+                </div>
+                <div class="stock-stat">
+                    <div class="val">${sd.close_price}</div>
+                    <div class="lbl">一周后收盘</div>
+                </div>
+                <div class="stock-stat">
+                    <div class="val ${changeClass}">${changeIcon} ${Math.abs(sd.change_pct)}%</div>
+                    <div class="lbl">一周涨跌幅</div>
+                </div>
+                <div class="stock-stat">
+                    <div class="val">${fmtVol(avgVol)}</div>
+                    <div class="lbl">日均成交量</div>
+                </div>
+            </div>
+            <div class="stock-summary" style="grid-template-columns:1fr 1fr;margin-bottom:12px;">
+                <div class="stock-stat">
+                    <div class="val" style="color:#e5483c;">↑ ${sd.week_high}</div>
+                    <div class="lbl">周最高</div>
+                </div>
+                <div class="stock-stat">
+                    <div class="val" style="color:#22a06b;">↓ ${sd.week_low}</div>
+                    <div class="lbl">周最低</div>
+                </div>
+            </div>
+            <div class="chart-wrap"><canvas id="priceChart"></canvas></div>
+            <div class="chart-wrap-vol"><canvas id="volChart"></canvas></div>
+        </div>`;
+    }
+
+    // 来源链接
     const isRealUrl = event.url && !event.url.includes('example.com');
-    document.getElementById('modalFooter').innerHTML = isRealUrl
+    const footerHtml = isRealUrl
         ? `<a href="${event.url}" target="_blank" class="modal-source-link">🔗 查看原文报道</a>`
         : `<p style="color:#aaa;font-size:0.9em;">暂无原文链接，数据来源：${event.source}</p>`;
 
+    document.getElementById('modalFooter').innerHTML = stockHtml + footerHtml;
+
     document.getElementById('modalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // 渲染图表（需要 DOM 已插入）
+    if (sd) {
+        if (priceChartInst) priceChartInst.destroy();
+        if (volChartInst)   volChartInst.destroy();
+
+        const upColor = sd.change_pct >= 0 ? '#22a06b' : '#e5483c';
+
+        priceChartInst = new Chart(document.getElementById('priceChart'), {
+            type: 'line',
+            data: {
+                labels: sd.dates,
+                datasets: [{
+                    data: sd.closes,
+                    borderColor: upColor,
+                    backgroundColor: upColor + '18',
+                    borderWidth: 2,
+                    pointRadius: 3,
+                    pointBackgroundColor: upColor,
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+                    y: { grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } } }
+                },
+                animation: { duration: 400 }
+            }
+        });
+
+        volChartInst = new Chart(document.getElementById('volChart'), {
+            type: 'bar',
+            data: {
+                labels: sd.dates,
+                datasets: [{
+                    data: sd.volumes,
+                    backgroundColor: sd.closes.map((c, i) =>
+                        i === 0 ? '#aaa' : (c >= sd.closes[i-1] ? '#22a06b88' : '#e5483c88')
+                    ),
+                    borderRadius: 3
+                }]
+            },
+            options: {
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+                    y: { grid: { display: false }, ticks: {
+                        font: { size: 10 },
+                        callback: v => v >= 1e8 ? (v/1e8).toFixed(0)+'亿'
+                                    : v >= 1e4  ? (v/1e4).toFixed(0)+'万' : v
+                    }}
+                },
+                animation: { duration: 400 }
+            }
+        });
+    }
 }
 
 // 点击遮罩关闭

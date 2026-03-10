@@ -376,6 +376,60 @@
             transition: background 0.2s;
         }
         .modal-source-link:hover { background: #5568d3; }
+
+        /* 股价区块 */
+        .stock-block {
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 20px;
+            border: 1px solid #e8ecff;
+        }
+        .stock-block h4 {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .stock-summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .stock-stat {
+            text-align: center;
+            background: white;
+            border-radius: 8px;
+            padding: 8px 6px;
+            border: 1px solid #eee;
+        }
+        .stock-stat .val {
+            font-size: 1em;
+            font-weight: 700;
+            color: #222;
+        }
+        .stock-stat .lbl {
+            font-size: 0.72em;
+            color: #999;
+            margin-top: 2px;
+        }
+        .stock-change-up   { color: #22a06b !important; }
+        .stock-change-down { color: #e5483c !important; }
+        .stock-unlisted {
+            color: #999;
+            font-size: 0.9em;
+            padding: 10px 0;
+        }
+        .chart-wrap {
+            position: relative;
+            height: 140px;
+            margin-bottom: 8px;
+        }
+        .chart-wrap-vol {
+            position: relative;
+            height: 60px;
+        }
         
         @media (max-width: 768px) {
             .timeline::before { left: 18px; }
@@ -465,6 +519,7 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script src="timeline.js"></script>
 </body>
 </html>

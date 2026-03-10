@@ -10,7 +10,42 @@
     "category": "strategy",
     "sentiment": "positive",
     "importance": 5,
-    "created_at": "2024-11-14T10:00:00"
+    "created_at": "2024-11-14T10:00:00",
+    "stock_data": {
+      "ticker": "1810.HK",
+      "open_price": 27.85,
+      "close_price": 28.55,
+      "week_high": 29.85,
+      "week_low": 27.35,
+      "change_pct": 2.51,
+      "dates": [
+        "11/14",
+        "11/15",
+        "11/18",
+        "11/19",
+        "11/20",
+        "11/21",
+        "11/22"
+      ],
+      "closes": [
+        27.85,
+        28.0,
+        28.8,
+        28.3,
+        28.0,
+        28.15,
+        28.55
+      ],
+      "volumes": [
+        155298014,
+        117132035,
+        162095850,
+        209931014,
+        113721056,
+        102041844,
+        254978108
+      ]
+    }
   },
   {
     "id": "2",
@@ -23,7 +58,42 @@
     "category": "strategy",
     "sentiment": "positive",
     "importance": 5,
-    "created_at": "2023-12-13T09:00:00"
+    "created_at": "2023-12-13T09:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 239.29,
+      "close_price": 254.5,
+      "week_high": 259.84,
+      "week_low": 228.2,
+      "change_pct": 6.36,
+      "dates": [
+        "12/13",
+        "12/14",
+        "12/15",
+        "12/18",
+        "12/19",
+        "12/20",
+        "12/21"
+      ],
+      "closes": [
+        239.29,
+        251.05,
+        253.5,
+        252.08,
+        257.22,
+        247.14,
+        254.5
+      ],
+      "volumes": [
+        146286300,
+        160829200,
+        135932800,
+        116416500,
+        106737400,
+        125097000,
+        109594200
+      ]
+    }
   },
   {
     "id": "3",
@@ -36,7 +106,8 @@
     "category": "strategy",
     "sentiment": "positive",
     "importance": 5,
-    "created_at": "2024-03-14T14:00:00"
+    "created_at": "2024-03-14T14:00:00",
+    "stock_data": null
   },
   {
     "id": "4",
@@ -49,7 +120,8 @@
     "category": "executive",
     "sentiment": "positive",
     "importance": 4,
-    "created_at": "2024-08-28T11:00:00"
+    "created_at": "2024-08-28T11:00:00",
+    "stock_data": null
   },
   {
     "id": "5",
@@ -62,7 +134,42 @@
     "category": "strategy",
     "sentiment": "positive",
     "importance": 4,
-    "created_at": "2024-06-03T09:30:00"
+    "created_at": "2024-06-03T09:30:00",
+    "stock_data": {
+      "ticker": "603087.SS",
+      "open_price": 47.25,
+      "close_price": 46.81,
+      "week_high": 48.73,
+      "week_low": 45.4,
+      "change_pct": -0.94,
+      "dates": [
+        "06/03",
+        "06/04",
+        "06/05",
+        "06/06",
+        "06/07",
+        "06/11",
+        "06/12"
+      ],
+      "closes": [
+        47.25,
+        48.02,
+        47.72,
+        46.13,
+        45.75,
+        46.71,
+        46.81
+      ],
+      "volumes": [
+        9166251,
+        7447795,
+        7790877,
+        11298264,
+        6689599,
+        7674810,
+        5838200
+      ]
+    }
   },
   {
     "id": "6",
@@ -75,7 +182,42 @@
     "category": "competition",
     "sentiment": "positive",
     "importance": 5,
-    "created_at": "2024-09-10T16:00:00"
+    "created_at": "2024-09-10T16:00:00",
+    "stock_data": {
+      "ticker": "ASTS",
+      "open_price": 26.11,
+      "close_price": 28.3,
+      "week_high": 30.93,
+      "week_low": 23.54,
+      "change_pct": 8.39,
+      "dates": [
+        "09/10",
+        "09/11",
+        "09/12",
+        "09/13",
+        "09/16",
+        "09/17",
+        "09/18"
+      ],
+      "closes": [
+        26.11,
+        27.9,
+        26.79,
+        29.83,
+        29.84,
+        28.0,
+        28.3
+      ],
+      "volumes": [
+        15132500,
+        16135000,
+        25201000,
+        25794500,
+        13323900,
+        13548400,
+        10937500
+      ]
+    }
   },
   {
     "id": "7",
@@ -88,7 +230,39 @@
     "category": "competition",
     "sentiment": "negative",
     "importance": 5,
-    "created_at": "2025-01-02T10:00:00"
+    "created_at": "2025-01-02T10:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 379.28,
+      "close_price": 394.74,
+      "week_high": 426.43,
+      "week_low": 373.04,
+      "change_pct": 4.08,
+      "dates": [
+        "01/02",
+        "01/03",
+        "01/06",
+        "01/07",
+        "01/08",
+        "01/10"
+      ],
+      "closes": [
+        379.28,
+        410.44,
+        411.05,
+        394.36,
+        394.94,
+        394.74
+      ],
+      "volumes": [
+        109710700,
+        95423300,
+        85516500,
+        75699500,
+        73038800,
+        62287300
+      ]
+    }
   },
   {
     "id": "8",
@@ -101,6 +275,35 @@
     "category": "executive",
     "sentiment": "positive",
     "importance": 4,
-    "created_at": "2024-12-19T19:00:00"
+    "created_at": "2024-12-19T19:00:00",
+    "stock_data": {
+      "ticker": "1810.HK",
+      "open_price": 30.8,
+      "close_price": 34.15,
+      "week_high": 34.95,
+      "week_low": 30.0,
+      "change_pct": 10.88,
+      "dates": [
+        "12/19",
+        "12/20",
+        "12/23",
+        "12/24",
+        "12/27"
+      ],
+      "closes": [
+        30.8,
+        31.65,
+        31.75,
+        32.9,
+        34.15
+      ],
+      "volumes": [
+        85886142,
+        204413958,
+        97720054,
+        0,
+        263910660
+      ]
+    }
   }
 ]
