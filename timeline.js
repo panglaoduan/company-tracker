@@ -30,13 +30,26 @@ let activeCategories = new Set(['all']);  // 多选状态
 // ── 数据加载 ──────────────────────────────────────────
 async function loadEvents() {
     try {
-        const res = await fetch('./events.json?' + Date.now());
-        if (!res.ok) throw new Error('no data');
-        allEvents = await res.json();
+        const ts = Date.now();
+        // 并行加载 events + meta
+        const [evRes, metaRes] = await Promise.all([
+            fetch('./events.json?' + ts),
+            fetch('./meta.json?'   + ts)
+        ]);
+        if (!evRes.ok) throw new Error('no data');
+
+        allEvents = await evRes.json();
         allEvents.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
         filteredEvents = [...allEvents];
         renderEvents();
-        updateStats();
+
+        // 从 meta.json 读取真实更新时间
+        if (metaRes.ok) {
+            const meta = await metaRes.json();
+            updateStats(meta.last_updated);
+        } else {
+            updateStats(null);
+        }
     } catch (e) {
         console.error('加载失败', e);
         document.getElementById('timeline').innerHTML =
@@ -149,15 +162,24 @@ function renderEvents() {
 }
 
 // ── 统计栏 ────────────────────────────────────────────
-function updateStats() {
+function updateStats(lastUpdated) {
     document.getElementById('totalEvents').textContent = allEvents.length;
     const today = new Date().toDateString();
     document.getElementById('todayEvents').textContent =
         allEvents.filter(e => new Date(e.created_at).toDateString() === today).length;
-    if (allEvents.length) {
-        const t = new Date(allEvents[0].created_at);
-        document.getElementById('lastUpdate').textContent =
-            t.toLocaleDateString('zh-CN', { month:'2-digit', day:'2-digit' });
+
+    // 显示真实数据更新时间
+    const el = document.getElementById('lastUpdate');
+    if (lastUpdated) {
+        // lastUpdated 格式：'2026-03-10 23:40:06'
+        const d = new Date(lastUpdated.replace(' ', 'T'));
+        el.textContent = d.toLocaleString('zh-CN', {
+            month: '2-digit', day: '2-digit',
+            hour: '2-digit', minute: '2-digit'
+        });
+        el.title = '数据抓取时间：' + lastUpdated;
+    } else {
+        el.textContent = '—';
     }
 }
 
