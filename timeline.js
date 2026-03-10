@@ -135,53 +135,71 @@ function loadDemoData() {
     updateStats();
 }
 
-// 渲染事件列表
+// 渲染事件列表（带年月分隔标记）
 function renderEvents() {
     const timeline = document.getElementById('timeline');
-    
+
     if (filteredEvents.length === 0) {
         timeline.innerHTML = '<div class="no-events"><p>📭 暂无匹配的事件</p></div>';
         return;
     }
-    
-    timeline.innerHTML = filteredEvents.map(event => {
-        const company = COMPANIES[event.company_id] || { name: event.company_name, color: '#667eea' };
-        const category = CATEGORIES[event.category] || { name: event.category, icon: '📌' };
-        const sentiment = SENTIMENTS[event.sentiment] || { name: event.sentiment, class: 'sentiment-neutral' };
-        
+
+    let html = '';
+    let lastYearMonth = null;
+
+    filteredEvents.forEach(event => {
+        const company  = COMPANIES[event.company_id] || { name: event.company_name, color: '#667eea' };
+        const category = CATEGORIES[event.category]  || { name: event.category, icon: '📌' };
+        const sentiment= SENTIMENTS[event.sentiment] || { name: event.sentiment, class: 'sentiment-neutral' };
+
         const date = new Date(event.created_at);
-        const dateStr = date.toLocaleDateString('zh-CN', { 
-            year: 'numeric', 
-            month: '2-digit', 
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit'
+        const year  = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const yearMonth = `${year}-${String(month).padStart(2, '0')}`;
+
+        // 如果年月发生变化，插入分隔标记
+        if (yearMonth !== lastYearMonth) {
+            // 年份变化时加一个更显眼的年份标记
+            const isNewYear = lastYearMonth && year !== parseInt(lastYearMonth.split('-')[0]);
+            if (isNewYear || lastYearMonth === null) {
+                html += `
+                <div class="timeline-year">
+                    <div class="timeline-year-badge">${year}</div>
+                </div>`;
+            }
+            html += `
+            <div class="timeline-month">
+                <div class="timeline-month-badge">${month} 月</div>
+            </div>`;
+            lastYearMonth = yearMonth;
+        }
+
+        const dateStr = date.toLocaleDateString('zh-CN', {
+            month: '2-digit', day: '2-digit',
+            hour: '2-digit', minute: '2-digit'
         });
-        
-        return `
-            <div class="event-card" style="border-left-color: ${company.color}">
-                <div class="event-header">
-                    <div>
-                        <span class="event-company" style="background: ${company.color}">
-                            ${company.name}
-                        </span>
-                        <span class="event-category">
-                            ${category.icon} ${category.name}
-                        </span>
-                    </div>
+
+        html += `
+        <div class="event-card" style="border-left-color: ${company.color}">
+            <div class="event-header">
+                <div>
+                    <span class="event-company" style="background: ${company.color}">${company.name}</span>
+                    <span class="event-category">${category.icon} ${category.name}</span>
                 </div>
-                <h3 class="event-title">${event.title}</h3>
-                <p class="event-content">${event.content}</p>
-                <div class="event-meta">
-                    <span>📅 ${dateStr}</span>
-                    <span>📰 ${event.source}</span>
-                    <span class="${sentiment.class}">● ${sentiment.name}</span>
-                    <span>📊 重要性：${'⭐'.repeat(event.importance)}</span>
-                </div>
-                ${event.url ? `<a href="${event.url}" target="_blank" style="display:inline-block;margin-top:10px;color:#667eea;text-decoration:none;">🔗 查看详情 →</a>` : ''}
             </div>
-        `;
-    }).join('');
+            <h3 class="event-title">${event.title}</h3>
+            <p class="event-content">${event.content}</p>
+            <div class="event-meta">
+                <span>📅 ${dateStr}</span>
+                <span>📰 ${event.source}</span>
+                <span class="${sentiment.class}">● ${sentiment.name}</span>
+                <span>📊 ${'⭐'.repeat(event.importance)}</span>
+            </div>
+            ${event.url ? `<a href="${event.url}" target="_blank" style="display:inline-block;margin-top:10px;color:#667eea;text-decoration:none;">🔗 查看详情 →</a>` : ''}
+        </div>`;
+    });
+
+    timeline.innerHTML = html;
 }
 
 // 更新统计信息

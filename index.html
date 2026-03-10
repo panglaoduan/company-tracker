@@ -106,17 +106,17 @@
         
         .timeline {
             position: relative;
-            padding: 20px 0;
+            padding: 20px 0 20px 0;
         }
         
         .timeline::before {
             content: '';
             position: absolute;
-            left: 50px;
+            left: 22px;
             top: 0;
             bottom: 0;
-            width: 4px;
-            background: #ddd;
+            width: 3px;
+            background: rgba(255,255,255,0.4);
             border-radius: 2px;
         }
         
@@ -124,8 +124,8 @@
             background: white;
             border-radius: 15px;
             padding: 25px;
-            margin-bottom: 25px;
-            margin-left: 100px;
+            margin-bottom: 20px;
+            margin-left: 70px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.15);
             position: relative;
             transition: all 0.3s;
@@ -133,19 +133,19 @@
         }
         
         .event-card:hover {
-            transform: translateX(10px);
+            transform: translateX(8px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
         
         .event-card::before {
             content: '';
             position: absolute;
-            left: -62px;
-            top: 30px;
-            width: 20px;
-            height: 20px;
+            left: -56px;
+            top: 28px;
+            width: 14px;
+            height: 14px;
             background: white;
-            border: 4px solid #667eea;
+            border: 3px solid #667eea;
             border-radius: 50%;
         }
         
@@ -212,6 +212,57 @@
             background: #9e9e9e;
         }
         
+        /* 年份标记 */
+        .timeline-year {
+            position: relative;
+            margin-left: 0;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-year-badge {
+            position: absolute;
+            left: 22px;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 1em;
+            font-weight: 800;
+            padding: 6px 18px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.5);
+            letter-spacing: 2px;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        /* 月份标记 */
+        .timeline-month {
+            position: relative;
+            margin-left: 0;
+            margin-bottom: 15px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-month-badge {
+            position: absolute;
+            left: 22px;
+            transform: translateX(-50%);
+            background: white;
+            color: #667eea;
+            font-size: 0.85em;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 2px solid #667eea;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
         .no-events {
             text-align: center;
             padding: 50px;
@@ -236,22 +287,11 @@
         }
         
         @media (max-width: 768px) {
-            .timeline::before {
-                left: 20px;
-            }
-            
-            .event-card {
-                margin-left: 50px;
-            }
-            
-            .event-card::before {
-                left: -42px;
-            }
-            
-            .filters {
-                flex-direction: column;
-                align-items: stretch;
-            }
+            .timeline::before { left: 18px; }
+            .event-card { margin-left: 50px; }
+            .event-card::before { left: -40px; }
+            .timeline-year-badge, .timeline-month-badge { left: 18px; }
+            .filters { flex-direction: column; align-items: stretch; }
         }
     </style>
 </head>
