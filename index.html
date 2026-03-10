@@ -515,12 +515,26 @@
         .fin-table tr:hover td { background: #f8f9ff; }
         .chart-wrap {
             position: relative;
-            height: 140px;
+            height: 180px;
             margin-bottom: 8px;
         }
         .chart-wrap-vol {
             position: relative;
-            height: 60px;
+            height: 70px;
+        }
+        /* K 线 tooltip */
+        #kTooltip {
+            display: none;
+            position: absolute;
+            background: rgba(20,20,40,0.88);
+            color: #eee;
+            font-size: 12px;
+            line-height: 1.8;
+            padding: 8px 12px;
+            border-radius: 8px;
+            pointer-events: none;
+            z-index: 999;
+            white-space: nowrap;
         }
         
         @media (max-width: 768px) {

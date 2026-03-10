@@ -183,108 +183,129 @@ function updateStats(lastUpdated) {
     }
 }
 
-// ── K 线图 + 成交量图 ─────────────────────────────────
-let chartPrice = null, chartVol = null;
+// ── K 线图 + 成交量图（Canvas 手绘）─────────────────
+let chartVol = null;
 
 function renderKChart(sd) {
-    if (chartPrice) { chartPrice.destroy(); chartPrice = null; }
-    if (chartVol)   { chartVol.destroy();   chartVol   = null; }
+    if (chartVol) { chartVol.destroy(); chartVol = null; }
     if (!sd) return;
 
-    const UP   = '#e5483c';  // 阳线红（涨）
-    const DOWN = '#22a06b';  // 阴线绿（跌）
+    const UP   = '#e5483c';
+    const DOWN = '#22a06b';
 
     const candles = sd.dates.map((d, i) => ({
-        x: d,
+        label: d,
         o: sd.opens  ? sd.opens[i]  : sd.closes[i],
         h: sd.highs  ? sd.highs[i]  : sd.closes[i],
         l: sd.lows   ? sd.lows[i]   : sd.closes[i],
         c: sd.closes[i],
+        v: sd.volumes[i],
     }));
 
-    const colors = candles.map(d => d.c >= d.o ? UP : DOWN);
+    // ── 手绘 K 线 ───────────────────────────────
+    const canvas = document.getElementById('priceChart');
+    const dpr    = window.devicePixelRatio || 1;
+    const W      = canvas.offsetWidth  || 500;
+    const H      = canvas.offsetHeight || 160;
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
 
-    // ── 共用 tooltip ──────────────────────────────
-    const sharedTooltip = {
-        mode: 'index',
-        intersect: false,
-        callbacks: {
-            title: items => candles[items[0].dataIndex].x,
-            label: () => null,      // 去掉默认 label
-            afterBody: items => {
-                const i = items[0].dataIndex;
-                const d = candles[i];
-                const fv = v => v >= 1e8 ? (v/1e8).toFixed(1)+'亿'
-                              : v >= 1e4 ? (v/1e4).toFixed(0)+'万' : v;
-                return [
-                    `开盘: ${d.o}`,
-                    `最高: ${d.h}`,
-                    `最低: ${d.l}`,
-                    `收盘: ${d.c}`,
-                    `成交量: ${fv(sd.volumes[i])}`,
-                ];
-            }
-        },
-        backgroundColor: 'rgba(30,30,50,0.85)',
-        titleColor: '#fff',
-        bodyColor:  '#ddd',
-        padding: 10,
-        displayColors: false,
-    };
+    const PAD_L = 45, PAD_R = 10, PAD_T = 14, PAD_B = 24;
+    const chartW = W - PAD_L - PAD_R;
+    const chartH = H - PAD_T - PAD_B;
+    const n = candles.length;
 
-    // ── K 线图：影线 + 实体两个 dataset ──────────
-    const pCtx = document.getElementById('priceChart').getContext('2d');
-    chartPrice = new Chart(pCtx, {
-        type: 'bar',
-        data: {
-            labels: sd.dates,
-            datasets: [
-                {   // 影线（高低），极细
-                    label: '影线',
-                    data: candles.map(d => [d.l, d.h]),
-                    backgroundColor: colors,
-                    barPercentage: 0.08,
-                    categoryPercentage: 1.0,
-                    order: 2,
-                },
-                {   // 实体（开收），宽柱
-                    label: 'K线',
-                    data: candles.map(d => [
-                        Math.min(d.o, d.c),
-                        Math.max(d.o, d.c) || Math.min(d.o, d.c) + 0.01  // 防止开收相同导致不显示
-                    ]),
-                    backgroundColor: colors,
-                    barPercentage: 0.55,
-                    categoryPercentage: 1.0,
-                    order: 1,
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            interaction: { mode: 'index', intersect: false },
-            plugins: {
-                legend: { display: false },
-                tooltip: sharedTooltip,
-            },
-            scales: {
-                x: { grid: { display: false }, ticks: { font: { size: 11 } } },
-                y: {
-                    grid: { color: '#f0f0f0' },
-                    ticks: { font: { size: 11 } },
-                    // 留出上下边距让影线不被截断
-                    afterDataLimits: scale => {
-                        const range = scale.max - scale.min;
-                        scale.min -= range * 0.05;
-                        scale.max += range * 0.05;
-                    }
-                }
-            }
+    const allH = candles.map(d => d.h);
+    const allL = candles.map(d => d.l);
+    const yMax = Math.max(...allH) * 1.005;
+    const yMin = Math.min(...allL) * 0.995;
+    const yRange = yMax - yMin || 1;
+
+    const toY = v => PAD_T + chartH - (v - yMin) / yRange * chartH;
+    const slotW = chartW / n;
+    const bodyW = Math.max(slotW * 0.55, 3);
+    const wickW = Math.max(slotW * 0.08, 1);
+
+    // 背景
+    ctx.fillStyle = '#fafbff';
+    ctx.fillRect(0, 0, W, H);
+
+    // 网格线 + Y 轴标签
+    ctx.strokeStyle = '#eef0f5';
+    ctx.lineWidth   = 1;
+    ctx.fillStyle   = '#999';
+    ctx.font        = `${10 * dpr / dpr}px sans-serif`;
+    ctx.textAlign   = 'right';
+    const ticks = 4;
+    for (let t = 0; t <= ticks; t++) {
+        const v = yMin + yRange * (t / ticks);
+        const y = toY(v);
+        ctx.beginPath();
+        ctx.moveTo(PAD_L, y);
+        ctx.lineTo(W - PAD_R, y);
+        ctx.stroke();
+        ctx.fillText(v.toFixed(2), PAD_L - 3, y + 4);
+    }
+
+    // 画每根 K 线
+    candles.forEach((d, i) => {
+        const cx   = PAD_L + slotW * i + slotW / 2;
+        const isUp = d.c >= d.o;
+        const color = isUp ? UP : DOWN;
+
+        // 影线
+        ctx.strokeStyle = color;
+        ctx.lineWidth   = wickW;
+        ctx.beginPath();
+        ctx.moveTo(cx, toY(d.h));
+        ctx.lineTo(cx, toY(d.l));
+        ctx.stroke();
+
+        // 实体
+        const bodyTop = toY(Math.max(d.o, d.c));
+        const bodyBot = toY(Math.min(d.o, d.c));
+        const bodyH   = Math.max(bodyBot - bodyTop, 1.5);
+        ctx.fillStyle = isUp ? UP : DOWN;
+        ctx.fillRect(cx - bodyW / 2, bodyTop, bodyW, bodyH);
+
+        // 阳线空心描边（可选，更接近专业图表）
+        if (isUp) {
+            ctx.strokeStyle = UP;
+            ctx.lineWidth   = 1;
+            ctx.strokeRect(cx - bodyW / 2, bodyTop, bodyW, bodyH);
         }
+
+        // X 轴日期
+        ctx.fillStyle  = '#888';
+        ctx.textAlign  = 'center';
+        ctx.font       = '10px sans-serif';
+        ctx.fillText(d.label, cx, H - PAD_B + 14);
     });
 
-    // ── 成交量图 ──────────────────────────────────
+    // Tooltip（鼠标悬停）
+    const tip = document.getElementById('kTooltip');
+    canvas.onmousemove = e => {
+        const rect = canvas.getBoundingClientRect();
+        const mx   = e.clientX - rect.left;
+        const idx  = Math.floor((mx - PAD_L) / slotW);
+        if (idx < 0 || idx >= n) { tip.style.display = 'none'; return; }
+        const d = candles[idx];
+        const fv = v => v >= 1e8 ? (v/1e8).toFixed(2)+'亿' : v >= 1e4 ? (v/1e4).toFixed(1)+'万' : v;
+        tip.innerHTML = `
+            <b>${d.label}</b><br>
+            开盘：${d.o}<br>最高：<span style="color:#e5483c">${d.h}</span><br>
+            最低：<span style="color:#22a06b">${d.l}</span><br>收盘：${d.c}<br>
+            成交量：${fv(d.v)}`;
+        tip.style.display = 'block';
+        tip.style.left    = (e.clientX - rect.left + 12) + 'px';
+        tip.style.top     = (e.clientY - rect.top  - 10) + 'px';
+    };
+    canvas.onmouseleave = () => { tip.style.display = 'none'; };
+
+    // ── 成交量图（Chart.js bar）────────────────────
+    const volColors = candles.map(d => d.c >= d.o ? UP + 'bb' : DOWN + 'bb');
     const vCtx = document.getElementById('volChart').getContext('2d');
     chartVol = new Chart(vCtx, {
         type: 'bar',
@@ -292,7 +313,7 @@ function renderKChart(sd) {
             labels: sd.dates,
             datasets: [{
                 data: sd.volumes,
-                backgroundColor: colors.map(c => c + 'bb'),
+                backgroundColor: volColors,
                 borderRadius: 2,
                 barPercentage: 0.6,
             }]
@@ -300,21 +321,17 @@ function renderKChart(sd) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            interaction: { mode: 'index', intersect: false },
-            plugins: {
-                legend: { display: false },
-                tooltip: sharedTooltip,
-            },
+            plugins: { legend: { display: false }, tooltip: { displayColors: false,
+                callbacks: { label: ctx => {
+                    const v = ctx.raw;
+                    return '成交量：' + (v>=1e8?(v/1e8).toFixed(1)+'亿':v>=1e4?(v/1e4).toFixed(1)+'万':v);
+                }}
+            }},
             scales: {
                 x: { grid: { display: false }, ticks: { font: { size: 10 } } },
-                y: {
-                    grid: { display: false },
-                    ticks: {
-                        font: { size: 10 },
-                        callback: v => v >= 1e8 ? (v/1e8).toFixed(1)+'亿'
-                                    : v >= 1e4  ? (v/1e4).toFixed(0)+'万' : v
-                    }
-                }
+                y: { grid: { display: false }, ticks: { font: { size: 10 },
+                    callback: v => v>=1e8?(v/1e8).toFixed(0)+'亿':v>=1e4?(v/1e4).toFixed(0)+'万':v
+                }}
             }
         }
     });
@@ -410,8 +427,11 @@ function openModal(card) {
                 <div class="stock-stat"><div class="val" style="color:#e5483c">↑ ${sd.week_high}</div><div class="lbl">周最高</div></div>
                 <div class="stock-stat"><div class="val" style="color:#22a06b">↓ ${sd.week_low}</div><div class="lbl">周最低</div></div>
             </div>
-            <p style="font-size:11px;color:#aaa;margin-bottom:4px">▌红涨绿跌（A股/港股惯例）</p>
-            <div class="chart-wrap"><canvas id="priceChart"></canvas></div>
+            <p style="font-size:11px;color:#aaa;margin-bottom:4px">▌红涨绿跌 · 悬停查看开高低收</p>
+            <div class="chart-wrap" style="position:relative">
+                <canvas id="priceChart" style="width:100%;height:100%"></canvas>
+                <div id="kTooltip"></div>
+            </div>
             <p style="font-size:11px;color:#aaa;margin:6px 0 4px">成交量</p>
             <div class="chart-wrap-vol"><canvas id="volChart"></canvas></div>
         </div>`;
