@@ -18,6 +18,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
+import yfinance as yf
 
 # ─── API Key ──────────────────────────────────────────────────────────────────
 YOUTUBE_API_KEY = 'AIzaSyDQuLaiqODzwdmMuwxUH9e07OnDoOhrXfc'
@@ -108,6 +109,59 @@ def fmt_views(n: int) -> str:
     if n >= 1_000:
         return f'{n/1_000:.1f}K'
     return str(n)
+
+
+def fetch_stock_after_date(ticker: str, date_str: str, days: int = 5) -> dict:
+    """
+    拉 date_str 之后 days 个交易日的 OHLCV 数据。
+    返回与 fetch_events.py 相同格式的 stock_data dict，供前端 K 线复用。
+    """
+    if not ticker:
+        return None
+    try:
+        start = datetime.strptime(date_str, '%Y-%m-%d')
+        # 多取一些日历日，保证能拿到足够交易日
+        end   = start + timedelta(days=days * 3)
+        # 不能超过今天
+        today = datetime.now()
+        if end > today:
+            end = today
+        if start >= today:
+            return None  # 未来日期，无数据
+
+        tk = yf.Ticker(ticker)
+        df = tk.history(
+            start=start.strftime('%Y-%m-%d'),
+            end=end.strftime('%Y-%m-%d'),
+            interval='1d'
+        )
+        if df is None or df.empty:
+            return None
+
+        df = df.head(days)  # 只取前 N 个交易日
+        if len(df) < 1:
+            return None
+
+        return {
+            'ticker':      ticker,
+            'open_price':  round(float(df['Close'].iloc[0]), 3),
+            'close_price': round(float(df['Close'].iloc[-1]), 3),
+            'week_high':   round(float(df['High'].max()), 3),
+            'week_low':    round(float(df['Low'].min()), 3),
+            'change_pct':  round(
+                (float(df['Close'].iloc[-1]) - float(df['Close'].iloc[0]))
+                / float(df['Close'].iloc[0]) * 100, 2
+            ),
+            'dates':   [d.strftime('%m/%d') for d in df.index],
+            'opens':   [round(float(v), 3) for v in df['Open']],
+            'highs':   [round(float(v), 3) for v in df['High']],
+            'lows':    [round(float(v), 3) for v in df['Low']],
+            'closes':  [round(float(v), 3) for v in df['Close']],
+            'volumes': [int(v) for v in df['Volume']],
+        }
+    except Exception as e:
+        print(f'    ⚠️  股价数据失败（{ticker} {date_str}）：{e}')
+        return None
 
 
 # ─── YouTube API 调用 ─────────────────────────────────────────────────────────
@@ -258,6 +312,15 @@ def process_company(company: dict, existing_ids: set, lookback_days: int) -> lis
 
             importance = 5 if views >= 500_000 else 4 if views >= 100_000 else 3
 
+            # 拉发布日后5个交易日股价
+            ticker = company.get('ticker')
+            stock_data = None
+            if ticker:
+                print(f'    📊 拉取 {ticker} 发布后5日行情…')
+                stock_data = fetch_stock_after_date(ticker, date_str, days=5)
+                if stock_data:
+                    print(f'    📈 股价 {stock_data["change_pct"]:+.2f}%（{date_str} 起5日）')
+
             event = {
                 'id':           event_id,
                 'company_id':   company['id'],
@@ -270,6 +333,7 @@ def process_company(company: dict, existing_ids: set, lookback_days: int) -> lis
                 'sentiment':    'neutral',
                 'importance':   importance,
                 'created_at':   date_str + 'T12:00:00',
+                'stock_data':   stock_data,
                 'social_data': {
                     'platform':      'youtube',
                     'channel':       channel,

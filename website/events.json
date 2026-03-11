@@ -81,11 +81,43 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-03-09T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 398.68,
+      "close_price": 399.235,
+      "week_high": 406.58,
+      "week_low": 381.4,
+      "change_pct": 0.14,
+      "dates": [
+        "03/09",
+        "03/10"
+      ],
+      "opens": [
+        390.05,
+        402.055
+      ],
+      "highs": [
+        401.59,
+        406.58
+      ],
+      "lows": [
+        381.4,
+        398.19
+      ],
+      "closes": [
+        398.68,
+        399.235
+      ],
+      "volumes": [
+        67018900,
+        59079142
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Curious Pejjy",
       "video_id": "lub0tr9HoXE",
-      "views": 5496,
+      "views": 5504,
       "view_text": "5.5K",
       "like_count": 369,
       "comment_count": 83,
@@ -264,11 +296,55 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-03-05T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 405.55,
+      "close_price": 399.235,
+      "week_high": 408.62,
+      "week_low": 381.4,
+      "change_pct": -1.56,
+      "dates": [
+        "03/05",
+        "03/06",
+        "03/09",
+        "03/10"
+      ],
+      "opens": [
+        401.57,
+        398.09,
+        390.05,
+        402.055
+      ],
+      "highs": [
+        408.62,
+        402.35,
+        401.59,
+        406.58
+      ],
+      "lows": [
+        399.42,
+        394.21,
+        381.4,
+        398.19
+      ],
+      "closes": [
+        405.55,
+        396.73,
+        398.68,
+        399.235
+      ],
+      "volumes": [
+        51925900,
+        64054600,
+        67018900,
+        59079142
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Brighter with Herbert",
       "video_id": "5Ae0Kat7KPQ",
-      "views": 32533,
+      "views": 32534,
       "view_text": "32.5K",
       "like_count": 1418,
       "comment_count": 118,
@@ -288,6 +364,7 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-03-05T12:00:00",
+    "stock_data": null,
     "social_data": {
       "platform": "youtube",
       "channel": "Solving The Money Problem",
@@ -564,11 +641,61 @@
     "sentiment": "neutral",
     "importance": 4,
     "created_at": "2026-03-03T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 392.43,
+      "close_price": 398.68,
+      "week_high": 408.62,
+      "week_low": 381.4,
+      "change_pct": 1.59,
+      "dates": [
+        "03/03",
+        "03/04",
+        "03/05",
+        "03/06",
+        "03/09"
+      ],
+      "opens": [
+        395.09,
+        397.85,
+        401.57,
+        398.09,
+        390.05
+      ],
+      "highs": [
+        396.34,
+        408.33,
+        408.62,
+        402.35,
+        401.59
+      ],
+      "lows": [
+        385.39,
+        394.58,
+        399.42,
+        394.21,
+        381.4
+      ],
+      "closes": [
+        392.43,
+        405.94,
+        405.55,
+        396.73,
+        398.68
+      ],
+      "volumes": [
+        62617300,
+        68305500,
+        51925900,
+        64054600,
+        67018900
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Financial Education",
       "video_id": "yzEr0KD0WKM",
-      "views": 101278,
+      "views": 101282,
       "view_text": "101.3K",
       "like_count": 6969,
       "comment_count": 580,
@@ -852,11 +979,61 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-03-01T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 403.32,
+      "close_price": 396.73,
+      "week_high": 408.62,
+      "week_low": 385.39,
+      "change_pct": -1.63,
+      "dates": [
+        "03/02",
+        "03/03",
+        "03/04",
+        "03/05",
+        "03/06"
+      ],
+      "opens": [
+        390.6,
+        395.09,
+        397.85,
+        401.57,
+        398.09
+      ],
+      "highs": [
+        404.54,
+        396.34,
+        408.33,
+        408.62,
+        402.35
+      ],
+      "lows": [
+        388.25,
+        385.39,
+        394.58,
+        399.42,
+        394.21
+      ],
+      "closes": [
+        403.32,
+        392.43,
+        405.94,
+        405.55,
+        396.73
+      ],
+      "volumes": [
+        55088300,
+        62617300,
+        68305500,
+        51925900,
+        64054600
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Brighter with Herbert",
       "video_id": "GYxuGzNr6Jw",
-      "views": 75416,
+      "views": 75418,
       "view_text": "75.4K",
       "like_count": 2691,
       "comment_count": 201,
@@ -876,6 +1053,56 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-03-01T12:00:00",
+    "stock_data": {
+      "ticker": "1810.HK",
+      "open_price": 33.14,
+      "close_price": 33.42,
+      "week_high": 34.36,
+      "week_low": 31.2,
+      "change_pct": 0.84,
+      "dates": [
+        "03/02",
+        "03/03",
+        "03/04",
+        "03/05",
+        "03/06"
+      ],
+      "opens": [
+        34.2,
+        33.14,
+        31.46,
+        32.56,
+        32.48
+      ],
+      "highs": [
+        34.36,
+        33.16,
+        32.56,
+        33.04,
+        34.14
+      ],
+      "lows": [
+        33.0,
+        31.46,
+        31.2,
+        32.1,
+        31.98
+      ],
+      "closes": [
+        33.14,
+        31.58,
+        32.0,
+        32.2,
+        33.42
+      ],
+      "volumes": [
+        316564745,
+        279341876,
+        205303841,
+        134042468,
+        293556057
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "China2Invest",
@@ -900,11 +1127,61 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-27T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 402.51,
+      "close_price": 405.55,
+      "week_high": 408.62,
+      "week_low": 385.39,
+      "change_pct": 0.76,
+      "dates": [
+        "02/27",
+        "03/02",
+        "03/03",
+        "03/04",
+        "03/05"
+      ],
+      "opens": [
+        402.94,
+        390.6,
+        395.09,
+        397.85,
+        401.57
+      ],
+      "highs": [
+        407.12,
+        404.54,
+        396.34,
+        408.33,
+        408.62
+      ],
+      "lows": [
+        398.11,
+        388.25,
+        385.39,
+        394.58,
+        399.42
+      ],
+      "closes": [
+        402.51,
+        403.32,
+        392.43,
+        405.94,
+        405.55
+      ],
+      "volumes": [
+        56890100,
+        55088300,
+        62617300,
+        68305500,
+        51925900
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Market Decode 市場解碼",
       "video_id": "8rBbFSgJPj4",
-      "views": 42620,
+      "views": 42622,
       "view_text": "42.6K",
       "like_count": 709,
       "comment_count": 24,
@@ -924,6 +1201,56 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-26T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 408.58,
+      "close_price": 405.94,
+      "week_high": 416.81,
+      "week_low": 385.39,
+      "change_pct": -0.65,
+      "dates": [
+        "02/26",
+        "02/27",
+        "03/02",
+        "03/03",
+        "03/04"
+      ],
+      "opens": [
+        414.42,
+        402.94,
+        390.6,
+        395.09,
+        397.85
+      ],
+      "highs": [
+        416.81,
+        407.12,
+        404.54,
+        396.34,
+        408.33
+      ],
+      "lows": [
+        403.66,
+        398.11,
+        388.25,
+        385.39,
+        394.58
+      ],
+      "closes": [
+        408.58,
+        402.51,
+        403.32,
+        392.43,
+        405.94
+      ],
+      "volumes": [
+        53602500,
+        56890100,
+        55088300,
+        62617300,
+        68305500
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Morningstar Europe",
@@ -948,6 +1275,56 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-26T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 408.58,
+      "close_price": 405.94,
+      "week_high": 416.81,
+      "week_low": 385.39,
+      "change_pct": -0.65,
+      "dates": [
+        "02/26",
+        "02/27",
+        "03/02",
+        "03/03",
+        "03/04"
+      ],
+      "opens": [
+        414.42,
+        402.94,
+        390.6,
+        395.09,
+        397.85
+      ],
+      "highs": [
+        416.81,
+        407.12,
+        404.54,
+        396.34,
+        408.33
+      ],
+      "lows": [
+        403.66,
+        398.11,
+        388.25,
+        385.39,
+        394.58
+      ],
+      "closes": [
+        408.58,
+        402.51,
+        403.32,
+        392.43,
+        405.94
+      ],
+      "volumes": [
+        53602500,
+        56890100,
+        55088300,
+        62617300,
+        68305500
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "CTO LARSSON",
@@ -972,6 +1349,56 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-25T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 417.4,
+      "close_price": 392.43,
+      "week_high": 420.34,
+      "week_low": 385.39,
+      "change_pct": -5.98,
+      "dates": [
+        "02/25",
+        "02/26",
+        "02/27",
+        "03/02",
+        "03/03"
+      ],
+      "opens": [
+        412.15,
+        414.42,
+        402.94,
+        390.6,
+        395.09
+      ],
+      "highs": [
+        420.34,
+        416.81,
+        407.12,
+        404.54,
+        396.34
+      ],
+      "lows": [
+        412.15,
+        403.66,
+        398.11,
+        388.25,
+        385.39
+      ],
+      "closes": [
+        417.4,
+        408.58,
+        402.51,
+        403.32,
+        392.43
+      ],
+      "volumes": [
+        54809700,
+        53602500,
+        56890100,
+        55088300,
+        62617300
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Electrified",
@@ -996,11 +1423,61 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-25T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 417.4,
+      "close_price": 392.43,
+      "week_high": 420.34,
+      "week_low": 385.39,
+      "change_pct": -5.98,
+      "dates": [
+        "02/25",
+        "02/26",
+        "02/27",
+        "03/02",
+        "03/03"
+      ],
+      "opens": [
+        412.15,
+        414.42,
+        402.94,
+        390.6,
+        395.09
+      ],
+      "highs": [
+        420.34,
+        416.81,
+        407.12,
+        404.54,
+        396.34
+      ],
+      "lows": [
+        412.15,
+        403.66,
+        398.11,
+        388.25,
+        385.39
+      ],
+      "closes": [
+        417.4,
+        408.58,
+        402.51,
+        403.32,
+        392.43
+      ],
+      "volumes": [
+        54809700,
+        53602500,
+        56890100,
+        55088300,
+        62617300
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "InvestAnswers",
       "video_id": "nmGOIbNoDZk",
-      "views": 46742,
+      "views": 46744,
       "view_text": "46.7K",
       "like_count": 3086,
       "comment_count": 215,
@@ -1020,11 +1497,61 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-25T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 417.4,
+      "close_price": 392.43,
+      "week_high": 420.34,
+      "week_low": 385.39,
+      "change_pct": -5.98,
+      "dates": [
+        "02/25",
+        "02/26",
+        "02/27",
+        "03/02",
+        "03/03"
+      ],
+      "opens": [
+        412.15,
+        414.42,
+        402.94,
+        390.6,
+        395.09
+      ],
+      "highs": [
+        420.34,
+        416.81,
+        407.12,
+        404.54,
+        396.34
+      ],
+      "lows": [
+        412.15,
+        403.66,
+        398.11,
+        388.25,
+        385.39
+      ],
+      "closes": [
+        417.4,
+        408.58,
+        402.51,
+        403.32,
+        392.43
+      ],
+      "volumes": [
+        54809700,
+        53602500,
+        56890100,
+        55088300,
+        62617300
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Jo Bhakdi",
       "video_id": "Eyx7p0OdnWk",
-      "views": 22333,
+      "views": 22334,
       "view_text": "22.3K",
       "like_count": 1227,
       "comment_count": 180,
@@ -1044,6 +1571,7 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-25T12:00:00",
+    "stock_data": null,
     "social_data": {
       "platform": "youtube",
       "channel": "CNBC Television",
@@ -1068,6 +1596,56 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-24T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 409.38,
+      "close_price": 403.32,
+      "week_high": 420.34,
+      "week_low": 388.25,
+      "change_pct": -1.48,
+      "dates": [
+        "02/24",
+        "02/25",
+        "02/26",
+        "02/27",
+        "03/02"
+      ],
+      "opens": [
+        399.5,
+        412.15,
+        414.42,
+        402.94,
+        390.6
+      ],
+      "highs": [
+        410.82,
+        420.34,
+        416.81,
+        407.12,
+        404.54
+      ],
+      "lows": [
+        397.64,
+        412.15,
+        403.66,
+        398.11,
+        388.25
+      ],
+      "closes": [
+        409.38,
+        417.4,
+        408.58,
+        402.51,
+        403.32
+      ],
+      "volumes": [
+        58579500,
+        54809700,
+        53602500,
+        56890100,
+        55088300
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Farzad",
@@ -1092,6 +1670,56 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-24T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 409.38,
+      "close_price": 403.32,
+      "week_high": 420.34,
+      "week_low": 388.25,
+      "change_pct": -1.48,
+      "dates": [
+        "02/24",
+        "02/25",
+        "02/26",
+        "02/27",
+        "03/02"
+      ],
+      "opens": [
+        399.5,
+        412.15,
+        414.42,
+        402.94,
+        390.6
+      ],
+      "highs": [
+        410.82,
+        420.34,
+        416.81,
+        407.12,
+        404.54
+      ],
+      "lows": [
+        397.64,
+        412.15,
+        403.66,
+        398.11,
+        388.25
+      ],
+      "closes": [
+        409.38,
+        417.4,
+        408.58,
+        402.51,
+        403.32
+      ],
+      "volumes": [
+        58579500,
+        54809700,
+        53602500,
+        56890100,
+        55088300
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Now You Know",
@@ -1179,11 +1807,61 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-23T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 399.83,
+      "close_price": 402.51,
+      "week_high": 420.34,
+      "week_low": 394.04,
+      "change_pct": 0.67,
+      "dates": [
+        "02/23",
+        "02/24",
+        "02/25",
+        "02/26",
+        "02/27"
+      ],
+      "opens": [
+        407.29,
+        399.5,
+        412.15,
+        414.42,
+        402.94
+      ],
+      "highs": [
+        407.7,
+        410.82,
+        420.34,
+        416.81,
+        407.12
+      ],
+      "lows": [
+        394.04,
+        397.64,
+        412.15,
+        403.66,
+        398.11
+      ],
+      "closes": [
+        399.83,
+        409.38,
+        417.4,
+        408.58,
+        402.51
+      ],
+      "volumes": [
+        69680000,
+        58579500,
+        54809700,
+        53602500,
+        56890100
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Brighter with Herbert",
       "video_id": "ayn3T1yeOio",
-      "views": 58699,
+      "views": 58700,
       "view_text": "58.7K",
       "like_count": 2508,
       "comment_count": 224,
@@ -1203,6 +1881,56 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-23T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 399.83,
+      "close_price": 402.51,
+      "week_high": 420.34,
+      "week_low": 394.04,
+      "change_pct": 0.67,
+      "dates": [
+        "02/23",
+        "02/24",
+        "02/25",
+        "02/26",
+        "02/27"
+      ],
+      "opens": [
+        407.29,
+        399.5,
+        412.15,
+        414.42,
+        402.94
+      ],
+      "highs": [
+        407.7,
+        410.82,
+        420.34,
+        416.81,
+        407.12
+      ],
+      "lows": [
+        394.04,
+        397.64,
+        412.15,
+        403.66,
+        398.11
+      ],
+      "closes": [
+        399.83,
+        409.38,
+        417.4,
+        408.58,
+        402.51
+      ],
+      "volumes": [
+        69680000,
+        58579500,
+        54809700,
+        53602500,
+        56890100
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Jo Bhakdi",
@@ -1227,6 +1955,7 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-23T12:00:00",
+    "stock_data": null,
     "social_data": {
       "platform": "youtube",
       "channel": "youprenur",
@@ -1314,6 +2043,56 @@
     "sentiment": "neutral",
     "importance": 4,
     "created_at": "2026-02-20T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 411.82,
+      "close_price": 408.58,
+      "week_high": 420.34,
+      "week_low": 394.04,
+      "change_pct": -0.79,
+      "dates": [
+        "02/20",
+        "02/23",
+        "02/24",
+        "02/25",
+        "02/26"
+      ],
+      "opens": [
+        408.3,
+        407.29,
+        399.5,
+        412.15,
+        414.42
+      ],
+      "highs": [
+        414.7,
+        407.7,
+        410.82,
+        420.34,
+        416.81
+      ],
+      "lows": [
+        405.5,
+        394.04,
+        397.64,
+        412.15,
+        403.66
+      ],
+      "closes": [
+        411.82,
+        399.83,
+        409.38,
+        417.4,
+        408.58
+      ],
+      "volumes": [
+        57912200,
+        69680000,
+        58579500,
+        54809700,
+        53602500
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Financial Education",
@@ -1324,6 +2103,31 @@
       "comment_count": 1204,
       "duration": "41:23",
       "description": "✅Join My Private Group & access 1000xStocks. Apply with this link https://www.financialeducationjeremy.com/indx-ytm\n\n❤️ Join my Patreon with this link https://www.patreon.com/JeremyLefebvre \n\n💰How much money you need to quit your job free workshop \nhttps://www.fejeremy.com/retire-ytm \n🏆 Watch my NEW free 5-day workshop, to understand how to become a great investor - https://www.fejeremy.com/foundations \n🔑 How I find 10X Stocks Free Workshop. Enjoy! https://www.fejeremy.com/10x \n\nSOCIALS:\nMy IG: "
+    }
+  },
+  {
+    "id": "efe84a0b6831",
+    "company_id": "spacex",
+    "company_name": "SpaceX",
+    "title": "📺 VP Motion：The Real Power Behind SpaceX and Starlink",
+    "content": "YouTube 频道「VP Motion」发布了一期关于 SpaceX 的分析视频，播放 18.2K · 点赞 378 · 评论 8 · 时长 0:48。\n\n📝 视频简介：In this clip, Patrick Bet-David explains the bigger picture behind SpaceX.  Reusable rockets lowered launch costs. Starlink expanded global internet access.  Now the conversation moves toward space-based infrastructure.  When you control transportation, connectivity, and data flow, you don’t just bu……\n\n⚠️ 以上为社媒达人观点，仅供参考，请结合基本面独立判断。",
+    "source": "YouTube · VP Motion",
+    "url": "https://www.youtube.com/watch?v=U_x1UzJZFjE",
+    "category": "social",
+    "sentiment": "neutral",
+    "importance": 3,
+    "created_at": "2026-02-19T12:00:00",
+    "stock_data": null,
+    "social_data": {
+      "platform": "youtube",
+      "channel": "VP Motion",
+      "video_id": "U_x1UzJZFjE",
+      "views": 18200,
+      "view_text": "18.2K",
+      "like_count": 378,
+      "comment_count": 8,
+      "duration": "0:48",
+      "description": "In this clip, Patrick Bet-David explains the bigger picture behind SpaceX.\n\nReusable rockets lowered launch costs.\nStarlink expanded global internet access.\n\nNow the conversation moves toward space-based infrastructure.\n\nWhen you control transportation, connectivity, and data flow,\nyou don’t just build companies — you build leverage.\n\nTechnology at scale becomes geopolitical power.\n\n🎧 Source: Patrick Bet-David\n#spacex #businessstrategy #infrastructure #innovationeconomy #financialeducation"
     }
   },
   {
@@ -1338,6 +2142,56 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-18T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 411.32,
+      "close_price": 409.38,
+      "week_high": 416.9,
+      "week_low": 394.04,
+      "change_pct": -0.47,
+      "dates": [
+        "02/18",
+        "02/19",
+        "02/20",
+        "02/23",
+        "02/24"
+      ],
+      "opens": [
+        411.11,
+        407.25,
+        408.3,
+        407.29,
+        399.5
+      ],
+      "highs": [
+        416.9,
+        415.25,
+        414.7,
+        407.7,
+        410.82
+      ],
+      "lows": [
+        409.58,
+        404.11,
+        405.5,
+        394.04,
+        397.64
+      ],
+      "closes": [
+        411.32,
+        411.71,
+        411.82,
+        399.83,
+        409.38
+      ],
+      "volumes": [
+        45921400,
+        51019600,
+        57912200,
+        69680000,
+        58579500
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "David Carbutt ",
@@ -1362,6 +2216,56 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-18T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 411.32,
+      "close_price": 409.38,
+      "week_high": 416.9,
+      "week_low": 394.04,
+      "change_pct": -0.47,
+      "dates": [
+        "02/18",
+        "02/19",
+        "02/20",
+        "02/23",
+        "02/24"
+      ],
+      "opens": [
+        411.11,
+        407.25,
+        408.3,
+        407.29,
+        399.5
+      ],
+      "highs": [
+        416.9,
+        415.25,
+        414.7,
+        407.7,
+        410.82
+      ],
+      "lows": [
+        409.58,
+        404.11,
+        405.5,
+        394.04,
+        397.64
+      ],
+      "closes": [
+        411.32,
+        411.71,
+        411.82,
+        399.83,
+        409.38
+      ],
+      "volumes": [
+        45921400,
+        51019600,
+        57912200,
+        69680000,
+        58579500
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Brighter with Herbert",
@@ -1386,6 +2290,56 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-17T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 410.63,
+      "close_price": 399.83,
+      "week_high": 416.9,
+      "week_low": 394.04,
+      "change_pct": -2.63,
+      "dates": [
+        "02/17",
+        "02/18",
+        "02/19",
+        "02/20",
+        "02/23"
+      ],
+      "opens": [
+        412.36,
+        411.11,
+        407.25,
+        408.3,
+        407.29
+      ],
+      "highs": [
+        413.72,
+        416.9,
+        415.25,
+        414.7,
+        407.7
+      ],
+      "lows": [
+        400.51,
+        409.58,
+        404.11,
+        405.5,
+        394.04
+      ],
+      "closes": [
+        410.63,
+        411.32,
+        411.71,
+        411.82,
+        399.83
+      ],
+      "volumes": [
+        59678800,
+        45921400,
+        51019600,
+        57912200,
+        69680000
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Solving The Money Problem",
@@ -1410,6 +2364,56 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-17T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 410.63,
+      "close_price": 399.83,
+      "week_high": 416.9,
+      "week_low": 394.04,
+      "change_pct": -2.63,
+      "dates": [
+        "02/17",
+        "02/18",
+        "02/19",
+        "02/20",
+        "02/23"
+      ],
+      "opens": [
+        412.36,
+        411.11,
+        407.25,
+        408.3,
+        407.29
+      ],
+      "highs": [
+        413.72,
+        416.9,
+        415.25,
+        414.7,
+        407.7
+      ],
+      "lows": [
+        400.51,
+        409.58,
+        404.11,
+        405.5,
+        394.04
+      ],
+      "closes": [
+        410.63,
+        411.32,
+        411.71,
+        411.82,
+        399.83
+      ],
+      "volumes": [
+        59678800,
+        45921400,
+        51019600,
+        57912200,
+        69680000
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Jo Bhakdi",
@@ -1434,6 +2438,56 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-15T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 410.63,
+      "close_price": 399.83,
+      "week_high": 416.9,
+      "week_low": 394.04,
+      "change_pct": -2.63,
+      "dates": [
+        "02/17",
+        "02/18",
+        "02/19",
+        "02/20",
+        "02/23"
+      ],
+      "opens": [
+        412.36,
+        411.11,
+        407.25,
+        408.3,
+        407.29
+      ],
+      "highs": [
+        413.72,
+        416.9,
+        415.25,
+        414.7,
+        407.7
+      ],
+      "lows": [
+        400.51,
+        409.58,
+        404.11,
+        405.5,
+        394.04
+      ],
+      "closes": [
+        410.63,
+        411.32,
+        411.71,
+        411.82,
+        399.83
+      ],
+      "volumes": [
+        59678800,
+        45921400,
+        51019600,
+        57912200,
+        69680000
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Brighter with Herbert",
@@ -1521,11 +2575,61 @@
     "sentiment": "neutral",
     "importance": 3,
     "created_at": "2026-02-12T12:00:00",
+    "stock_data": {
+      "ticker": "TSLA",
+      "open_price": 417.07,
+      "close_price": 411.71,
+      "week_high": 436.23,
+      "week_low": 400.51,
+      "change_pct": -1.29,
+      "dates": [
+        "02/12",
+        "02/13",
+        "02/17",
+        "02/18",
+        "02/19"
+      ],
+      "opens": [
+        430.3,
+        414.31,
+        412.36,
+        411.11,
+        407.25
+      ],
+      "highs": [
+        436.23,
+        424.06,
+        413.72,
+        416.9,
+        415.25
+      ],
+      "lows": [
+        414.0,
+        410.88,
+        400.51,
+        409.58,
+        404.11
+      ],
+      "closes": [
+        417.07,
+        417.44,
+        410.63,
+        411.32,
+        411.71
+      ],
+      "volumes": [
+        61933400,
+        51434100,
+        59678800,
+        45921400,
+        51019600
+      ]
+    },
     "social_data": {
       "platform": "youtube",
       "channel": "Brighter with Herbert",
       "video_id": "IRZbKHgVjSs",
-      "views": 30385,
+      "views": 30386,
       "view_text": "30.4K",
       "like_count": 1140,
       "comment_count": 168,
