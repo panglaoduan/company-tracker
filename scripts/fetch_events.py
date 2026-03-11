@@ -116,8 +116,11 @@ def fetch_earnings(company, df_full, existing_ids):
             stock_data = build_stock_data(df_week, company['ticker'])
 
             is_future = date_str > datetime.today().strftime('%Y-%m-%d')
+            # 跳过未来预告
+            if is_future:
+                continue
             chg_str = f"，发布后一周股价 {stock_data['change_pct']:+.2f}%" if stock_data else ""
-            content = (f"{company['name']}（{company['ticker']}）于 {date_str} {'预计' if is_future else ''}发布财报{chg_str}。"
+            content = (f"{company['name']}（{company['ticker']}）于 {date_str} 发布财报{chg_str}。"
                       f"请关注营收、利润及业绩指引等核心数据。")
 
             event = {
