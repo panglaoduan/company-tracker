@@ -122,8 +122,10 @@ function renderEvents() {
             lastYM = ym;
         }
 
-        const dateStr = d.toLocaleDateString('zh-CN', { month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
-        const enc     = encodeURIComponent(JSON.stringify(ev));
+        const dateStr    = d.toLocaleDateString('zh-CN', { month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
+        const dateLabelM = String(d.getMonth() + 1).padStart(2, '0');
+        const dateLabelD = String(d.getDate()).padStart(2, '0');
+        const enc        = encodeURIComponent(JSON.stringify(ev));
 
         // 股价变动徽章（卡片上显示）
         let priceBadge = '';
@@ -148,6 +150,7 @@ function renderEvents() {
         html += `
         <div class="event-card" style="border-left-color:${co.color};cursor:pointer"
              onclick="openModal(this)" data-event="${enc}">
+            <div class="timeline-date-label">${dateLabelM}<br>${dateLabelD}</div>
             <div class="event-header">
                 <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
                     <span class="tag-company" style="background:${co.color}">${co.name}</span>
