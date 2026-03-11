@@ -162,11 +162,13 @@ function renderEvents() {
                 </div>
             </div>
             <h3 class="event-title">${ev.title}</h3>
-            <p class="event-content">${
-                ev.category === 'social'
-                    ? (ev.content.split('\n\n')[1] || ev.content).slice(0, 120) + '…'
-                    : ev.content
-            }</p>
+            <p class="event-content">${(() => {
+                if (ev.category !== 'social') return ev.content;
+                // content 格式：第0段=【频道】元数据，第1段=中文总结，第2段=免责声明
+                const parts = ev.content.split('\n\n');
+                const summary = parts.length >= 2 ? parts[1] : parts[0];
+                return summary.slice(0, 120) + (summary.length > 120 ? '…' : '');
+            })()}</p>
             <div class="event-meta">
                 <span>📰 ${ev.source}</span>
                 <span>📊 ${'⭐'.repeat(ev.importance)}</span>
