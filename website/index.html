@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>公司追踪系统 - CEO 动态与战略分析</title>
+    <title>胖老段投资跟踪</title>
     <style>
         * {
             margin: 0;
@@ -106,17 +106,17 @@
         
         .timeline {
             position: relative;
-            padding: 20px 0;
+            padding: 20px 0 20px 0;
         }
         
         .timeline::before {
             content: '';
             position: absolute;
-            left: 50px;
+            left: 22px;
             top: 0;
             bottom: 0;
-            width: 4px;
-            background: #ddd;
+            width: 3px;
+            background: rgba(255,255,255,0.4);
             border-radius: 2px;
         }
         
@@ -124,8 +124,8 @@
             background: white;
             border-radius: 15px;
             padding: 25px;
-            margin-bottom: 25px;
-            margin-left: 100px;
+            margin-bottom: 20px;
+            margin-left: 70px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.15);
             position: relative;
             transition: all 0.3s;
@@ -133,19 +133,19 @@
         }
         
         .event-card:hover {
-            transform: translateX(10px);
+            transform: translateX(8px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
         
         .event-card::before {
             content: '';
             position: absolute;
-            left: -62px;
-            top: 30px;
-            width: 20px;
-            height: 20px;
+            left: -56px;
+            top: 28px;
+            width: 14px;
+            height: 14px;
             background: white;
-            border: 4px solid #667eea;
+            border: 3px solid #667eea;
             border-radius: 50%;
         }
         
@@ -212,6 +212,57 @@
             background: #9e9e9e;
         }
         
+        /* 年份标记 */
+        .timeline-year {
+            position: relative;
+            margin-left: 0;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-year-badge {
+            position: absolute;
+            left: 22px;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 1em;
+            font-weight: 800;
+            padding: 6px 18px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.5);
+            letter-spacing: 2px;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        /* 月份标记 */
+        .timeline-month {
+            position: relative;
+            margin-left: 0;
+            margin-bottom: 15px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-month-badge {
+            position: absolute;
+            left: 22px;
+            transform: translateX(-50%);
+            background: white;
+            color: #667eea;
+            font-size: 0.85em;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 2px solid #667eea;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
         .no-events {
             text-align: center;
             padding: 50px;
@@ -234,38 +285,274 @@
             background: #5568d3;
             transform: translateY(-2px);
         }
+
+        /* 分类多选按钮组 */
+        .cat-filter {
+            background: white;
+            border-radius: 15px;
+            padding: 16px 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .cat-btn {
+            padding: 7px 16px;
+            border-radius: 20px;
+            border: 2px solid #ddd;
+            background: white;
+            color: #666;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cat-btn:hover {
+            border-color: var(--cc, #667eea);
+            color: var(--cc, #667eea);
+        }
+        .cat-btn.active {
+            background: var(--cc, #667eea);
+            border-color: var(--cc, #667eea);
+            color: white;
+        }
+        .cat-btn[data-cat="all"].active {
+            background: #667eea;
+            border-color: #667eea;
+        }
+
+        /* 卡片标签 */
+        .tag-company {
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .tag-category {
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .tag-sentiment {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        .price-badge {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .detail-hint {
+            display: inline-block;
+            margin-top: 10px;
+            color: #667eea;
+            font-size: 0.88em;
+        }
+
+        /* 详情弹窗 */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal {
+            background: white;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 700px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 35px;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+            animation: modalIn 0.2s ease;
+        }
+        @keyframes modalIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to   { transform: translateY(0);    opacity: 1; }
+        }
+        .modal-close {
+            position: absolute;
+            top: 18px; right: 20px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 50%;
+            width: 34px; height: 34px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s;
+        }
+        .modal-close:hover { background: #ddd; }
+        .modal-company-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+        .modal-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #222;
+            line-height: 1.4;
+            margin-bottom: 16px;
+        }
+        .modal-content {
+            color: #444;
+            line-height: 1.9;
+            font-size: 1em;
+            margin-bottom: 20px;
+            white-space: pre-line;
+        }
+        .modal-divider {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 20px 0;
+        }
+        .modal-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 20px;
+        }
+        .modal-source-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .modal-source-link:hover { background: #5568d3; }
+
+        /* 股价区块 */
+        .stock-block {
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 20px;
+            border: 1px solid #e8ecff;
+        }
+        .stock-block h4 {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .stock-summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .stock-stat {
+            text-align: center;
+            background: white;
+            border-radius: 8px;
+            padding: 8px 6px;
+            border: 1px solid #eee;
+        }
+        .stock-stat .val {
+            font-size: 1em;
+            font-weight: 700;
+            color: #222;
+        }
+        .stock-stat .lbl {
+            font-size: 0.72em;
+            color: #999;
+            margin-top: 2px;
+        }
+        .stock-change-up   { color: #22a06b !important; }
+        .stock-change-down { color: #e5483c !important; }
+        .stock-unlisted {
+            color: #999;
+            font-size: 0.9em;
+            padding: 10px 0;
+        }
+
+        /* 财报表格 */
+        .fin-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        .fin-table th {
+            background: #f0f4ff;
+            color: #555;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #e0e7ff;
+        }
+        .fin-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #333;
+        }
+        .fin-table tr:last-child td { border-bottom: none; }
+        .fin-table tr:hover td { background: #f8f9ff; }
+        .chart-wrap {
+            position: relative;
+            height: 240px;
+            margin-bottom: 4px;
+        }
+        /* K 线 tooltip */
+        #kTooltip {
+            display: none;
+            position: absolute;
+            background: rgba(20,20,40,0.88);
+            color: #eee;
+            font-size: 12px;
+            line-height: 1.8;
+            padding: 8px 12px;
+            border-radius: 8px;
+            pointer-events: none;
+            z-index: 999;
+            white-space: nowrap;
+        }
         
         @media (max-width: 768px) {
-            .timeline::before {
-                left: 20px;
-            }
-            
-            .event-card {
-                margin-left: 50px;
-            }
-            
-            .event-card::before {
-                left: -42px;
-            }
-            
-            .filters {
-                flex-direction: column;
-                align-items: stretch;
-            }
+            .timeline::before { left: 18px; }
+            .event-card { margin-left: 50px; }
+            .event-card::before { left: -40px; }
+            .timeline-year-badge, .timeline-month-badge { left: 18px; }
+            .filters { flex-direction: column; align-items: stretch; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>📊 公司追踪系统</h1>
-            <p class="subtitle">CEO 动态 · 经营战略 · 行业竞争 - 时间线追踪</p>
+            <h1>📈 胖老段投资跟踪</h1>
+            <p class="subtitle">CEO 动态 · 经营战略 · 行业竞争 · 财报 · 股价异动 · 社媒观点</p>
         </header>
         
         <div class="filters">
             <div class="filter-group">
                 <label>🏢 公司:</label>
-                <select id="companyFilter" onchange="filterEvents()">
+                <select id="companyFilter" onchange="applyFilter()">
                     <option value="all">全部公司</option>
                     <option value="tesla">特斯拉</option>
                     <option value="spacex">SpaceX</option>
@@ -275,23 +562,22 @@
                     <option value="ganli_pharma">甘李药业</option>
                 </select>
             </div>
-            
-            <div class="filter-group">
-                <label>📁 分类:</label>
-                <select id="categoryFilter" onchange="filterEvents()">
-                    <option value="all">全部分类</option>
-                    <option value="strategy">经营战略</option>
-                    <option value="executive">高管动态</option>
-                    <option value="competition">行业竞争</option>
-                </select>
-            </div>
-            
             <div class="filter-group">
                 <label>🔍 搜索:</label>
-                <input type="text" id="searchInput" placeholder="关键词搜索..." oninput="filterEvents()">
+                <input type="text" id="searchInput" placeholder="关键词搜索..." oninput="applyFilter()">
             </div>
-            
-            <button class="refresh-btn" onclick="loadEvents()">🔄 刷新数据</button>
+            <button class="refresh-btn" onclick="loadEvents()">🔄 刷新</button>
+        </div>
+
+        <!-- 分类多选按钮组 -->
+        <div class="cat-filter">
+            <button class="cat-btn active" data-cat="all" onclick="toggleCategory('all')">全部</button>
+            <button class="cat-btn" data-cat="strategy"    onclick="toggleCategory('strategy')"   style="--cc:#2196f3;--bg:#e3f2fd">📈 经营战略</button>
+            <button class="cat-btn" data-cat="executive"   onclick="toggleCategory('executive')"  style="--cc:#9c27b0;--bg:#f3e5f5">👔 高管动态</button>
+            <button class="cat-btn" data-cat="competition" onclick="toggleCategory('competition')" style="--cc:#ff5722;--bg:#fbe9e7">⚔️ 行业竞争</button>
+            <button class="cat-btn" data-cat="earnings"    onclick="toggleCategory('earnings')"   style="--cc:#4caf50;--bg:#e8f5e9">📋 财报发布</button>
+            <button class="cat-btn" data-cat="volatility"  onclick="toggleCategory('volatility')" style="--cc:#ff9800;--bg:#fff3e0">⚡ 股价异动</button>
+            <button class="cat-btn" data-cat="social"      onclick="toggleCategory('social')"     style="--cc:#e91e8c;--bg:#fce4f3">📺 社媒观点</button>
         </div>
         
         <div class="stats">
@@ -321,6 +607,20 @@
         </div>
     </div>
     
+    <!-- 详情弹窗 -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal" id="modal">
+            <button class="modal-close" onclick="closeModalDirect()">✕</button>
+            <div class="modal-company-bar" id="modalCompanyBar"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="modal-meta" id="modalMeta"></div>
+            <hr class="modal-divider">
+            <p class="modal-content" id="modalContent"></p>
+            <div id="modalFooter"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script src="timeline.js"></script>
 </body>
 </html>

@@ -15,6 +15,7 @@ const CATEGORIES = {
     competition:{ name: '行业竞争', icon: '⚔️', color: '#ff5722', bg: '#fbe9e7' },
     earnings:   { name: '财报发布', icon: '📋', color: '#4caf50', bg: '#e8f5e9' },
     volatility: { name: '股价异动', icon: '⚡', color: '#ff9800', bg: '#fff3e0' },
+    social:     { name: '社媒观点', icon: '📺', color: '#e91e8c', bg: '#fce4f3' },
 };
 
 const SENTIMENTS = {
@@ -134,6 +135,16 @@ function renderEvents() {
             </span>`;
         }
 
+        // 社媒数据徽章（播放量 + 评论数）
+        let socialBadge = '';
+        if (ev.category === 'social' && ev.social_data) {
+            const sd = ev.social_data;
+            const viewText = sd.view_text || (sd.views ? sd.views.toLocaleString() : '');
+            socialBadge = `<span class="social-badge" style="background:#fce4f3;color:#e91e8c;border:1px solid #e91e8c40;border-radius:12px;padding:2px 8px;font-size:0.75em;font-weight:600;">
+                👁 ${viewText}${sd.comment_count ? ' · 💬 ' + sd.comment_count.toLocaleString() : ''}
+            </span>`;
+        }
+
         html += `
         <div class="event-card" style="border-left-color:${co.color};cursor:pointer"
              onclick="openModal(this)" data-event="${enc}">
@@ -144,7 +155,7 @@ function renderEvents() {
                         ${cat.icon} ${cat.name}
                     </span>
                     <span class="tag-sentiment" style="background:${sen.color}22;color:${sen.color}">● ${sen.name}</span>
-                    ${priceBadge}
+                    ${priceBadge}${socialBadge}
                 </div>
             </div>
             <h3 class="event-title">${ev.title}</h3>
@@ -421,10 +432,39 @@ function openModal(card) {
         </div>`;
     }
 
+    // 社媒视频区块
+    let socialHtml = '';
+    if (ev.category === 'social' && ev.social_data) {
+        const sd2 = ev.social_data;
+        const viewText = sd2.view_text || (sd2.views ? sd2.views.toLocaleString() : '—');
+        const dur  = sd2.duration ? `<span>⏱ 时长：${sd2.duration}</span>` : '';
+        const likes= sd2.like_count ? `<span>👍 点赞：${sd2.like_count.toLocaleString()}</span>` : '';
+        const cmts = sd2.comment_count ? `<span>💬 评论：${sd2.comment_count.toLocaleString()}</span>` : '';
+        const desc = sd2.description ? `
+            <div style="margin-top:14px;padding:12px;background:#fff8fe;border-radius:8px;border:1px solid #f0c0e0;color:#555;font-size:0.9em;line-height:1.8;">
+                <b style="color:#e91e8c">📝 视频简介</b><br>${sd2.description.replace(/\n/g,'<br>')}
+            </div>` : '';
+        socialHtml = `
+        <div class="stock-block" style="border-color:#f0c0e0;background:#fff8fe;margin-bottom:16px">
+            <h4 style="color:#e91e8c">📺 YouTube 视频数据</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;font-size:0.9em;color:#555;margin-bottom:6px">
+                <span>📺 频道：<b>${sd2.channel || '—'}</b></span>
+                <span>👁 播放：<b style="color:#e91e8c">${viewText}</b></span>
+                ${likes}${cmts}${dur}
+            </div>
+            ${desc}
+        </div>`;
+    }
+
     const isReal = ev.url && !ev.url.includes('example.com');
-    document.getElementById('modalFooter').innerHTML = financialHtml + stockHtml +
-        (isReal ? `<a href="${ev.url}" target="_blank" class="modal-source-link">🔗 查看原文报道</a>`
-                : `<p style="color:#aaa;font-size:.9em">暂无原文链接 · 来源：${ev.source}</p>`);
+    const linkHtml = isReal
+        ? `<a href="${ev.url}" target="_blank" class="modal-source-link"
+              style="${ev.category==='social' ? 'background:#e91e8c' : ''}">
+              ${ev.category==='social' ? '▶ 前往 YouTube 观看' : '🔗 查看原文报道'}
+           </a>`
+        : `<p style="color:#aaa;font-size:.9em">暂无原文链接 · 来源：${ev.source}</p>`;
+
+    document.getElementById('modalFooter').innerHTML = financialHtml + socialHtml + stockHtml + linkHtml;
 
     document.getElementById('modalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
