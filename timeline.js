@@ -170,7 +170,6 @@ function renderEvents() {
                     : ev.content
             }</p>
             <div class="event-meta">
-                <span>📅 ${dateStr}</span>
                 <span>📰 ${ev.source}</span>
                 <span>📊 ${'⭐'.repeat(ev.importance)}</span>
             </div>
