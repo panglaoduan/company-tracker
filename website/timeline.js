@@ -162,7 +162,13 @@ function renderEvents() {
                 </div>
             </div>
             <h3 class="event-title">${ev.title}</h3>
-            <p class="event-content">${ev.content}</p>
+            <p class="event-content">${
+                ev.category === 'social' && ev.social_data
+                    ? ev.social_data.description
+                        ? ev.social_data.description.replace(/\n/g,' ').slice(0,120) + '…'
+                        : ev.content.split('\n\n')[1] || ''
+                    : ev.content
+            }</p>
             <div class="event-meta">
                 <span>📅 ${dateStr}</span>
                 <span>📰 ${ev.source}</span>
@@ -353,7 +359,15 @@ function openModal(card) {
         <span style="background:${sen.color}22;color:${sen.color};padding:4px 14px;border-radius:20px;font-size:13px">● ${sen.name}</span>`;
 
     document.getElementById('modalTitle').textContent   = ev.title;
-    document.getElementById('modalContent').textContent = ev.content;
+    // 社媒类型内容已在框图中展示，正文区隐藏避免重复
+    const modalContentEl = document.getElementById('modalContent');
+    if (ev.category === 'social') {
+        modalContentEl.textContent = '';
+        modalContentEl.style.display = 'none';
+    } else {
+        modalContentEl.textContent = ev.content;
+        modalContentEl.style.display = '';
+    }
     document.getElementById('modalMeta').innerHTML = `
         <span>📅 ${dateStr}</span>
         <span>📰 ${ev.source}</span>

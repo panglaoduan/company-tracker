@@ -122,8 +122,10 @@ function renderEvents() {
             lastYM = ym;
         }
 
-        const dateStr = d.toLocaleDateString('zh-CN', { month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
-        const enc     = encodeURIComponent(JSON.stringify(ev));
+        const dateStr    = d.toLocaleDateString('zh-CN', { month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
+        const dateLabelM = String(d.getMonth() + 1).padStart(2, '0');
+        const dateLabelD = String(d.getDate()).padStart(2, '0');
+        const enc        = encodeURIComponent(JSON.stringify(ev));
 
         // 股价变动徽章（卡片上显示）
         let priceBadge = '';
@@ -148,6 +150,7 @@ function renderEvents() {
         html += `
         <div class="event-card" style="border-left-color:${co.color};cursor:pointer"
              onclick="openModal(this)" data-event="${enc}">
+            <div class="timeline-date-label">${dateLabelM}<br>${dateLabelD}</div>
             <div class="event-header">
                 <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
                     <span class="tag-company" style="background:${co.color}">${co.name}</span>
@@ -159,7 +162,13 @@ function renderEvents() {
                 </div>
             </div>
             <h3 class="event-title">${ev.title}</h3>
-            <p class="event-content">${ev.content}</p>
+            <p class="event-content">${
+                ev.category === 'social' && ev.social_data
+                    ? ev.social_data.description
+                        ? ev.social_data.description.replace(/\n/g,' ').slice(0,120) + '…'
+                        : ev.content.split('\n\n')[1] || ''
+                    : ev.content
+            }</p>
             <div class="event-meta">
                 <span>📅 ${dateStr}</span>
                 <span>📰 ${ev.source}</span>
@@ -350,7 +359,15 @@ function openModal(card) {
         <span style="background:${sen.color}22;color:${sen.color};padding:4px 14px;border-radius:20px;font-size:13px">● ${sen.name}</span>`;
 
     document.getElementById('modalTitle').textContent   = ev.title;
-    document.getElementById('modalContent').textContent = ev.content;
+    // 社媒类型内容已在框图中展示，正文区隐藏避免重复
+    const modalContentEl = document.getElementById('modalContent');
+    if (ev.category === 'social') {
+        modalContentEl.textContent = '';
+        modalContentEl.style.display = 'none';
+    } else {
+        modalContentEl.textContent = ev.content;
+        modalContentEl.style.display = '';
+    }
     document.getElementById('modalMeta').innerHTML = `
         <span>📅 ${dateStr}</span>
         <span>📰 ${ev.source}</span>
