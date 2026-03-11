@@ -149,11 +149,11 @@
             border-radius: 50%;
         }
 
-        /* 竖线旁的日期标签：贴在圆点上方，挂在竖线侧 */
+        /* 竖线旁的日期标签：单行 MM/DD，圆点左上方 */
         .timeline-date-label {
             position: absolute;
-            left: -66px;
-            top: 6px;
+            left: -64px;
+            top: 14px;
             width: 44px;
             text-align: center;
             font-size: 11px;
@@ -163,6 +163,7 @@
             border-radius: 6px;
             padding: 2px 0;
             line-height: 1.4;
+            white-space: nowrap;
             pointer-events: none;
         }
         

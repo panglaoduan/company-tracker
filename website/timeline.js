@@ -150,7 +150,7 @@ function renderEvents() {
         html += `
         <div class="event-card" style="border-left-color:${co.color};cursor:pointer"
              onclick="openModal(this)" data-event="${enc}">
-            <div class="timeline-date-label">${dateLabelM}<br>${dateLabelD}</div>
+            <div class="timeline-date-label">${dateLabelM}/${dateLabelD}</div>
             <div class="event-header">
                 <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
                     <span class="tag-company" style="background:${co.color}">${co.name}</span>
@@ -163,10 +163,8 @@ function renderEvents() {
             </div>
             <h3 class="event-title">${ev.title}</h3>
             <p class="event-content">${
-                ev.category === 'social' && ev.social_data
-                    ? ev.social_data.description
-                        ? ev.social_data.description.replace(/\n/g,' ').slice(0,120) + '…'
-                        : ev.content.split('\n\n')[1] || ''
+                ev.category === 'social'
+                    ? (ev.content.split('\n\n')[1] || ev.content).slice(0, 120) + '…'
                     : ev.content
             }</p>
             <div class="event-meta">
