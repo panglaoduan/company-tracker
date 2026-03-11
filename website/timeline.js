@@ -456,9 +456,11 @@ function openModal(card) {
         const dur  = sd2.duration ? `<span>⏱ 时长：${sd2.duration}</span>` : '';
         const likes= sd2.like_count ? `<span>👍 点赞：${sd2.like_count.toLocaleString()}</span>` : '';
         const cmts = sd2.comment_count ? `<span>💬 评论：${sd2.comment_count.toLocaleString()}</span>` : '';
-        const desc = sd2.description ? `
+        // 从 content 取中文总结（第1段），不用英文原始简介
+        const cnSummary = ev.content.split('\n\n')[1] || '';
+        const desc = cnSummary ? `
             <div style="margin-top:14px;padding:12px;background:#fff8fe;border-radius:8px;border:1px solid #f0c0e0;color:#555;font-size:0.9em;line-height:1.8;">
-                <b style="color:#e91e8c">📝 视频简介</b><br>${sd2.description.replace(/\n/g,'<br>')}
+                <b style="color:#e91e8c">📝 内容总结</b><br>${cnSummary.replace(/\n/g,'<br>')}
             </div>` : '';
         socialHtml = `
         <div class="stock-block" style="border-color:#f0c0e0;background:#fff8fe;margin-bottom:16px">
