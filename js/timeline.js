@@ -318,9 +318,11 @@ function openModal(card) {
         const cmts  = sd2.comment_count ? `<span>💬 评论：${sd2.comment_count.toLocaleString()}</span>` : '';
 
         const cnSummary = ev.content.split('\n\n')[1] || '';
-        const desc = cnSummary ? `
+        const aiSummary = ev.description || '';
+        const summaryContent = aiSummary || cnSummary;
+        const desc = summaryContent ? `
             <div class="social-summary-box">
-                <b style="color:#e91e8c">📝 内容总结</b><br>${cnSummary.replace(/\n/g, '<br>')}
+                <b style="color:#e91e8c">${aiSummary ? '🤖 AI 投资观点总结' : '📝 内容总结'}</b><br>${summaryContent.replace(/\n/g, '<br>')}
             </div>` : '';
 
         socialHtml = `
