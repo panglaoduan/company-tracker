@@ -1,0 +1,765 @@
+/* ============================================================
+   胖老段投资追踪 - 样式表（v3 深色主题 + 全宽布局）
+   参考 panglaoduan.github.io/company-tracker/ 配色方案
+   ============================================================ */
+
+/* ── 基础重置与全局样式 ── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+                 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ── 容器：满屏无边距 ── */
+.container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── 头部：白色卡片风格 ── */
+.header {
+    background: #fff;
+    border-radius: 0 0 16px 16px;
+    padding: 24px 32px 18px;
+    margin: 0 16px;
+    margin-top: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: none;
+}
+
+.header h1 {
+    font-size: 1.6em;
+    color: #1a1a2e;
+    margin-bottom: 2px;
+    font-weight: 800;
+}
+
+.header .subtitle {
+    font-size: 0.85em;
+    color: #888;
+    letter-spacing: 0.5px;
+}
+
+/* ── 筛选区 ── */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #eee;
+}
+
+.filter-bar label {
+    font-size: 0.88em;
+    color: #555;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.filter-bar select,
+.filter-bar input[type="text"] {
+    padding: 7px 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    font-size: 0.88em;
+    background: #f8f9fc;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filter-bar select:focus,
+.filter-bar input[type="text"]:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.filter-bar input[type="text"] {
+    flex: 1;
+    min-width: 150px;
+}
+
+.btn-refresh {
+    padding: 7px 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.88em;
+    font-weight: 600;
+    transition: opacity 0.2s, transform 0.1s;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.btn-refresh:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ── 分类按钮组 ── */
+.category-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.cat-btn {
+    padding: 5px 16px;
+    border-radius: 20px;
+    border: 2px solid #e0e0e0;
+    background: #fff;
+    color: #666;
+    font-size: 0.82em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.cat-btn:hover { border-color: #667eea; color: #667eea; }
+
+.cat-btn.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* ── 统计卡片：白色卡片风格 ── */
+.stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 16px 16px 0;
+    background: transparent;
+    border-bottom: none;
+}
+
+.stat-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px 16px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-right: none;
+    transition: transform 0.15s;
+}
+
+.stat-card:hover { transform: translateY(-2px); }
+
+.stat-card .stat-value {
+    font-size: 1.8em;
+    font-weight: 800;
+    color: #667eea;
+    line-height: 1.2;
+}
+
+.stat-card .stat-label {
+    font-size: 0.78em;
+    color: #888;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/* ── 主内容区域：全宽 ── */
+.main-content-area {
+    padding: 20px 16px 40px;
+    max-width: 100%;
+    margin: 0;
+}
+
+/* ── 时间线 ── */
+#timeline {
+    position: relative;
+    padding-left: 80px;
+    margin-top: 8px;
+}
+
+#timeline::before {
+    content: '';
+    position: absolute;
+    left: 38px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg,
+        rgba(255,255,255,0.7) 0%,
+        rgba(255,255,255,0.4) 50%,
+        rgba(255,255,255,0.2) 100%);
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+}
+
+/* ── 年份标注 ── */
+.timeline-year {
+    position: relative;
+    margin: 40px 0 20px 0;
+    padding: 0;
+    clear: both;
+    height: auto;
+    min-height: 48px;
+    z-index: 10;
+}
+
+.timeline-year-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 8px 32px;
+    border-radius: 24px;
+    font-size: 1.2em;
+    font-weight: 800;
+    letter-spacing: 3px;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+    z-index: 10;
+    position: relative;
+}
+
+/* 年份标注旁的时间轴圆点 */
+.timeline-year::before {
+    content: '';
+    position: absolute;
+    left: -46px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border: 3px solid #667eea;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.25), 0 0 12px rgba(102, 126, 234, 0.3);
+    z-index: 11;
+}
+
+/* 年份标注与时间轴的连接线 */
+.timeline-year::after {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    width: 28px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.6), #667eea);
+    z-index: 9;
+}
+
+/* ── 月份标注 ── */
+.timeline-month {
+    position: relative;
+    margin: 20px 0 12px 0;
+    padding: 0;
+    min-height: 32px;
+    z-index: 8;
+}
+
+.timeline-month-badge {
+    display: inline-block;
+    background: #fff;
+    color: #667eea;
+    padding: 4px 18px;
+    border-radius: 16px;
+    font-size: 0.88em;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 8;
+    position: relative;
+}
+
+/* 月份标注旁的时间轴圆点 */
+.timeline-month::before {
+    content: '';
+    position: absolute;
+    left: -46px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 11px;
+    height: 11px;
+    background: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+    z-index: 9;
+}
+
+/* 月份标注与时间轴的连接线 */
+.timeline-month::after {
+    content: '';
+    position: absolute;
+    left: -35px;
+    top: 50%;
+    width: 32px;
+    height: 1.5px;
+    background: rgba(255, 255, 255, 0.4);
+    z-index: 7;
+}
+
+/* ── 事件卡片 ── */
+.event-card {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 12px;
+    border-left: 4px solid #667eea;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.event-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 事件卡片旁的时间轴小圆点 */
+.event-card::before {
+    content: '';
+    position: absolute;
+    left: -50px;
+    top: 22px;
+    width: 9px;
+    height: 9px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.3);
+    z-index: 3;
+}
+
+/* ── 日期标签：放在圆点上方，不与圆点重叠 ── */
+.timeline-date-label {
+    position: absolute;
+    left: -80px;
+    top: 2px;
+    width: 54px;
+    text-align: center;
+    font-size: 0.7em;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(102, 126, 234, 0.65);
+    padding: 2px 4px;
+    border-radius: 6px;
+    white-space: nowrap;
+    z-index: 4;
+    letter-spacing: 0.5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* 同一天的后续事件，日期标签更淡，但仍然可见 */
+.timeline-date-label.repeat {
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.55);
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.event-header { margin-bottom: 8px; }
+
+.event-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+
+.tag-company {
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+.tag-category {
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+.tag-sentiment {
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.72em;
+    font-weight: 600;
+}
+
+.price-badge {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+.price-badge.up {
+    background: #fff0f0;
+    color: #e5483c;
+}
+
+.price-badge.down {
+    background: #f0fff4;
+    color: #22a06b;
+}
+
+.social-badge {
+    background: #fce4f3;
+    color: #e91e8c;
+    border: 1px solid #e91e8c40;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+.event-title {
+    font-size: 0.98em;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.event-content {
+    font-size: 0.85em;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.event-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.78em;
+    color: #999;
+}
+
+.detail-hint {
+    display: block;
+    text-align: right;
+    font-size: 0.78em;
+    color: #667eea;
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+.no-events {
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1em;
+}
+
+/* ── 弹窗 ── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 16px;
+    overflow-y: auto;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal-box {
+    background: #fff;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 760px;
+    padding: 28px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.25);
+    position: relative;
+    animation: modalIn 0.25s ease-out;
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: translateY(-20px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 1.5em;
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.modal-close:hover { color: #333; }
+
+#modalCompanyBar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+#modalTitle {
+    font-size: 1.15em;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+#modalContent {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 14px;
+    white-space: pre-wrap;
+}
+
+#modalMeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.82em;
+    color: #999;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+/* ── 弹窗内的股价/财务区块 ── */
+.stock-block {
+    background: #f8f9fc;
+    border: 1px solid #e8ecf4;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 16px;
+}
+
+.stock-block h4 {
+    font-size: 0.95em;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+.stock-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.stock-summary.two-col {
+    grid-template-columns: 1fr 1fr;
+}
+
+.stock-stat {
+    text-align: center;
+    padding: 10px 4px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.stock-stat .val {
+    font-size: 1em;
+    font-weight: 700;
+    color: #333;
+}
+
+.stock-stat .lbl {
+    font-size: 0.72em;
+    color: #999;
+    margin-top: 2px;
+}
+
+.stock-unlisted {
+    color: #aaa;
+    font-size: 0.9em;
+    text-align: center;
+    padding: 20px;
+}
+
+.chart-hint {
+    font-size: 0.72em;
+    color: #aaa;
+    margin-bottom: 6px;
+}
+
+/* ── K线图容器（雪球风格） ── */
+.chart-wrap {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    background: #1d1f2b;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.chart-wrap canvas {
+    width: 100%;
+    height: 100%;
+}
+
+#kTooltip {
+    display: none;
+    position: absolute;
+    background: rgba(30, 33, 48, 0.96);
+    color: #e0e0e0;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.78em;
+    line-height: 1.7;
+    pointer-events: none;
+    z-index: 10;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* ── 财务表格 ── */
+.fin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85em;
+}
+
+.fin-table th {
+    background: #f0f2ff;
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 2px solid #dde;
+}
+
+.fin-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #eee;
+    color: #444;
+}
+
+.fin-table tr:hover td { background: #f8f9ff; }
+
+/* ── 社媒区块 ── */
+.social-block {
+    border-color: #f0c0e0;
+    background: #fff8fe;
+}
+
+.social-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.social-summary-box {
+    margin-top: 14px;
+    padding: 12px;
+    background: #fff8fe;
+    border-radius: 8px;
+    border: 1px solid #f0c0e0;
+    color: #555;
+    font-size: 0.9em;
+    line-height: 1.8;
+}
+
+/* ── 来源链接 ── */
+.modal-source-link {
+    display: inline-block;
+    padding: 10px 22px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: opacity 0.2s, transform 0.1s;
+    margin-top: 8px;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.modal-source-link:hover { opacity: 0.9; transform: translateY(-1px); }
+
+.modal-source-link.social-link {
+    background: linear-gradient(135deg, #e91e8c, #c2185b);
+    box-shadow: 0 2px 8px rgba(233, 30, 140, 0.3);
+}
+
+.no-link-hint {
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+/* ── 页脚 ── */
+.footer {
+    text-align: center;
+    padding: 30px 0 20px;
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.5);
+    background: transparent;
+}
+
+/* ── 响应式 ── */
+@media (max-width: 768px) {
+    .header { padding: 14px 16px; margin: 8px 8px 0; border-radius: 0 0 12px 12px; }
+    .header h1 { font-size: 1.3em; }
+
+    .stats-bar { grid-template-columns: repeat(2, 1fr); margin: 8px 8px 0; gap: 8px; }
+    .stat-card .stat-value { font-size: 1.4em; }
+
+    .main-content-area { padding: 12px 8px 40px; }
+
+    #timeline { padding-left: 60px; }
+    #timeline::before { left: 26px; }
+
+    .timeline-year { margin: 30px 0 16px 0; }
+    .timeline-year-badge { font-size: 1em; padding: 6px 20px; }
+    .timeline-year::before { left: -38px; }
+    .timeline-year::after { left: -24px; width: 22px; }
+
+    .timeline-month { margin: 16px 0 10px 0; }
+    .timeline-month-badge { font-size: 0.78em; }
+    .timeline-month::before { left: -38px; }
+    .timeline-month::after { left: -28px; width: 26px; }
+
+    .timeline-date-label { left: -60px; font-size: 0.65em; width: 48px; }
+    .event-card::before { left: -40px; }
+
+    .event-card { padding: 14px 16px; }
+    .event-title { font-size: 0.9em; }
+
+    .modal-overlay { padding: 20px 8px; }
+    .modal-box { padding: 20px; border-radius: 12px; }
+
+    .stock-summary { grid-template-columns: repeat(2, 1fr); }
+    .filter-bar { gap: 8px; }
+}
+
+@media (max-width: 480px) {
+    .header { margin: 4px 4px 0; }
+    .stats-bar { grid-template-columns: 1fr 1fr; gap: 6px; margin: 6px 4px 0; }
+    .stat-card { padding: 12px 8px; }
+    .stat-card .stat-value { font-size: 1.2em; }
+    .main-content-area { padding: 8px 4px 30px; }
+}

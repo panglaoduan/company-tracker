@@ -3,644 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <title>胖老段投资跟踪</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        header {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        h1 {
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            color: #666;
-            font-size: 1.1em;
-        }
-        
-        .filters {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        
-        .filter-group {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-        
-        .filter-group label {
-            font-weight: 600;
-            color: #555;
-        }
-        
-        select, input {
-            padding: 10px 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-        
-        select:focus, input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .stat-card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #667eea;
-        }
-        
-        .stat-label {
-            color: #666;
-            margin-top: 5px;
-        }
-        
-        .timeline {
-            position: relative;
-            padding: 20px 0 20px 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 22px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: rgba(255,255,255,0.4);
-            border-radius: 2px;
-        }
-        
-        .event-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            margin-left: 70px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            position: relative;
-            transition: all 0.3s;
-            border-left: 5px solid #667eea;
-        }
-        
-        .event-card:hover {
-            transform: translateX(8px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-        }
-        
-        .event-card::before {
-            content: '';
-            position: absolute;
-            left: -56px;
-            top: 28px;
-            width: 14px;
-            height: 14px;
-            background: white;
-            border: 3px solid #667eea;
-            border-radius: 50%;
-        }
-
-        /* 竖线旁的日期标签：单行 MM/DD，圆点左上方 */
-        .timeline-date-label {
-            position: absolute;
-            left: -64px;
-            top: 14px;
-            width: 44px;
-            text-align: center;
-            font-size: 11px;
-            font-weight: 700;
-            color: #fff;
-            background: rgba(255,255,255,0.18);
-            border-radius: 6px;
-            padding: 2px 0;
-            line-height: 1.4;
-            white-space: nowrap;
-            pointer-events: none;
-        }
-        
-        .event-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        
-        .event-company {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            color: white;
-            margin-right: 10px;
-        }
-        
-        .event-category {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            background: #f0f0f0;
-            color: #666;
-        }
-        
-        .event-title {
-            font-size: 1.4em;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
-        .event-content {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .event-meta {
-            display: flex;
-            gap: 20px;
-            font-size: 0.9em;
-            color: #999;
-        }
-        
-        .event-meta span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .sentiment-positive {
-            background: #4caf50;
-        }
-        
-        .sentiment-negative {
-            background: #f44336;
-        }
-        
-        .sentiment-neutral {
-            background: #9e9e9e;
-        }
-        
-        /* 年份标记 */
-        .timeline-year {
-            position: relative;
-            margin-left: 0;
-            margin-bottom: 10px;
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-        }
-
-        .timeline-year-badge {
-            position: absolute;
-            left: 22px;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            font-size: 1em;
-            font-weight: 800;
-            padding: 6px 18px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(102,126,234,0.5);
-            letter-spacing: 2px;
-            white-space: nowrap;
-            z-index: 10;
-        }
-
-        /* 月份标记 */
-        .timeline-month {
-            position: relative;
-            margin-left: 0;
-            margin-bottom: 15px;
-            margin-top: 30px;
-            display: flex;
-            align-items: center;
-        }
-
-        .timeline-month-badge {
-            position: absolute;
-            left: 22px;
-            transform: translateX(-50%);
-            background: white;
-            color: #667eea;
-            font-size: 0.85em;
-            font-weight: 700;
-            padding: 4px 14px;
-            border-radius: 20px;
-            border: 2px solid #667eea;
-            white-space: nowrap;
-            z-index: 10;
-        }
-
-        .no-events {
-            text-align: center;
-            padding: 50px;
-            color: white;
-            font-size: 1.2em;
-        }
-        
-        .refresh-btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .refresh-btn:hover {
-            background: #5568d3;
-            transform: translateY(-2px);
-        }
-
-        /* 分类多选按钮组 */
-        .cat-filter {
-            background: white;
-            border-radius: 15px;
-            padding: 16px 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        .cat-btn {
-            padding: 7px 16px;
-            border-radius: 20px;
-            border: 2px solid #ddd;
-            background: white;
-            color: #666;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .cat-btn:hover {
-            border-color: var(--cc, #667eea);
-            color: var(--cc, #667eea);
-        }
-        .cat-btn.active {
-            background: var(--cc, #667eea);
-            border-color: var(--cc, #667eea);
-            color: white;
-        }
-        .cat-btn[data-cat="all"].active {
-            background: #667eea;
-            border-color: #667eea;
-        }
-
-        /* 卡片标签 */
-        .tag-company {
-            color: white;
-            padding: 3px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        .tag-category {
-            padding: 3px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        .tag-sentiment {
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-        }
-        .price-badge {
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-        }
-        .detail-hint {
-            display: inline-block;
-            margin-top: 10px;
-            color: #667eea;
-            font-size: 0.88em;
-        }
-
-        /* 详情弹窗 */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.6);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .modal-overlay.active {
-            display: flex;
-        }
-        .modal {
-            background: white;
-            border-radius: 20px;
-            width: 100%;
-            max-width: 700px;
-            max-height: 85vh;
-            overflow-y: auto;
-            padding: 35px;
-            position: relative;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
-            animation: modalIn 0.2s ease;
-        }
-        @keyframes modalIn {
-            from { transform: translateY(30px); opacity: 0; }
-            to   { transform: translateY(0);    opacity: 1; }
-        }
-        .modal-close {
-            position: absolute;
-            top: 18px; right: 20px;
-            background: #f0f0f0;
-            border: none;
-            border-radius: 50%;
-            width: 34px; height: 34px;
-            font-size: 18px;
-            cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            transition: background 0.2s;
-        }
-        .modal-close:hover { background: #ddd; }
-        .modal-company-bar {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 18px;
-        }
-        .modal-title {
-            font-size: 1.4em;
-            font-weight: 700;
-            color: #222;
-            line-height: 1.4;
-            margin-bottom: 16px;
-        }
-        .modal-content {
-            color: #444;
-            line-height: 1.9;
-            font-size: 1em;
-            margin-bottom: 20px;
-            white-space: pre-line;
-        }
-        .modal-divider {
-            border: none;
-            border-top: 1px solid #eee;
-            margin: 20px 0;
-        }
-        .modal-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            font-size: 0.9em;
-            color: #888;
-            margin-bottom: 20px;
-        }
-        .modal-source-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #667eea;
-            color: white;
-            text-decoration: none;
-            padding: 10px 22px;
-            border-radius: 8px;
-            font-size: 0.95em;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-        .modal-source-link:hover { background: #5568d3; }
-
-        /* 股价区块 */
-        .stock-block {
-            background: #f8f9ff;
-            border-radius: 12px;
-            padding: 18px 20px;
-            margin-bottom: 20px;
-            border: 1px solid #e8ecff;
-        }
-        .stock-block h4 {
-            font-size: 0.95em;
-            color: #555;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-        .stock-summary {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-bottom: 14px;
-        }
-        .stock-stat {
-            text-align: center;
-            background: white;
-            border-radius: 8px;
-            padding: 8px 6px;
-            border: 1px solid #eee;
-        }
-        .stock-stat .val {
-            font-size: 1em;
-            font-weight: 700;
-            color: #222;
-        }
-        .stock-stat .lbl {
-            font-size: 0.72em;
-            color: #999;
-            margin-top: 2px;
-        }
-        .stock-change-up   { color: #22a06b !important; }
-        .stock-change-down { color: #e5483c !important; }
-        .stock-unlisted {
-            color: #999;
-            font-size: 0.9em;
-            padding: 10px 0;
-        }
-
-        /* 财报表格 */
-        .fin-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9em;
-            margin-top: 10px;
-        }
-        .fin-table th {
-            background: #f0f4ff;
-            color: #555;
-            padding: 8px 10px;
-            text-align: left;
-            font-weight: 600;
-            border-bottom: 2px solid #e0e7ff;
-        }
-        .fin-table td {
-            padding: 8px 10px;
-            border-bottom: 1px solid #f0f0f0;
-            color: #333;
-        }
-        .fin-table tr:last-child td { border-bottom: none; }
-        .fin-table tr:hover td { background: #f8f9ff; }
-        .chart-wrap {
-            position: relative;
-            height: 240px;
-            margin-bottom: 4px;
-        }
-        /* K 线 tooltip */
-        #kTooltip {
-            display: none;
-            position: absolute;
-            background: rgba(20,20,40,0.88);
-            color: #eee;
-            font-size: 12px;
-            line-height: 1.8;
-            padding: 8px 12px;
-            border-radius: 8px;
-            pointer-events: none;
-            z-index: 999;
-            white-space: nowrap;
-        }
-        
-        @media (max-width: 768px) {
-            .timeline::before { left: 18px; }
-            .event-card { margin-left: 50px; }
-            .event-card::before { left: -40px; }
-            .timeline-year-badge, .timeline-month-badge { left: 18px; }
-            .filters { flex-direction: column; align-items: stretch; }
-        }
-    </style>
+    <title>胖老段投资追踪</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>📈 胖老段投资跟踪</h1>
-            <p class="subtitle">CEO 动态 · 经营战略 · 行业竞争 · 财报 · 股价异动 · 社媒观点</p>
-        </header>
-        
-        <div class="filters">
-            <div class="filter-group">
-                <label>🏢 公司:</label>
-                <select id="companyFilter" onchange="applyFilter()">
-                    <option value="all">全部公司</option>
-                    <option value="tesla">特斯拉</option>
-                    <option value="spacex">SpaceX</option>
-                    <option value="ast_spacemobile">AST SpaceMobile</option>
-                    <option value="xiaomi">小米集团</option>
-                    <option value="horizon_robotics">地平线机器人</option>
-                    <option value="ganli_pharma">甘李药业</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label>🔍 搜索:</label>
-                <input type="text" id="searchInput" placeholder="关键词搜索..." oninput="applyFilter()">
-            </div>
-            <button class="refresh-btn" onclick="loadEvents()">🔄 刷新</button>
+
+<div class="container">
+    <!-- 头部 -->
+    <div class="header">
+        <h1>📊 胖老段投资追踪</h1>
+        <p class="subtitle">CEO 动态 · 经营战略 · 行业竞争 · 财报 · 股价异动 · 社媒观点</p>
+
+        <!-- 筛选区 -->
+        <div class="filter-bar">
+            <label>🏢 公司:</label>
+            <select id="companyFilter" onchange="applyFilter()">
+                <option value="all">全部公司</option>
+                <option value="tesla">特斯拉</option>
+                <option value="spacex">SpaceX</option>
+                <option value="ast_spacemobile">AST SpaceMobile</option>
+                <option value="xiaomi">小米集团</option>
+                <option value="ganli_pharma">甘李药业</option>
+                <option value="horizon_robotics">地平线机器人</option>
+            </select>
+
+            <label>🔍 搜索:</label>
+            <input type="text" id="searchInput" placeholder="关键词搜索..." oninput="applyFilter()">
+
+            <button class="btn-refresh" onclick="loadEvents()">🔄 刷新</button>
         </div>
 
-        <!-- 分类多选按钮组 -->
-        <div class="cat-filter">
+        <!-- 分类按钮 -->
+        <div class="category-bar">
             <button class="cat-btn active" data-cat="all" onclick="toggleCategory('all')">全部</button>
-            <button class="cat-btn" data-cat="strategy"    onclick="toggleCategory('strategy')"   style="--cc:#2196f3;--bg:#e3f2fd">📈 经营战略</button>
-            <button class="cat-btn" data-cat="executive"   onclick="toggleCategory('executive')"  style="--cc:#9c27b0;--bg:#f3e5f5">👔 高管动态</button>
-            <button class="cat-btn" data-cat="competition" onclick="toggleCategory('competition')" style="--cc:#ff5722;--bg:#fbe9e7">⚔️ 行业竞争</button>
-            <button class="cat-btn" data-cat="earnings"    onclick="toggleCategory('earnings')"   style="--cc:#4caf50;--bg:#e8f5e9">📋 财报发布</button>
-            <button class="cat-btn" data-cat="volatility"  onclick="toggleCategory('volatility')" style="--cc:#ff9800;--bg:#fff3e0">⚡ 股价异动</button>
-            <button class="cat-btn" data-cat="social"      onclick="toggleCategory('social')"     style="--cc:#e91e8c;--bg:#fce4f3">📺 社媒观点</button>
-        </div>
-        
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-number" id="totalEvents">0</div>
-                <div class="stat-label">总事件数</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="todayEvents">0</div>
-                <div class="stat-label">今日更新</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="companiesCount">6</div>
-                <div class="stat-label">追踪公司</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="lastUpdate">-</div>
-                <div class="stat-label">最后更新</div>
-            </div>
-        </div>
-        
-        <div class="timeline" id="timeline">
-            <div class="no-events">
-                <p>📭 暂无事件数据</p>
-                <p style="margin-top: 10px; font-size: 0.9em;">点击"刷新数据"加载最新信息</p>
-            </div>
-        </div>
-    </div>
-    
-    <!-- 详情弹窗 -->
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-        <div class="modal" id="modal">
-            <button class="modal-close" onclick="closeModalDirect()">✕</button>
-            <div class="modal-company-bar" id="modalCompanyBar"></div>
-            <h2 class="modal-title" id="modalTitle"></h2>
-            <div class="modal-meta" id="modalMeta"></div>
-            <hr class="modal-divider">
-            <p class="modal-content" id="modalContent"></p>
-            <div id="modalFooter"></div>
+            <button class="cat-btn" data-cat="strategy" onclick="toggleCategory('strategy')">📈 经营战略</button>
+            <button class="cat-btn" data-cat="executive" onclick="toggleCategory('executive')">👔 高管动态</button>
+            <button class="cat-btn" data-cat="competition" onclick="toggleCategory('competition')">⚔️ 行业竞争</button>
+            <button class="cat-btn" data-cat="earnings" onclick="toggleCategory('earnings')">📋 财报发布</button>
+            <button class="cat-btn" data-cat="volatility" onclick="toggleCategory('volatility')">⚡ 股价异动</button>
+            <button class="cat-btn" data-cat="social" onclick="toggleCategory('social')">📺 社媒观点</button>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <script src="timeline.js?v=20260311e"></script>
+    <!-- 统计卡片 -->
+    <div class="stats-bar">
+        <div class="stat-card">
+            <div class="stat-value" id="totalEvents">0</div>
+            <div class="stat-label">总事件数</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="todayEvents">0</div>
+            <div class="stat-label">今日更新</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="companyCount">0</div>
+            <div class="stat-label">追踪公司</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="lastUpdate" style="font-size:0.85em">—</div>
+            <div class="stat-label">最后更新</div>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-content-area">
+        <!-- 时间线 -->
+        <div id="timeline">
+            <div class="no-events"><p>正在加载数据...</p></div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <p>胖老段投资追踪 · 数据来源: Yahoo Finance / YouTube · 所有时间为北京时间 (GMT+8)</p>
+    </div>
+</div>
+
+<!-- 详情弹窗 -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal-box">
+        <span class="modal-close" onclick="closeModalDirect()">&times;</span>
+        <div id="modalCompanyBar"></div>
+        <h2 id="modalTitle"></h2>
+        <p id="modalContent"></p>
+        <div id="modalMeta"></div>
+        <div id="modalFooter"></div>
+    </div>
+</div>
+
+<!-- 脚本加载 -->
+<script src="js/config.js"></script>
+<script src="js/kline.js"></script>
+<script src="js/timeline.js"></script>
+
 </body>
 </html>
