@@ -1,5 +1,21 @@
 {
-  "last_updated": "2026-03-24 16:29:22",
-  "total_events": 121,
-  "timezone": "Asia/Shanghai (GMT+8)"
+  "last_updated": "2026-03-24T19:43:35+08:00",
+  "total_events": 406,
+  "timezone": "Asia/Shanghai",
+  "categories": {
+    "social": 40,
+    "competition": 9,
+    "strategy": 78,
+    "volatility": 250,
+    "executive": 5,
+    "earnings": 24
+  },
+  "companies": {
+    "spacex": 16,
+    "horizon_robotics": 17,
+    "ast_spacemobile": 91,
+    "xiaomi": 94,
+    "tesla": 124,
+    "ganli_pharma": 64
+  }
 }

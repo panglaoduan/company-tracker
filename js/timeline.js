@@ -189,7 +189,7 @@ function updateStats(lastUpdated) {
     // 显示最后更新时间（北京时间）
     const el = document.getElementById('lastUpdate');
     if (lastUpdated) {
-        const d = new Date(lastUpdated.replace(' ', 'T') + '+08:00');
+        const d = new Date(lastUpdated);
         el.textContent = d.toLocaleString('zh-CN', {
             month: '2-digit', day: '2-digit',
             hour: '2-digit', minute: '2-digit'
